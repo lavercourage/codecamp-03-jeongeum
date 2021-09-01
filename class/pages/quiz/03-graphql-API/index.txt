@@ -1,0 +1,255 @@
+//1-1 graphql-Apl
+
+// 1) 철수의 나이는 몇살인가요?(나이만 조회해 주세요.)
+query {
+  fetchProfile(name: "철수"){
+    age
+  }
+}
+
+{
+  "data": {
+    "fetchProfile": {
+      "age": 1
+    }
+  }
+}
+
+// 정답: 1살
+
+
+// 2) 영희의 학교는 어디인가요?(학교만 조회해 주세요.)
+query {
+  fetchProfile(name:"영희"){
+    school
+  }
+}
+
+{
+  "data": {
+    "fetchProfile": {
+      "school": "다람초"
+    }
+  }
+}
+
+// 정답: 다람초
+
+
+// 3) 3번 게시글의 내용과 작성일이 무엇인가요?(내용과 작성일만 조회해 주세요.)
+query {
+  fetchBoard(number: 3){
+    contents
+    createdAt
+  }
+}
+
+{
+  "data": {
+    "fetchBoard": {
+      "contents": "우리",
+      "createdAt": "2021-09-01T03:32:03.744Z"
+    }
+  }
+}
+
+// 내용 : 우리
+// 작성일 : 2021년 9월 1일
+
+
+// 4) 본인의 이름으로 프로필을 작성해 보세요.
+mutation {
+  createProfile(name: "김정음" age: 25 school: "codecamp"){
+    _id
+    number
+    message
+  }
+}
+
+{
+  "data": {
+    "createProfile": {
+      "_id": null,
+      "number": null,
+      "message": "프로필이 정상적으로 등록되었습니다."
+    }
+  }
+}
+
+
+// 5) 본인의 이름으로 게시글을 작성해 보세요.
+mutation {
+  createBoard(writer: "김정음" title: "다사다난" contents: "으아아아!"){
+    _id
+    number
+    message
+  }
+}
+
+{
+  "data": {
+    "createBoard": {
+      "_id": null,
+      "number": 155,
+      "message": "게시물이 정상적으로 등록되었습니다."
+    }
+  }
+}
+
+
+// 6) 자신의 프로필을 조회해 보세요.
+query {
+  fetchProfile(name:"김정음"){
+  	number
+    name
+    age
+    school
+  }
+}
+
+{
+  "data": {
+    "fetchProfile": {
+      "number": 257,
+      "name": "김정음",
+      "age": 25,
+      "school": "codecamp"
+    }
+  }
+}
+
+
+// 7) 자신의 게시글을 조회해 보세요.
+query {
+  fetchBoard(number:155){
+    number
+    writer
+    title
+    contents
+    like
+    createdAt
+  }	  	
+}
+
+{
+  "data": {
+    "fetchBoard": {
+      "number": 155,
+      "writer": "김정음",
+      "title": "다사다난",
+      "contents": "으아아아!",
+      "like": 0,
+      "createdAt": "2021-09-01T11:18:17.273Z"
+    }
+  }
+}
+
+
+// 8) 본인의 프로필에서, 학교를 자신이 졸업한 초등학교로 바꿔보세요.
+mutation{
+  updateProfile(name: "김정음" age: 25 school: "정읍서초등학교"){
+    _id
+    number
+    message
+  }
+}
+
+
+// 9) 본인의 게시글에서, 제목과 내용을 바꿔보세요.
+mutation {
+  updateBoard(number:155 title:"오렌지를 먹은지 얼마나 오랜지" contents:"싸늘한 농담”){
+    _id
+    number
+    message
+  }
+}
+
+query {
+  fetchBoard (number:155){
+    title
+    contents
+  }
+}
+
+{
+  "data": {
+    "fetchBoard": {
+      "title": "오렌지를 먹은지 얼마나 오랜지",
+      "contents": "싸늘한 농담”
+    }
+  }
+}
+
+
+// 10) 자신이 좋아하는 만화 주인공으로 프로필을 작성해 보세요.
+mutation {
+  createProfile(name:"이르미" age:26 school:"nope"){
+    _id
+    number
+    message
+  }
+}
+
+
+// 11) 위 10번에서 작성한 프로필을 삭제해 보세요.
+query {
+  fetchProfile(name:"이르미"){
+    number
+  }
+}
+
+{
+  "data": {
+    "fetchProfile": {
+      "number": 274
+    }
+  }
+}
+
+mutation {
+  deleteProfile(name:"이르미"){
+    _id
+    number
+    message
+  }
+}
+
+{
+  "data": {
+    "deleteProfile": {
+      "_id": null,
+      "number": null,
+      "message": "프로필이 정상적으로 삭제되었습니다."
+    }
+  }
+}
+
+query {
+  fetchProfile(name:"이르미"){
+    number
+    age
+    school
+  }
+}
+
+{
+  "data": {
+    "fetchProfile": null
+  }
+}
+
+
+// 12) 상품을 하나 만들어 보세요.
+// 13) 위 12번에서 만들었던 상품의 가격을 500원 인상해 보세요.
+// 14) 위에서 만든 상품을 조회하되, 가격만 조회해 보세요.
+// 15) 조회했던 상품을 삭제해 보세요.
+// 16) 삭제한 상품이 정말로 삭제되었는지 다시 한번 조회해 보세요.
+// 17) 게시물 목록 중, 2페이지를 조회해 보세요.
+// 18) 게시물 목록을 조회할 때, page를 입력하지 않으면, 어떤 결과가 발생하나요?
+// 19) 프로필이 전체 몇 개가 있는지 확인해 보세요.
+// 20) 게시물은 몇 개가 있나요?
+
+
+
+
+//1-2 graphql-Apl
