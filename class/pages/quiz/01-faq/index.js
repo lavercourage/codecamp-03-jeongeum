@@ -156,8 +156,15 @@ const Line1 = styled.div`
     width: 640px;
     height: 1px;
     margin: 0 0 29px 0;
-    border: solid 1px #cacaca;
+    border-top: solid 1px #cacaca;
 `
+const Line2 = styled.div`
+    width: 640px;
+    height: 1px;
+    margin: 5px 0 0 0;
+    border-bottom: solid 1px #cacaca;
+`
+
 const QuestionBox = styled.div`
     width: 550px;
     /* height: 610px; */
@@ -219,6 +226,7 @@ const Menu = styled.div`
     margin: 5px 0 0 50px;
     display: flex;
     justify-content: space-between;
+    /* align-items: ; */
 `
 const MenuUnder = styled.div`
     width: 90px;
@@ -252,12 +260,7 @@ const MenuUnderText2 = styled.span`
     color: #ff1b6d;
 `
 
-const Line2 = styled.div`
-    width: 640px;
-    height: 1px;
-    margin: 5px 0 0 0;
-    border: solid 1px #cacaca;
-`
+
 
 
 

@@ -79,3 +79,61 @@ const classmate = [
     }
 ]
 classmate[1].school = "다람쥐초등학교"
+
+
+// 6.조건문
+// 18.조건문 연습(2가지 코드 작성)
+function boolean(input1, input2) {
+    if (input1 == false && input2 === false) {
+        console.log("false");
+    } else {
+        console.log("true");
+    }
+}
+
+function boolean(input1, input2) {
+    if (input1 === true || input2 === true) {
+        console.log("true")
+    } else if (input1 === false && input2 === false) {
+        console.log("false")
+    }
+}
+
+// 19.홀짝
+function evnOdd (num){
+    if (num === 0){
+        console.log("Zero")
+    } else if(num % 2 === 0){
+        console.log("Even")
+    } else {
+        console.log("Odd")
+    }
+}
+
+// 20.온도
+function temperature(num){
+    if (num >= 24){
+        console.log("조금 덥습니다")
+    } else if (num >= 19 && num <=23){
+        console.log("날씨가 좋네요")
+    } else {
+        console.log("조금 춥네요")
+    }
+}
+
+// 21.며칠
+function days(month) {
+    if (month === 1 ||
+        month === 3 ||
+        month === 5 ||
+        month === 7 ||
+        month === 8 ||
+        month === 10 ||
+        month === 12){
+        console.log("31")
+    } else if (month === 2){
+        console.log("28")
+    } else {
+        console.log("30")
+    }
+}

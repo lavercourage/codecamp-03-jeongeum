@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import styled from '@emotion/styled'
 
 const Wrapper = styled.div`
@@ -202,7 +204,7 @@ const RadioName = styled.label`
     font-size: 16px;
 `
 const Section8 = styled.div`
-    margin-top: 82pxs;
+    margin-top: 82px;
 `
 const Cancle = styled.button`
     width: 179px;
@@ -211,8 +213,6 @@ const Cancle = styled.button`
 	border: none;
 	font-size: 16px;
 	font-weight: 500;
-	margin-left: 12px;
-	margin-right: 12px;
     padding: 0;
 	cursor: pointer;
 	:hover {
@@ -227,15 +227,76 @@ const Submit = styled.button`
 	border: none;
 	font-size: 16px;
 	font-weight: 500;
-	margin-left: 12px;
-	margin-right: 12px;
+	margin-left: 24px;
     padding: 0;
 	cursor: pointer;
 `
-
+const Error = styled.div`
+    margin-top: 12px;
+    font-size: 16px;
+    color: #8B0000;
+`
 
 
 export default function BoardsNewPage(){
+
+    const [writer, setWriter] = useState("")
+    const [password, setPassword] = useState("")
+    const [title, setTitle] = useState("")
+    const [substance, setSubstance] = useState("")
+
+    const [writerError, setWriterError] = useState("")
+    const [passwordError, setPasswordError] = useState("")
+    const [titleError, setTitleError] = useState("")
+    const [substanceError, setSubstanceError] = useState("")
+
+
+    function onChangeWriter(event){
+        setWriter(event.target.value)
+        if (event.target.value !== ""){
+            setWriterError("")
+        }
+    }
+    function onChangePassword(event){
+        setPassword(event.target.value)
+        if (event.target.value !== ""){
+            setPasswordError("")
+        }
+    }
+    function onChangeLabel(event){
+        setTitle(event.target.value)
+        if (event.target.value){
+            setTitleError("")
+        }
+    }
+    function onChangeSubstance(event){
+        setSubstance(event.target.value)
+        if (event.target.value){
+            setSubstanceError("")
+        }
+    }
+
+    function onClickSubmit(){
+        if(writer === ""){
+            setWriterError("작성자를 입력해주세요!")
+        }
+        if(password === ""){
+            setPasswordError("비밀번호를 입력해주세요!")
+        }
+        if(title === ""){
+            setTitleError("제목을 입력해주세요!")
+        }
+        if (substance === ""){
+            setSubstanceError("내용을 입력해주세요!")
+        }
+        if(writer !== "" && password !== "" && title !== "" && substance !== ""){
+            alert("게시물을 등록합니다!")
+        }
+    }
+
+    function onClickCancle () {
+        alert("게시물 수정을 취소합니다!")
+    }
 
     return(
         <Wrapper>
@@ -246,20 +307,33 @@ export default function BoardsNewPage(){
                         <Label>작성자</Label>
                         <Label2>*</Label2>
                     </SecLTop>
-                    <Writer name="writer" type="text" placeholder="이름을 적어주세요."/>
+                    <Writer 
+                        name="writer"
+                        type="text"
+                        placeholder="이름을 적어주세요."
+                        onChange = {onChangeWriter}
+                        />
+                    <Error>{writerError}</Error>
                 </SecLeft>
                 <SecRight>
                     <Label>비밀번호</Label>
-                    <Password name="password" type="text" placeholder="비밀번호를 입력해주세요."/>
+                    <Password
+                        name="password"
+                        type="text"
+                        placeholder="비밀번호를 입력해주세요."
+                        onChange = {onChangePassword}/>
+                    <Error>{passwordError}</Error>
                 </SecRight>
             </Section1>
             <Section2>
                 <Label>제목</Label>
-                <Topic name="topic" type="text" placeholder="제목을 작성해주세요."/>
+                <Topic name="topic" type="text" placeholder="제목을 작성해주세요." onChange={onChangeLabel}/>
+                <Error>{titleError}</Error>
             </Section2>
             <Section3>
                 <Label>내용</Label>
-                <Substance name="substance" type="text" placeholder="내용을 작성해주세요."/>
+                <Substance name="substance" type="text" placeholder="내용을 작성해주세요." onChange={onChangeSubstance}/>
+                <Error>{substanceError}</Error>
             </Section3>
             <Section4>
                 <Label>주소</Label>
@@ -294,7 +368,6 @@ export default function BoardsNewPage(){
                     </Plusimg>
                 </Upload>
             </Section6>
-
             <Section7>
                 <Label>메인 설정</Label>
                 <Select>
@@ -305,11 +378,10 @@ export default function BoardsNewPage(){
                 </Select>                            
             </Section7>
             <Section8>
-                <Cancle>취소하기</Cancle>
-                <Submit>수정하기</Submit>
+                <Cancle onClick={onClickCancle}>취소하기</Cancle>
+                <Submit onClick={onClickSubmit}>수정하기</Submit>
             </Section8>
         </Wrapper>
     )
 
 }
-
