@@ -240,16 +240,714 @@ query {
 
 
 // 12) 상품을 하나 만들어 보세요.
+mutation {
+  createProduct (
+    seller: "김철수찰스",
+    createProductInput: {
+      name: "고당도 오렌지",
+      detail: "정말 달아요!",
+      price : 13000
+    }
+  ){
+    _id
+    number
+    message
+  }
+}
+
+{
+  "data": {
+    "createProduct": {
+      "_id": "6e237c5b-b3ac-4ac5-9bec-9e77338408f7",
+      "number": null,
+      "message": "상품이 정상적으로 등록되었습니다."
+    }
+  }
+}
+
+
 // 13) 위 12번에서 만들었던 상품의 가격을 500원 인상해 보세요.
+mutation {
+  updateProduct(
+    productId: "6e237c5b-b3ac-4ac5-9bec-9e77338408f7"
+    updateProductInput: {
+      price: 13500
+    }
+  ){
+    _id
+    number
+    message
+  }
+}
+
+
 // 14) 위에서 만든 상품을 조회하되, 가격만 조회해 보세요.
+query {
+	fetchProduct (productId: "6e237c5b-b3ac-4ac5-9bec-9e77338408f7"){
+    price
+  } 
+}
+
+{
+  "data": {
+    "fetchProduct": {
+      "price": 13500
+    }
+  }
+}
+
+
 // 15) 조회했던 상품을 삭제해 보세요.
+mutation {
+  deleteProduct(productId: "6e237c5b-b3ac-4ac5-9bec-9e77338408f7"){
+    _id
+    number
+    message
+  }
+}
+
+mutation {
+  deleteProduct(productId: "6e237c5b-b3ac-4ac5-9bec-9e77338408f7"){
+    _id
+    number
+    message
+  }
+}
+
+
 // 16) 삭제한 상품이 정말로 삭제되었는지 다시 한번 조회해 보세요.
+query {
+  fetchProduct(productId:"6e237c5b-b3ac-4ac5-9bec-9e77338408f7"){
+    _id
+    seller
+    name
+    detail
+    price
+    createdAt
+  }  
+}
+
+{
+  "data": {
+    "fetchProduct": null
+  }
+}
+
+
 // 17) 게시물 목록 중, 2페이지를 조회해 보세요.
+query {
+  fetchBoards(page: 2){
+    number
+    writer
+    title
+    contents
+    like
+    createdAt
+  }
+}
+
+{
+  "data": {
+    "fetchBoards": [
+      {
+        "number": 571,
+        "writer": "철민",
+        "title": "문법이 어려워",
+        "contents": "어려워어려워",
+        "like": 0,
+        "createdAt": "2021-09-02T06:46:56.305Z"
+      },
+      {
+        "number": 570,
+        "writer": "우의명",
+        "title": "코딩",
+        "contents": "과제",
+        "like": 0,
+        "createdAt": "2021-09-02T06:46:56.075Z"
+      },
+      {
+        "number": 569,
+        "writer": "철민",
+        "title": "문법이 어려워",
+        "contents": "어려워어려워",
+        "like": 0,
+        "createdAt": "2021-09-02T06:45:56.460Z"
+      },
+      {
+        "number": 568,
+        "writer": "철민",
+        "title": "문법이 어려워",
+        "contents": "어려워어려워",
+        "like": 0,
+        "createdAt": "2021-09-02T06:45:14.373Z"
+      },
+      {
+        "number": 567,
+        "writer": "철민",
+        "title": "문법이 어려워",
+        "contents": "어려워어려워",
+        "like": 0,
+        "createdAt": "2021-09-02T06:44:43.540Z"
+      },
+      {
+        "number": 566,
+        "writer": "여현",
+        "title": "와 그래프큐엘 복잡하다.",
+        "contents": "할 때 마다 새롭다니 하하하 그래프큐엘 너란 녀석 아폴로는 거들 뿐",
+        "like": 0,
+        "createdAt": "2021-09-02T06:43:45.096Z"
+      },
+      {
+        "number": 565,
+        "writer": "철민",
+        "title": "문법이 어려워",
+        "contents": "어려워어려워",
+        "like": 0,
+        "createdAt": "2021-09-02T06:43:24.907Z"
+      },
+      {
+        "number": 564,
+        "writer": "상혁",
+        "title": "제목2",
+        "contents": "내용2",
+        "like": 0,
+        "createdAt": "2021-09-02T06:35:12.454Z"
+      },
+      {
+        "number": 563,
+        "writer": "하늘",
+        "title": "구름",
+        "contents": "별",
+        "like": 0,
+        "createdAt": "2021-09-02T06:32:30.077Z"
+      },
+      {
+        "number": 562,
+        "writer": "상혁",
+        "title": "제목2",
+        "contents": "내용2",
+        "like": 0,
+        "createdAt": "2021-09-02T06:31:38.373Z"
+      }
+    ]
+  }
+}
+
+
 // 18) 게시물 목록을 조회할 때, page를 입력하지 않으면, 어떤 결과가 발생하나요?
+> 조회자체가 안된다.
+
+
 // 19) 프로필이 전체 몇 개가 있는지 확인해 보세요.
+query	{
+  fetchProfilesCount
+}
+
+{
+  "data": {
+    "fetchProfilesCount": 231
+  }
+}
+
+> 231개
+
+
 // 20) 게시물은 몇 개가 있나요?
+query	{
+  fetchBoardsCount
+}
+
+{
+  "data": {
+    "fetchBoardsCount": 561
+  }
+}
+
+> 561개
 
 
 
 
 //1-2 graphql-Apl
+
+1) createBoard를 활용해, 게시물을 하나 등록해 주세요.
+mutation {
+  createBoard (
+    createBoardInput: {
+      writer: "나문희",
+      password : "i am door",
+      title: "문희 열립니다",
+      contents : "깔깔유머집 내용입니다.",
+      youtubeUrl: "www.youtube.com/opendoor"
+      boardAddress: {
+        zipcode: "135792468",
+        address: "door factory",
+        addressDetail: "2nd, 3rd"
+      },
+      images: ["거짓말"]
+    }
+  ){
+    _id
+  }
+}
+
+{
+  "data": {
+    "createBoard": {
+      "_id": "61307975abd89b00293ade2e"
+    }
+  }
+}
+
+
+2) 등록한 게시글의 제목과 내용은 무엇인가요?
+query {
+  fetchBoard(boardId:"61307975abd89b00293ade2e"){
+    title
+    writer
+  }
+}
+
+{
+  "data": {
+    "fetchBoard": {
+      "title": "문희 열립니다",
+      "writer": "나문희"
+    }
+  }
+}
+
+
+3) 등록한 게시글에 좋아요를 1 올려주세요.
+mutation {
+  likeBoard(boardId:"61307975abd89b00293ade2e")
+}
+
+{
+  "data": {
+    "likeBoard": 1
+  }
+}
+
+
+4) 등록한 게시글에 싫어요도 1 올려주세요.
+mutation {
+  dislikeBoard(boardId:"61307975abd89b00293ade2e")
+}
+
+{
+  "data": {
+    "dislikeBoard": 1
+  }
+}
+
+
+5) 등록한 게시글의 좋아요와 싫어요는 각각 몇 개 인가요? (fetchBoard를 활용해서 확인해 보세요.)
+query {
+  fetchBoard(
+    boardId:"61307975abd89b00293ade2e"
+  ){
+    likeCount
+    dislikeCount
+  }
+}
+
+{
+  "data": {
+    "fetchBoard": {
+      "likeCount": 16,
+      "dislikeCount": 1
+    }
+  }
+}
+
+
+6) 현재 등록된 게시글의 총 갯수는 몇 개 인가요? (어떤 API를 활용하면 좋을지 찾아보세요!)
+query {
+  fetchBoardsCount
+}
+
+{
+  "data": {
+    "fetchBoardsCount": 90
+  }
+}
+
+> 90개
+
+
+7) 등록한 게시글의 제목을 수정해 보세요!
+mutation{
+  updateBoard(
+    updateBoardInput: {
+      title: "문희는 포도가 먹고 시푼데"
+    },
+    password: "i am door",
+    boardId: "61307975abd89b00293ade2e"
+  ){
+    _id
+  }
+}
+
+{
+  "data": {
+    "updateBoard": {
+      "_id": "61307975abd89b00293ade2e"
+    }
+  }
+}
+
+query {
+  fetchBoard(boardId: "61307975abd89b00293ade2e"){
+    writer
+    title
+    contents
+  }
+}
+
+{
+  "data": {
+    "fetchBoard": {
+      "writer": "나문희",
+      "title": "문희는 포도가 먹고 시푼데",
+      "contents": "깔깔유머집 내용입니다."
+    }
+  }
+}
+
+
+8) fetchBoards 전체 게시물 조회를 활용하여 방금 쓴 게시물을 검색해 보세요.(search 변수를 활용해요!)
+query {
+  fetchBoards(search: "문희"){
+    writer
+    title
+    contents
+  }
+}
+
+{
+  "data": {
+    "fetchBoards": [
+      {
+        "writer": "나문희",
+        "title": "문희는 포도가 먹고 시푼데",
+        "contents": "깔깔유머집 내용입니다."
+      }
+    ]
+  }
+}
+
+
+9) 등록한 게시글에 댓글을 3개 추가해 보세요.
+mutation {
+  createBoardComment(
+    createBoardCommentInput: {
+      writer: "정준하",
+      password: "no heart",
+      contents: "hahahaha"
+      rating: 1
+    },
+    boardId:"61307975abd89b00293ade2e"
+  ){
+    _id
+    writer
+    contents
+  }
+}
+
+{
+  "data": {
+    "createBoardComment": {
+      "_id": "613087b6abd89b00293ade35",
+      "writer": "정준하",
+      "contents": "hahahaha"
+    }
+  }
+}
+
+mutation {
+  createBoardComment(
+    createBoardCommentInput: {
+      writer: "윤시윤",
+      password: "no brain",
+      contents: "stupid"
+      rating: 2
+    },
+    boardId:"61307975abd89b00293ade2e"
+  ){
+    _id
+    writer
+    contents
+  }
+}
+
+{
+  "data": {
+    "createBoardComment": {
+      "_id": "61308b54abd89b00293ade36",
+      "writer": "윤시윤",
+      "contents": "stupid"
+    }
+  }
+}
+
+mutation {
+  createBoardComment(
+    createBoardCommentInput: {
+      writer: "신세경",
+      password: "no money",
+      contents: "want to be rich"
+      rating: 2
+    },
+    boardId:"61307975abd89b00293ade2e"
+  ){
+    _id
+    writer
+    contents
+  }
+}
+
+{
+  "data": {
+    "createBoardComment": {
+      "_id": "61308ba0abd89b00293ade37",
+      "writer": "신세경",
+      "contents": "want to be rich"
+    }
+  }
+}
+
+query {
+  fetchBoardComments(
+    page: 1,
+    boardId: "61307975abd89b00293ade2e"
+  ){
+    _id
+    writer
+    contents
+    rating
+  }
+}
+
+{
+  "data": {
+    "fetchBoardComments": [
+      {
+        "_id": "61308ba0abd89b00293ade37",
+        "writer": "신세경",
+        "contents": "want to be rich",
+        "rating": 2
+      },
+      {
+        "_id": "61308b54abd89b00293ade36",
+        "writer": "윤시윤",
+        "contents": "stupid",
+        "rating": 2
+      },
+      {
+        "_id": "613087b6abd89b00293ade35",
+        "writer": "정준하",
+        "contents": "hahahaha",
+        "rating": 1
+      }
+    ]
+  }
+}
+
+
+10) 첫번째 댓글의 내용을 수정해 보세요!
+mutation {
+	updateBoardComment(
+    updateBoardCommentInput: {contents: "야무지게 먹어야지", rating: 1},
+		password:"no heart",
+    boardCommentId: "613087b6abd89b00293ade35"
+  ){
+    _id
+    writer
+    contents
+  }
+}
+
+{
+  "data": {
+    "updateBoardComment": {
+      "_id": "613087b6abd89b00293ade35",
+      "writer": "정준하",
+      "contents": "야무지게 먹어야지"
+    }
+  }
+}
+
+query {
+  fetchBoardComments(boardId: "61307975abd89b00293ade2e") {
+    _id
+    writer
+    contents
+    rating
+  }
+}
+
+{
+  "data": {
+    "fetchBoardComments": [
+      {
+        "_id": "61308ba0abd89b00293ade37",
+        "writer": "신세경",
+        "contents": "want to be rich",
+        "rating": 2
+      },
+      {
+        "_id": "61308b54abd89b00293ade36",
+        "writer": "윤시윤",
+        "contents": "stupid",
+        "rating": 2
+      },
+      {
+        "_id": "613087b6abd89b00293ade35",
+        "writer": "정준하",
+        "contents": "야무지게 먹어야지",
+        "rating": 1
+      }
+    ]
+  }
+}
+
+
+11) 두번째 댓글을 삭제해 보세요!
+mutation {
+  deleteBoardComment(
+    password:"no brain",
+  	boardCommentId:"61308b54abd89b00293ade36"
+  )
+}
+
+{
+  "data": {
+    "deleteBoardComment": "61308b54abd89b00293ade36"
+  }
+}
+
+query {
+  fetchBoardComments(boardId: "61307975abd89b00293ade2e") {
+    _id
+    writer
+    contents
+    rating
+  }
+}
+
+{
+  "data": {
+    "fetchBoardComments": [
+      {
+        "_id": "61308ba0abd89b00293ade37",
+        "writer": "신세경",
+        "contents": "want to be rich",
+        "rating": 2
+      },
+      {
+        "_id": "613087b6abd89b00293ade35",
+        "writer": "정준하",
+        "contents": "야무지게 먹어야지",
+        "rating": 1
+      }
+    ]
+  }
+}
+
+
+12) 등록한 게시글에 달려있는 모든 댓글을 조회해 보세요.(작성자와 내용만 조회합니다.)
+query {
+  fetchBoardComments(boardId: "61307975abd89b00293ade2e") {
+    writer
+    contents
+  }
+}
+
+{
+  "data": {
+    "fetchBoardComments": [
+      {
+        "writer": "신세경",
+        "contents": "want to be rich"
+      },
+      {
+        "writer": "정준하",
+        "contents": "야무지게 먹어야지"
+      }
+    ]
+  }
+}
+
+
+13) BEST게시글을 조회해 보세요! (API 이름을 잘 찾아보세요!)
+query {
+  fetchBoardsOfTheBest{
+    _id
+    writer
+    likeCount
+  }
+}
+
+{
+  "data": {
+    "fetchBoardsOfTheBest": [
+      {
+        "_id": "612f73e6abd89b00293ade03",
+        "writer": "celineY",
+        "likeCount": 53
+      },
+      {
+        "_id": "612f2777abd89b00293add4a",
+        "writer": "민지",
+        "likeCount": 34
+      },
+      {
+        "_id": "61307975abd89b00293ade2e",
+        "writer": "나문희",
+        "likeCount": 16
+      },
+      {
+        "_id": "612f3e0fabd89b00293add98",
+        "writer": "김근아",
+        "likeCount": 13
+      }
+    ]
+  }
+}
+
+query {
+  fetchBoard(boardId:"612f73e6abd89b00293ade03"){
+    writer
+    title
+    contents
+    likeCount
+  }
+}
+
+{
+  "data": {
+    "fetchBoard": {
+      "writer": "celineY",
+      "title": "수정함~~",
+      "contents": "오예~!",
+      "likeCount": 53
+    }
+  }
+}
+
+
+14) 회원가입을 해보세요! 사용자, 즉 User를 만드는 API입니다!
+mutation {
+  createUser(
+    createUserInput: {
+      email: "aaa@naver.com",
+      password: "abcabc123",
+      name: "긁적피플(ㅇㅅaㅇ)"
+    }
+  ){
+    _id
+    email
+    name
+  }
+}

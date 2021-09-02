@@ -112,7 +112,6 @@ const Error = styled.div`
     color: red;
 `
 
-
 import { useState } from "react"
 
 export default function SignInPage(){
@@ -172,7 +171,5 @@ export default function SignInPage(){
             <Error>{passwordError}</Error>
             <button onClick={onClickRegister}>가입하기</button>
         </>
-
     )
-
 }
