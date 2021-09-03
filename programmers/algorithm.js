@@ -170,3 +170,24 @@ console.log(fruits)
 
 //004
 let fruits = ["사과", "바나나", "파인애플"]
+
+
+
+
+
+//041
+function grade(score){
+    if (score > 100 || score < 0){
+        console.log("잘못된 점수입니다")
+    } else if (score >= 90 && score <= 100){
+        console.log("A")
+    } else if (score >= 80 && score <= 89){
+        console.log("B")
+    } else if (score >= 70 && score <= 79){
+        console.log("C")
+    } else if (score >= 60 && score <= 69){
+        console.log("D")
+    } else {
+        console.log("F")
+    }
+};
