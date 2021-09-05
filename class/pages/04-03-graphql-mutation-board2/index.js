@@ -1,3 +1,26 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import {useMutation, gql} from '@apollo/client'
 
 
@@ -8,8 +31,8 @@ const CREATE_BOARD = gql`
             message
         }
     }
-
 `
+
     // 언제든 백엔드로 요청할 준비완료
     // 아폴로 설명서에 있음
 
