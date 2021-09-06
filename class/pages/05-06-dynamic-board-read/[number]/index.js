@@ -27,6 +27,7 @@ export default function DynamicBoardRead (){
     // 만약 async await을 설정하게 된다면 빈화면이었다가 내용이 보임
     // 사용을 안하면 일단 return은 보이되, 내용이 나중에 보임
     // 문자열이라서 숫자로 표현하기 위해 Number()사용
+    // 
 
     return (
         <>
