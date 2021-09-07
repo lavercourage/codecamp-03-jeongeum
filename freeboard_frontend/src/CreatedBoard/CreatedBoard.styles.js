@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 export const Wrapper = styled.div`
     width: 1200px;
     /* height: 1847px; */
@@ -222,13 +221,15 @@ export const Section8 = styled.div`
 export const Submit = styled.button`
     width: 179px;
 	height: 52px;
-	background-color: #FFD600;
+    background-color: ${(props) => (props.qqq === true ? "#FFD600" : "#bdbdbd")};
+	/* background-color: #FFD600; */
 	border: none;
 	font-size: 16px;
 	font-weight: 500;
 	margin-left: 24px;
     padding: 0;
 	cursor: pointer;
+
 `
 export const Error = styled.div`
     margin-top: 12px;
