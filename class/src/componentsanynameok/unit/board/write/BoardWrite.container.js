@@ -4,13 +4,16 @@ import { useState } from 'react'
 import { useMutation } from '@apollo/client'
 // gql은 빼고 이동, gql은 BoardWrite.queries.js에 옮김
 import { CREATE_BOARD } from './BoardWrite.queries'
+import router from "next/router"
 // gql이 여기로 이동!
 // babo!! import BoardWriteUI from "./BoardWrite.presenter"
 
 
-export default function BoardWrite(){
+export default function BoardWrite(props){
 
     const [ createBoard ] = useMutation(CREATE_BOARD)
+    const [ updateBoard ] = useMutation(UPDATE_BOARD)
+
     const [myWriter, setMyWriter] = useState("")
     const [myTitle, setMyTitle] = useState("")
     const [myContents, setMyContents] = useState("")
@@ -61,6 +64,24 @@ export default function BoardWrite(){
         })
         console.log(result)
         console.log(result.data.createBoard.number)
+        router.push(`/08-04-board-detail/${result.data.createBoard.number}`)
+    }
+    
+    async function onClickEdit(){
+        try {
+            await updateBoard({
+                variables: {
+                    numbewr: Number(router.query.number),
+                    writer: myWriter,
+                    title: myTitle,
+                    contents: myContents
+                }
+            })
+            router.push(`/08-04-board-detail/${router.query.number}`)
+        } catch(error){
+            console.log(error)
+        }
+        
     }
 
 
@@ -72,7 +93,9 @@ export default function BoardWrite(){
             aaa = {aaa}
             ooo = {ooo}
             qqq = {qqq}
-    />
+            isEdit={props.isEdit}
+            onClickEdit={onClickEdit}
+        />
     )
     // 한줄일때는 괄호()생략가능
     // 두줄이상일때는 괄호() 필수

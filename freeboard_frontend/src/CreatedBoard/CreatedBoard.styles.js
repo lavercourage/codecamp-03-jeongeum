@@ -226,8 +226,8 @@ export const Submit = styled.button`
 	border: none;
 	font-size: 16px;
 	font-weight: 500;
-	margin-left: 24px;
     padding: 0;
+    /* cursor: ${(props) => props.isActive ? "pointer" : "default"}; */
 	cursor: pointer;
 
 `

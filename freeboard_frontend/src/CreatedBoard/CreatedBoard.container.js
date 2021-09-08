@@ -3,8 +3,7 @@ import { useState } from 'react'
 import { useMutation } from "@apollo/client"
 import { CREATE_BOARD } from "./CreatedBoard.queries"
 import router, {useRouter} from 'next/router'
-import { Writer } from "./CreatedBoard.styles"
-// 라우터 위치 맞겠죠?
+// import { Writer } from "./CreatedBoard.styles"
 
 export default function BoardWrite(){
 
@@ -116,11 +115,12 @@ export default function BoardWrite(){
         onChangeSubstance={onChangeSubstance}
         onClickSubmit={onClickSubmit}
 
-        setWriterError={writerError}
-        setPasswordError={passwordError}
-        setTitleError={titleError}
-        setSubstanceError={substanceError}
+        writerError={writerError}
+        passwordError={passwordError}
+        titleError={titleError}
+        substanceError={substanceError}
         // 키 = {값 함수}
+        // presenter로 빠진 기능명 = {const [key,~~}
         // 앞 명칭과 뒤 명칭 알아놓기
         // 에러에 해당하는 부분
         // 불이 안들어옴!
