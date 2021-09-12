@@ -5,7 +5,7 @@ import { CREATE_BOARD } from "./WriteBoard.queries";
 import { useRouter } from "next/router";
 // import { Writer } from "./CreatedBoard.styles"
 
-export default function BoardWrite() {
+export default function BoardWrite(props) {
   const router = useRouter();
 
   const [writer, setWriter] = useState("");
@@ -133,6 +133,7 @@ export default function BoardWrite() {
 
   return (
     <BoardWriteUI
+      isEdit={props.isEdit}
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeLabel={onChangeLabel}

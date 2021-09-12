@@ -38,7 +38,7 @@ import {
 export default function BoardWriteUI(props) {
   return (
     <Wrapper>
-      <Title>게시물 수정</Title>
+      <Title>{props.isEdit ? "게시물 수정" : "게시물 등록"}</Title>
       <Section1>
         <SecLeft>
           <SecLTop>
@@ -136,7 +136,7 @@ export default function BoardWriteUI(props) {
       <Section8>
         {/* <Cancle onClick={onClickCancle}>취소하기</Cancle> */}
         <Submit onClick={props.onClickSubmit} qqq={props.qqq}>
-          등록하기
+          {props.isEdit ? "수정하기" : "등록하기"}
         </Submit>
       </Section8>
     </Wrapper>

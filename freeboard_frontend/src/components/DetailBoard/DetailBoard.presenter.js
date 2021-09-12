@@ -62,9 +62,9 @@ export default function DetailBoardUI(props) {
         </Recommand>
       </Wrapper>
       <ThreeButton>
-        <ToList>목록으로</ToList>
-        <ToEdit>수정하기</ToEdit>
-        <ToDelete>삭제하기</ToDelete>
+        <ToList onClick={props.onClickMoveToList}>목록으로</ToList>
+        <ToEdit onClick={props.onClickMoveToEdit}>수정하기</ToEdit>
+        <ToDelete onClick={props.onClickMoveToDelete}>삭제하기</ToDelete>
         {/* onClick={onClickToDelete} */}
       </ThreeButton>
     </Page>
