@@ -1,0 +1,6 @@
+import NewWriteBoard from "../../../src/components/CreateBoard/CreateBoard.container"
+
+export default function CreatedBoardPage(){
+
+    return(<NewWriteBoard />)
+}

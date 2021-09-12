@@ -175,7 +175,7 @@ let fruits = ["사과", "바나나", "파인애플"]
 
 
 
-//041
+// 조건문 : 점수에 따른 등급
 function grade(score){
     if (score > 100 || score < 0){
         console.log("잘못된 점수입니다")
@@ -191,3 +191,63 @@ function grade(score){
         console.log("F")
     }
 };
+
+
+// 문자열을 정수로 바꾸기
+function solution(s) {
+    let answer = Number(s);
+    return answer;
+}
+
+function strToInt(str){
+    return str/1
+}
+
+
+// 같은 숫자는 싫어
+function solution(arr)
+{
+    let answer = [];
+    
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] !== arr[i+1])
+            answer.push(arr[i])
+    }
+    
+    return answer;
+}
+
+
+// 핸드폰 번호 가리기
+
+
+// 짝수와 홀수
+function solution(num) {
+    let answer = '';
+    
+    if(num%2 !== 0){
+        answer = "Odd";
+    } else {
+        answer = "Even";
+    }
+    
+    return answer;
+}
+
+function solution(num) {
+    return ((num%2 !== 0) ? "Odd":"Even");
+}
+
+
+// x만큼 간격이 있는 n개의 숫자
+function solution(x, n) {
+    let answer = [];
+    for (let i = 1; i<=n; i++){
+        answer.push(x*i)
+    }
+    return answer;
+}
+
+function solution(x, n) {
+    return Array(n).fill(x).map((v, i) => (i + 1) * v)
+}
