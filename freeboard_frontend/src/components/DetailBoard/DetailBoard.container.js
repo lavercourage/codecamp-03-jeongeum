@@ -21,6 +21,16 @@ export default function DetailBoard() {
     router.push(`/board/${router.query.secondpage}/edit`);
   }
 
+  //멘토님
+  function onClickMoveToEdit() {
+    router.push(`/boards/${router.query.boardId}/edit`);
+
+    // router.push(`/boards/new`);
+    // router.push(`/boardEdit/${router.query.boardId}`);
+
+    // router.push(`/boards/${router.query.boardId}`);
+  }
+
   async function onClickMoveToDelete() {
     try {
       await deleteBoard({ variables: { boardId: router.query.secondpage } });

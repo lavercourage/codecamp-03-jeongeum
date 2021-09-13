@@ -96,12 +96,8 @@ export default function ListPage() {
     variables: { boardId: router.query.secondpage },
   });
 
-  // function onClickMoveToDetailBoard(event) {
-  //   router.push(`/boards/${event.target._id}`);
-  // }
-
-  function onClickMoveToDetailBoard() {
-    router.push(`/boards/${router.query.secondpage}}`);
+  function onClickMoveToDetailBoard(event) {
+    router.push(`/boards/${event.target.id}`);
   }
 
   function onClickMoveToCreateBoard() {
@@ -135,7 +131,7 @@ export default function ListPage() {
               <input type="checkbox" />
             </Column> */}
             <ColumnNumber>{10 - index}</ColumnNumber>
-            <ColumnTitle onClick={onClickMoveToDetailBoard}>
+            <ColumnTitle id={el._id} onClick={onClickMoveToDetailBoard}>
               {el.title}
             </ColumnTitle>
             <ColumnWriter>{el.writer}</ColumnWriter>
