@@ -14,21 +14,11 @@ export default function DetailBoard() {
   // 요 앞의 boardId는 FETCH_BOARD의 ID! => $boardId => boardId
 
   function onClickMoveToList() {
-    router.push("/boards/list-board");
+    router.push(`/boards/list-board`);
   }
 
   function onClickMoveToEdit() {
-    router.push(`/board/${router.query.secondpage}/edit`);
-  }
-
-  //멘토님
-  function onClickMoveToEdit() {
-    router.push(`/boards/${router.query.boardId}/edit`);
-
-    // router.push(`/boards/new`);
-    // router.push(`/boardEdit/${router.query.boardId}`);
-
-    // router.push(`/boards/${router.query.boardId}`);
+    router.push(`/boards/${router.query.secondpage}/edit`);
   }
 
   async function onClickMoveToDelete() {

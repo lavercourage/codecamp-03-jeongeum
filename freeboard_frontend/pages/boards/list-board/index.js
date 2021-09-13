@@ -30,6 +30,10 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid gray;
+  :hover {
+    color: #8b0000;
+  }
+  cursor: pointer;
 `;
 
 const ColumnNumber = styled.div`
@@ -52,18 +56,28 @@ const Row2 = styled.div`
   display: flex;
   background-color: red;
   padding: 10px 0;
+  :hover {
+    color: #8b0000;
+  }
+  cursor: pointer;
 `;
 const Number = styled.div`
   width: 10%;
   color: white;
   font-weight: bold;
   text-align: center;
+  /* :hover {
+    color: #8B0000;
+  } */
 `;
 const Title = styled.div`
   width: 60%;
   color: white;
   font-weight: bold;
   text-align: center;
+  /* :hover {
+    color: #8B0000;
+  } */
 `;
 const Writer = styled.div`
   width: 15%;

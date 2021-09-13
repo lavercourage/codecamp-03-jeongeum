@@ -1,7 +1,7 @@
 import BoardWriteUI from "./WriteBoard.presenter";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_BOARD } from "./WriteBoard.queries";
+import { CREATE_BOARD, UPDATE_BOARD } from "./WriteBoard.queries";
 import { useRouter } from "next/router";
 // import { Writer } from "./CreatedBoard.styles"
 
@@ -22,6 +22,7 @@ export default function BoardWrite(props) {
   // setQqq는 필요없음 지워도 괜찮
 
   const [makeBoard] = useMutation(CREATE_BOARD);
+  const [updateBoard] = useMutation(UPDATE_BOARD);
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -131,6 +132,24 @@ export default function BoardWrite(props) {
   //     alert("게시물 수정을 취소합니다!")
   // }
 
+  async function onClickEdit() {
+    try {
+      await updateBoard({
+        variables: {
+          boardId: router.query.secondpage,
+          password: password,
+          updateBoardInput: {
+            title: title,
+            contents: substance,
+          },
+        },
+      });
+      router.push(`/boards/${router.query.secondpage}`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <BoardWriteUI
       isEdit={props.isEdit}
@@ -143,6 +162,7 @@ export default function BoardWrite(props) {
       passwordError={passwordError}
       titleError={titleError}
       substanceError={substanceError}
+      onClickEdit={onClickEdit}
       // 키 = {값 함수}
       // presenter로 빠진 기능명 = {const [key,~~}
       // 앞 명칭과 뒤 명칭 알아놓기

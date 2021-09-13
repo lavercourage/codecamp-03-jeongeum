@@ -135,9 +135,23 @@ export default function BoardWriteUI(props) {
       </Section7>
       <Section8>
         {/* <Cancle onClick={onClickCancle}>취소하기</Cancle> */}
-        <Submit onClick={props.onClickSubmit} qqq={props.qqq}>
+        {/* <Submit onClick={props.onClickSubmit} qqq={props.qqq}>
           {props.isEdit ? "수정하기" : "등록하기"}
-        </Submit>
+          <Submit onClick={props.onClickSubmit} qqq={props.qqq}>
+          {props.isEdit ? "수정하기" : "등록하기"}
+        {props.isEdit && <Submit onClick={props.onClickSubmit} qqq={props.qqq}>}
+          onClickEdit
+        </Submit> */}
+        {!props.isEdit && (
+          <Submit onClick={props.onClickSubmit} qqq={props.qqq}>
+            등록하기
+          </Submit>
+        )}
+        {props.isEdit && (
+          <Submit onClick={props.onClickEdit} qqq={props.qqq}>
+            수정하기
+          </Submit>
+        )}
       </Section8>
     </Wrapper>
   );

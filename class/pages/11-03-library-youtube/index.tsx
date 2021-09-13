@@ -1,6 +1,5 @@
 import ReactPlayer from "react-player/youtube";
 import styled from "@emotion/styled";
-import { HeartFilled } from "@ant-design/icons";
 
 const MyYoutube = styled(ReactPlayer)`
   /* width: 1920px; */
@@ -13,8 +12,8 @@ export default function LibraryYoutubePage() {
   return (
     <MyYoutube
       url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-      width={1920}
-      height={1080}
+      width={1080}
+      height={720}
     />
   );
 }
