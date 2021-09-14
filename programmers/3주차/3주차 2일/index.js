@@ -1,22 +1,49 @@
-export default function BoardDetailPage() {
-  const router = useRouter();
+// 자연수 뒤집어 배열로 만들기
+function solution(n) {
+  const result = [];
 
-  const { data } = useQuery(FETCH_BOARD, {
-    variables: { number: Number(router.query.number) },
-  });
-  function onClickMoveToEdit() {
-    router.push(`/08-04-board-detail/${router.query.number}/edit`);
+  n = String(n); // 숫자 타입을 문자열 타입으로 변환
+
+  for (let i = 0; i < n.length; i++) {
+    result.push(Number(n[i]));
   }
+  result.reverse();
+  return result;
+  // console.log(result);
+}
 
-  return (
-    <>
-      <div>게시물 상세 페이지입니다!</div>
-      <div>게시물 번호: {router.query.number}</div>
-      <div>게시물 작성자: {data?.fetchBoard.writer} </div>
-      <div>게시물 제목: {data?.fetchBoard.title}</div>
-      <div>게시물 내용: {data?.fetchBoard.contents}</div>
+function solution(n) {
+  const result = [];
 
-      <button onClick={onClickMoveToEdit}>수정하러 이동하기</button>
-    </>
-  );
+  n = String(n); // 숫자 타입을 문자열 타입으로 변환
+
+  for (let i = n.length - 1; i >= 0; i--) {
+    result.push(Number(n[i]));
+  }
+  result.reverse();
+}
+
+function solution(n) {
+  // toString === String
+  const result = n
+    .toString()
+    .split("")
+    .reverse()
+    .map((el) => {
+      return Number(el);
+    });
+  return result;
+}
+
+// 나누어 떨어지는 숫자 배열
+function solution(arr, divisor) {
+  var answer = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % divisor == 0) answer.push(arr[i]);
+  }
+  answer.sort(function (a, b) {
+    return a - b;
+  });
+  if (answer.length === 0) answer.push(-1);
+  return answer;
 }
