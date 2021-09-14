@@ -134,7 +134,18 @@ export default function BoardWrite(props) {
 
   async function onClickEdit() {
     try {
-      await updateBoard({
+      const myVariables = {
+        boardId: router.query.secondpage,
+        password: password,
+      };
+      if (title) {
+        myVariables.title = title;
+      }
+      if (substance) {
+        myVariables.contents = substance;
+      }
+
+      const result = await updateBoard({
         variables: {
           boardId: router.query.secondpage,
           password: password,
@@ -147,6 +158,7 @@ export default function BoardWrite(props) {
       router.push(`/boards/${router.query.secondpage}`);
     } catch (error) {
       console.log(error);
+      alert(error.message);
     }
   }
 
@@ -168,6 +180,7 @@ export default function BoardWrite(props) {
       // 앞 명칭과 뒤 명칭 알아놓기
       // 에러에 해당하는 부분
       qqq={qqq}
+      data={props.data}
     />
   );
 }

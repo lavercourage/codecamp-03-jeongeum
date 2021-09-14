@@ -32,6 +32,7 @@ import {
   RadioName,
   Section8,
   Submit,
+  SubmitCancle,
   Error,
 } from "./WriteBoard.styles";
 
@@ -50,6 +51,7 @@ export default function BoardWriteUI(props) {
             type="text"
             placeholder="이름을 적어주세요."
             onChange={props.onChangeWriter}
+            defaultValue={props.data?.fetchBoard.writer}
           />
           <Error>{props.writerError}</Error>
         </SecLeft>
@@ -71,6 +73,7 @@ export default function BoardWriteUI(props) {
           type="text"
           placeholder="제목을 작성해주세요."
           onChange={props.onChangeLabel}
+          defaultValue={props.data?.fetchBoard.title}
         />
         <Error>{props.titleError}</Error>
       </Section2>
@@ -81,6 +84,7 @@ export default function BoardWriteUI(props) {
           type="text"
           placeholder="내용을 작성해주세요."
           onChange={props.onChangeSubstance}
+          defaultValue={props.data?.fetchBoard.contents}
         />
         <Error>{props.substanceError}</Error>
       </Section3>
@@ -146,6 +150,11 @@ export default function BoardWriteUI(props) {
           <Submit onClick={props.onClickSubmit} qqq={props.qqq}>
             등록하기
           </Submit>
+        )}
+        {props.isEdit && (
+          <SubmitCancle onClick={props.onClickCancel} qqq={props.qqq}>
+            취소하기
+          </SubmitCancle>
         )}
         {props.isEdit && (
           <Submit onClick={props.onClickEdit} qqq={props.qqq}>

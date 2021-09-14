@@ -239,6 +239,20 @@ export const Submit = styled.button`
   /* cursor: ${(props) => (props.isActive ? "pointer" : "default")}; */
   cursor: pointer;
 `;
+
+export const SubmitCancle = styled.button`
+  width: 179px;
+  height: 52px;
+  background-color: ${(props) => (props.qqq === true ? "#FFD600" : "#bdbdbd")};
+  /* background-color: #FFD600; */
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0;
+  /* cursor: ${(props) => (props.isActive ? "pointer" : "default")}; */
+  cursor: pointer;
+`;
+
 export const Error = styled.div`
   margin-top: 12px;
   font-size: 16px;

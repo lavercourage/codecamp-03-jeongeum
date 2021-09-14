@@ -37,7 +37,9 @@ export default function DetailBoardUI(props) {
             <ProfileImg src="/image/ProfileVector.svg" />
             <ProfileData>
               <Profile>{props.data?.fetchBoard.writer}</Profile>
-              <CreateDt>{props.data?.fetchBoard.createdAt}</CreateDt>
+              <CreateDt>
+                {props.data?.fetchBoard.createdAt.slice(0, 10)}
+              </CreateDt>
             </ProfileData>
           </TitleBarLeft>
           <TitleBarRight>
