@@ -137,23 +137,20 @@ export default function BoardWrite(props) {
       const myVariables = {
         boardId: router.query.secondpage,
         password: password,
+        updateBoardInput: {
+          title : title
+          contents: substance
+        }
       };
       if (title) {
-        myVariables.title = title;
+        myVariables.updateBoardInput.title = title;
       }
       if (substance) {
-        myVariables.contents = substance;
+        myVariables.updateBoardInput.contents = substance;
       }
 
-      const result = await updateBoard({
-        variables: {
-          boardId: router.query.secondpage,
-          password: password,
-          updateBoardInput: {
-            title: title,
-            contents: substance,
-          },
-        },
+      await updateBoard({
+        variables: myVariables
       });
       router.push(`/boards/${router.query.secondpage}`);
     } catch (error) {
