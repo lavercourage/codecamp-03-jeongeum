@@ -1,4 +1,6 @@
 import {
+  Password,
+  Writer,
   BottomTitle,
   MiddelTitle,
   CommentTitle,
@@ -14,7 +16,11 @@ export default function CommentBoardUI() {
         <CommentIcon src="/image/rate_review-24px.svg" />
         <CommentTitle>댓글</CommentTitle>
       </TopTitle>
-      <MiddelTitle></MiddelTitle>
+      <MiddelTitle>
+        <Writer placeholder="작성자" />
+        <Password type="password" placeholder="비밀번호" />
+        {/* <Star></Star> */}
+      </MiddelTitle>
       <BottomTitle></BottomTitle>
     </Wrapper>
   );

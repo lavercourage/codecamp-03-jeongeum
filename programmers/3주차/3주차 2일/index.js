@@ -47,3 +47,25 @@ function solution(arr, divisor) {
   if (answer.length === 0) answer.push(-1);
   return answer;
 }
+
+//1번
+function solution(n) {
+  const result = [];
+  n = String(n);
+  for (let i = 0; i < n.length; i++) {
+    result.push(Number(n[i]));
+  }
+  result.reverse();
+  return result;
+}
+
+//2번
+function solution(arr, divisor) {
+  let answer = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % divisor === 0) {
+      answer.push(arr[i]);
+    }
+  }
+  return answer.length === 0 ? [-1] : answer.sort((a, b) => a - b);
+}
