@@ -47,7 +47,7 @@ export default function BoardWriteUI(props) {
             <Label2>*</Label2>
           </SecLTop>
           <Writer
-            name="writer"
+            // name="writer"
             type="text"
             placeholder="이름을 적어주세요."
             onChange={props.onChangeWriter}
@@ -58,7 +58,7 @@ export default function BoardWriteUI(props) {
         <SecRight>
           <Label>비밀번호</Label>
           <Password
-            name="password"
+            // name="password"
             type="password"
             placeholder="비밀번호를 입력해주세요."
             onChange={props.onChangePassword}
@@ -69,7 +69,7 @@ export default function BoardWriteUI(props) {
       <Section2>
         <Label>제목</Label>
         <Topic
-          name="topic"
+          // name="topic"
           type="text"
           placeholder="제목을 작성해주세요."
           onChange={props.onChangeLabel}
@@ -80,7 +80,7 @@ export default function BoardWriteUI(props) {
       <Section3>
         <Label>내용</Label>
         <Substance
-          name="substance"
+          // name="substance"
           type="text"
           placeholder="내용을 작성해주세요."
           onChange={props.onChangeSubstance}
@@ -100,7 +100,7 @@ export default function BoardWriteUI(props) {
           {/* <Coreect>{postNumberCorrect}</Coreect>
                     <Error>{postNumberError}</Error> */}
           <Address2 name="address2" type="text" placeholder="" />
-          <Address2 name="address2" type="text" placeholder="" />
+          <Address2 name="address3" type="text" placeholder="" />
         </Address>
       </Section4>
       <Section5>
@@ -109,6 +109,7 @@ export default function BoardWriteUI(props) {
           name="address3"
           type="text"
           placeholder="링크를 복사해주세요."
+          // onChange={props.onChangeYoutube}
         />
       </Section5>
       <Section6>

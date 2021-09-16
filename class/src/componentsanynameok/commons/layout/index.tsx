@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import LayoutHeader from "./header/LayoutHeader.container";
 import LayoutFooter from "./footer/LayoutFooter.container";
 import { useRouter } from "next/router";
+import LayoutBanner from "./banner/LayoutBanner.container";
 
 const Wrapper = styled.div``;
 // const Header = styled.div`
@@ -18,7 +19,7 @@ const SidebarWrapper = styled.div`
 `;
 const Sidebar = styled.div`
   background-color: pink;
-  width: 300px;
+  width: 360px;
 `;
 
 const HIDDEN_FOOTER = ["/13-01-layout-hidden"];
@@ -32,6 +33,8 @@ export default function Layout(props) {
     <Wrapper>
       {/* <Header>여기는 헤더 영역입니다.</Header> */}
       <LayoutHeader />
+      <LayoutBanner />
+      {/* <LayoutNavigation /> */}
       <SidebarWrapper>
         <Sidebar>여기는 사이드바 영역입니다.</Sidebar>
         <Body>{props.children}</Body>
@@ -41,3 +44,5 @@ export default function Layout(props) {
     </Wrapper>
   );
 }
+
+// 이 인덱스 파일은 레이아웃이 담긴 폴더에 같이 작업..?

@@ -235,6 +235,7 @@ export const Submit = styled.button`
   border: none;
   font-size: 16px;
   font-weight: 500;
+  margin: 0 12px 0 12px;
   padding: 0;
   /* cursor: ${(props) => (props.isActive ? "pointer" : "default")}; */
   cursor: pointer;
@@ -243,11 +244,13 @@ export const Submit = styled.button`
 export const SubmitCancle = styled.button`
   width: 179px;
   height: 52px;
-  background-color: ${(props) => (props.qqq === true ? "#FFD600" : "#bdbdbd")};
-  /* background-color: #FFD600; */
+  /* background-color: ${(props) =>
+    props.qqq === true ? "#FFD600" : "#bdbdbd"}; */
+  background-color: #bdbdbd;
   border: none;
   font-size: 16px;
   font-weight: 500;
+  margin: 0 12px 0 12px;
   padding: 0;
   /* cursor: ${(props) => (props.isActive ? "pointer" : "default")}; */
   cursor: pointer;

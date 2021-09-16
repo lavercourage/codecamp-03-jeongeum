@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  background-color: black;
-  height: 200px;
+  background-color: rosybrown;
+  height: 400px;
   font-family: "DungGeunMo";
-  font-size: 100px;
+  font-size: 48px;
+  color: blanchedalmond;
 `;

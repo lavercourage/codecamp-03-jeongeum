@@ -137,10 +137,7 @@ export default function BoardWrite(props) {
       const myVariables = {
         boardId: router.query.secondpage,
         password: password,
-        updateBoardInput: {
-          title : title
-          contents: substance
-        }
+        updateBoardInput: {},
       };
       if (title) {
         myVariables.updateBoardInput.title = title;
@@ -150,7 +147,7 @@ export default function BoardWrite(props) {
       }
 
       await updateBoard({
-        variables: myVariables
+        variables: myVariables,
       });
       router.push(`/boards/${router.query.secondpage}`);
     } catch (error) {
@@ -158,6 +155,8 @@ export default function BoardWrite(props) {
       alert(error.message);
     }
   }
+
+  // function onChangeYoutube() {}
 
   return (
     <BoardWriteUI
@@ -178,6 +177,7 @@ export default function BoardWrite(props) {
       // 에러에 해당하는 부분
       qqq={qqq}
       data={props.data}
+      // onChangeYoutube={onChangeYoutube}
     />
   );
 }
