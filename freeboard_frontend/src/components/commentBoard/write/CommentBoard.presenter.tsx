@@ -1,4 +1,5 @@
 import {
+  Star,
   Password,
   Writer,
   BottomTitle,
@@ -19,7 +20,7 @@ export default function CommentBoardUI() {
       <MiddelTitle>
         <Writer placeholder="작성자" />
         <Password type="password" placeholder="비밀번호" />
-        {/* <Star></Star> */}
+        <Star />
       </MiddelTitle>
       <BottomTitle></BottomTitle>
     </Wrapper>

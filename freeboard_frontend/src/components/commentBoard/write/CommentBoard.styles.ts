@@ -1,3 +1,7 @@
+import { Rate } from "antd";
+
+export const Star = styled(Rate)``;
+
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
