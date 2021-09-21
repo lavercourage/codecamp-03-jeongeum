@@ -1,6 +1,6 @@
 import BoardWriteUI from "./WriteBoard.presenter";
 import { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { CREATE_BOARD, UPDATE_BOARD } from "./WriteBoard.queries";
 import { useRouter } from "next/router";
 // import { Writer } from "./CreatedBoard.styles"
@@ -156,6 +156,11 @@ export default function BoardWrite(props) {
     }
   }
 
+  function onClickCancel() {
+    // router.push(`/boards/history.back(${router.query.secondpage})`);
+    router.push(`/boards/list-board`);
+  }
+
   // function onChangeYoutube() {}
 
   return (
@@ -171,12 +176,14 @@ export default function BoardWrite(props) {
       titleError={titleError}
       substanceError={substanceError}
       onClickEdit={onClickEdit}
+      onClickCancel={onClickCancel}
       // 키 = {값 함수}
       // presenter로 빠진 기능명 = {const [key,~~}
       // 앞 명칭과 뒤 명칭 알아놓기
       // 에러에 해당하는 부분
       qqq={qqq}
       data={props.data}
+      // 이 데이터는 수정페이지에서 받아오는 데이터
       // onChangeYoutube={onChangeYoutube}
     />
   );

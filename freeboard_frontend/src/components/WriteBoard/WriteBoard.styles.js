@@ -230,8 +230,9 @@ export const Section8 = styled.div`
 export const Submit = styled.button`
   width: 179px;
   height: 52px;
-  background-color: ${(props) => (props.qqq === true ? "#FFD600" : "#bdbdbd")};
-  /* background-color: #FFD600; */
+  /* background-color: ${(props) =>
+    props.qqq === true ? "#FFD600" : "#bdbdbd"}; */
+  background-color: #ffd600;
   border: none;
   font-size: 16px;
   font-weight: 500;
