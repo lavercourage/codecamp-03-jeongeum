@@ -1,7 +1,7 @@
 // 수정페이지
 import { useQuery, gql } from "@apollo/client";
 import { useRouter } from "next/router";
-import BoardWrite from "../../../../src/components/WriteBoard/WriteBoard.container";
+import BoardWrite from "../../../../src/components/unit/board/Write/WriteBoard.container";
 
 const FETCH_BOARD = gql`
   query fetchBoard($boardId: ID!) {
