@@ -1,9 +1,6 @@
-// import '../styles/globals.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-
-// import Layout from "../src/components/commons/layout/";
 import { Global } from "@emotion/react";
-import { globalStyles } from "../src/components/commons/styles/globalStyles";
+import { globalStyles } from "../src/commons/styles/globalStyles";
 import Layout from "../src/components/commons/layout";
 
 function MyApp({ Component, pageProps }) {
@@ -25,11 +22,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
-// import '../styles/globals.css'
-
-// function MyApp({ Component, pageProps }) {
-//   return <Component {...pageProps} />
-// }
-
-// export default MyApp

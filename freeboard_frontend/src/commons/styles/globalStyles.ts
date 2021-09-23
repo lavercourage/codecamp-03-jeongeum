@@ -6,7 +6,7 @@ export const globalStyles = css`
     box-sizing: border-box;
   }
   @font-face {
-    font-family: "DungGeunMo";
+    font-family: "DungGeunMo"; //폰트이름 내맘대로 지을 수 있음
     src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff")
       format("woff");
     font-weight: normal;

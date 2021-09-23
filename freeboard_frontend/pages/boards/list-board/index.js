@@ -24,6 +24,7 @@ const FETCH_BOARDS = gql`
 
 const List = styled.div`
   width: 1200px;
+  margin-top: 80px;
 `;
 
 const Row = styled.div`
