@@ -6,7 +6,7 @@ export default function BoardDetailPage() {
   return (
     <>
       <DetailBoard />
-      <CommentBoard />
+      {/* <CommentBoard /> */}
     </>
   );
 }

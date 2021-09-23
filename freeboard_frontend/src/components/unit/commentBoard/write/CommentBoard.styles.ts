@@ -58,13 +58,14 @@ export const Password = styled.input`
 export const BottomTitle = styled.div`
   box-sizing: border-box;
   width: 1200px;
-  height: 161px;
+  /* height: 161px; */
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid #bdbdbd;
+  /* border: 1px solid #bdbdbd; */
   align-items: center;
+  /* z-index: 2; */
 `;
 
 export const Content = styled.textarea`
@@ -74,9 +75,10 @@ export const Content = styled.textarea`
   font-size: 16px;
   padding-left: 20px;
   padding: 20px 20px 0px 20px;
-  border: none;
+  border: 1px solid #bdbdbd;
   border-bottom: 1px solid #f2f2f2;
-  z-index: -1;
+  /* z-index: 1; */
+  /* z-index: -1; */
 `;
 
 export const BottomTitleUnder = styled.div`
@@ -84,6 +86,8 @@ export const BottomTitleUnder = styled.div`
   height: 52px;
   margin: 0px;
   display: flex;
+  border: 1px solid #bdbdbd;
+  border-top: none;
   justify-content: space-between;
   align-items: center;
 `;
@@ -100,22 +104,8 @@ export const Button = styled.button`
   border: none;
   font-size: 16px;
   color: white;
-  background-color: black;
-  margin-right: 1px;
+  background-color: ${(props) =>
+    props.isEdit === true ? "#ffd600" : "#000000"};
+  /* margin-right: 1px; */
   /* z-index: -1; */
 `;
-
-// export const SubmitCancle = styled.button`
-//   width: 179px;
-//   height: 52px;
-//   /* background-color: ${(props) =>
-//     props.qqq === true ? "#FFD600" : "#bdbdbd"}; */
-//   background-color: #bdbdbd;
-//   border: none;
-//   font-size: 16px;
-//   font-weight: 500;
-//   margin: 0 12px 0 12px;
-//   padding: 0;
-//   /* cursor: ${(props) => (props.isActive ? "pointer" : "default")}; */
-//   cursor: pointer;
-// `;

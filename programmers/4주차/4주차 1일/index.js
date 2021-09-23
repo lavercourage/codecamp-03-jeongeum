@@ -44,3 +44,13 @@ function solution(x) {
     });
   return x % sum === 0 ? true : false;
 }
+
+function solution(x) {
+  let sum = x
+    .toString()
+    .split("")
+    .reduce((el, cu) => {
+      return Number(el) + Number(cu);
+    });
+  return x % sum === 0 ? true : false;
+}

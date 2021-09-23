@@ -4,6 +4,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 // import Layout from "../src/components/commons/layout/";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/components/commons/styles/globalStyles";
+import Layout from "../src/components/commons/layout";
 
 function MyApp({ Component, pageProps }) {
   const client = new ApolloClient({
@@ -15,7 +16,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <Global styles={globalStyles} />
       <ApolloProvider client={client}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ApolloProvider>
     </>
   );
