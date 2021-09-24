@@ -13,7 +13,7 @@ export default function LayoutBannerUI() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 5,
+    speed: 8,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
