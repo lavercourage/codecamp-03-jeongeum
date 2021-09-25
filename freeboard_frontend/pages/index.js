@@ -4,7 +4,11 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <> </>
+    <>
+      <MainTop />
+      <MainButton />
+      <MainBottom />
+    </>
     // <div className={styles.container}>
     //   <Head>
     //     <title>Create Next App</title>

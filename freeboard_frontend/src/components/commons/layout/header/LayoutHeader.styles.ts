@@ -28,6 +28,8 @@ export const LogIn = styled.button`
   margin: 0px 10px;
   border-radius: 10px;
   border: 1px solid #bdbdbd;
+  font-family: "NotoSansKR";
+  font-weight: bold;
 `;
 
 export const SignIn = styled.button`

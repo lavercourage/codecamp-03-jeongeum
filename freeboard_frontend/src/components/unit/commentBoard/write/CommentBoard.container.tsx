@@ -5,10 +5,10 @@ export default function CommentBoard() {
   return (
     <CommentBoardUI
       onChangeMyWriter={onChangeMyWriter}
-      onChangeMyPassword={onChangeMyPassword}
-      onChangeMyContent={onChangeMyContent}
-      onClickEditButton={onClickEditButton}
-      onClickSubmitButton={onClickSubmitButton}
+      // onChangeMyPassword={onChangeMyPassword}
+      // onChangeMyContent={onChangeMyContent}
+      // onClickEditButton={onClickEditButton}
+      // onClickSubmitButton={onClickSubmitButton}
       // isEdit={isEdit}
     />
   );

@@ -12,4 +12,10 @@ export const globalStyles = css`
     font-weight: normal;
     font-style: normal;
   }
+  @font-face {
+    font-family: "NotoSansKR";
+    src: url("/font/NotoSansKR-Regular.otf");
+    /* font-weight: bold; */
+    /* font-style: ; */
+  }
 `;

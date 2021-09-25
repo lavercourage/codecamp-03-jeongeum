@@ -58,12 +58,12 @@ export const Password = styled.input`
 export const BottomTitle = styled.div`
   box-sizing: border-box;
   width: 1200px;
-  /* height: 161px; */
+  height: 161px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border: 1px solid #bdbdbd; */
+  border: 1px solid red;
   align-items: center;
   /* z-index: 2; */
 `;
@@ -78,7 +78,10 @@ export const Content = styled.textarea`
   border: 1px solid #bdbdbd;
   border-bottom: 1px solid #f2f2f2;
   /* z-index: 1; */
-  /* z-index: -1; */
+  z-index: -1;
+  :focus {
+    outline: none;
+  }
 `;
 
 export const BottomTitleUnder = styled.div`

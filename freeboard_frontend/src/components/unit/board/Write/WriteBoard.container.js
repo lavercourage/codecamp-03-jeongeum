@@ -157,8 +157,8 @@ export default function BoardWrite(props) {
   }
 
   function onClickCancel() {
-    // router.push(`/boards/history.back(${router.query.secondpage})`);
-    router.push(`/boards/list-board`);
+    router.push(`/boards/${router.query.secondpage}`);
+    // router.push(`/boards/list-board`);
   }
 
   // function onChangeYoutube() {}
