@@ -1,11 +1,15 @@
 import { Wrapper, MenuItem } from "./LayoutNavigation.styles";
 
-export default function LayoutNavigationUI() {
+export default function LayoutNavigationUI(props) {
   return (
     <Wrapper>
-      <MenuItem>퍼블릭 api</MenuItem>
+      <MenuItem id="/publicapi" onClick={props.onClickNav}>
+        퍼블릭 api
+      </MenuItem>
       <>|</>
-      <MenuItem>자유게시판</MenuItem>
+      <MenuItem id="/boards/list-board" onClick={props.onClickNav}>
+        자유게시판
+      </MenuItem>
       <>|</>
       <MenuItem>중고마켓</MenuItem>
       <>|</>

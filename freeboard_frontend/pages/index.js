@@ -1,13 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
+import LandingBoard from "../src/components/unit/landing/landingBoard.container";
 // import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
     <>
-      <MainTop />
-      <MainButton />
-      <MainBottom />
+      <LandingBoard />
     </>
     // <div className={styles.container}>
     //   <Head>
