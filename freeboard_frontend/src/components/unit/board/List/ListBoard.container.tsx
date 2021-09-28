@@ -1,25 +1,36 @@
 import ListBoardUI from "./ListBoard.presenter";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import { FETCH_BOARDS } from "./ListBoard.queries";
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./ListBoard.queries";
+import { useState } from "react";
 
 export default function ListBoard() {
   const router = useRouter();
-
-  // const { data } = useQuery(FETCH_BOARDS, {
-  //   variables: { boardId: router.query.secondpage },
-  // });
+  const [startPage, setStartPage] = useState(1);
 
   const { data, refetch } = useQuery(FETCH_BOARDS, {
-    variables: { page: 1 },
+    variables: { page: startPage },
   });
+
+  const { data: dataBoardsCountano } = useQuery(FETCH_BOARDS_COUNT);
+  const lastPage = Math.ceil(dataBoardsCountano?.fetchBoardsCount / 10);
+
+  function onClickBeforePage() {
+    if (startPage === 1) return;
+    setStartPage((prev) => prev - 10);
+  }
+
+  function onClickNextPage() {
+    if (startPage + 10 > lastPage) return;
+    setStartPage((prev) => prev + 10);
+  }
 
   function onClickMovePage(event: any) {
     refetch({ page: Number(event.target.id) });
   }
 
   function onClickMoveToDetailBoard(event: any) {
-    router.push(`/boards/${event.target.id}`);
+    router.push(`/boards/${event.currentTarget.id}`);
   }
 
   function onClickMoveToCreateBoard() {
@@ -32,6 +43,10 @@ export default function ListBoard() {
       onClickMoveToDetailBoard={onClickMoveToDetailBoard}
       onClickMoveToCreateBoard={onClickMoveToCreateBoard}
       onClickMovePage={onClickMovePage}
+      onClickBeforePage={onClickBeforePage}
+      onClickNextPage={onClickNextPage}
+      startPage={startPage}
+      lastPage={lastPage}
     />
   );
 }

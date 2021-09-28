@@ -89,13 +89,18 @@ export const ListBottom = styled.div`
 `;
 
 export const Pagination = styled.div`
-  width: 300px;
-  height: 60px;
-  background-color: red;
+  display: flex;
+  align-items: center;
+`;
+
+export const PageButton = styled.img`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 `;
 
 export const Page = styled.span`
-  margin: 0 10px;
+  margin: 0 16px;
   cursor: pointer;
   :hover {
     color: orange;

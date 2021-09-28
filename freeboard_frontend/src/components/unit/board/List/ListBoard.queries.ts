@@ -12,8 +12,14 @@ export const FETCH_BOARDS = gql`
   }
 `;
 
-// export const FETCH_BOARDS_COUNT = gql`
-//   query fetchBoardsCount {
-//     fetchBoardsCount
-//   }
-// `;
+export const FETCH_BOARDS_COUNT = gql`
+  query fetchBoardsCount {
+    fetchBoardsCount
+  }
+`;
+
+// fetchBoardsCount(
+//   endDate: DateTime
+//   startDate: DateTime
+//   search: String
+//   ): Int!

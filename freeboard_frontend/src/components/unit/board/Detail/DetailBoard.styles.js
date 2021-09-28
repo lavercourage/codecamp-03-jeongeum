@@ -89,6 +89,7 @@ export const Like = styled.div`
 `;
 export const LikeImg = styled.img`
   width: 22px;
+  cursor: pointer;
 `;
 export const LikeCount = styled.div`
   font-size: 18px;
@@ -102,6 +103,7 @@ export const Dislike = styled.div`
 `;
 export const DislikeImg = styled.img`
   width: 20px;
+  cursor: pointer;
 `;
 export const DislikeCount = styled.div`
   font-size: 18px;

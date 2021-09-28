@@ -14,6 +14,7 @@ import {
   Button,
   ButtonImg,
   Pagination,
+  PageButton,
   Page,
 } from "./ListBoard.styles";
 
@@ -28,11 +29,13 @@ export default function ListBoardUI(props) {
           <UpDate>작성일</UpDate>
         </Row2>
         {props.data?.fetchBoards.map((el: any, index: any) => (
-          <Row key={el._id}>
+          <Row
+            key={el._id}
+            id={el._id}
+            onClick={props.onClickMoveToDetailBoard}
+          >
             <ColumnNumber>{index + 1}</ColumnNumber>
-            <ColumnTitle id={el._id} onClick={props.onClickMoveToDetailBoard}>
-              {el.title}
-            </ColumnTitle>
+            <ColumnTitle id={el._id}>{el.title}</ColumnTitle>
             <ColumnWriter>{el.writer}</ColumnWriter>
             <ColumnUpDate>{el.createdAt.slice(0, 10)}</ColumnUpDate>
           </Row>
@@ -45,11 +48,27 @@ export default function ListBoardUI(props) {
               ))}
             </div>
             <br /> */}
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el: any) => (
-              <Page key={el} onClick={props.onClickMovePage} id={String(el)}>
-                {el}
-              </Page>
-            ))}
+            <PageButton
+              onClick={props.onClickBeforePage}
+              src="/image/board/list/ic_navigate_before-24px.svg"
+            />
+            {new Array(10).fill(1).map(
+              (_, index) =>
+                props.startPage + index <= props.lastPage && (
+                  <Page
+                    key={props.startPage + index}
+                    // key는 map을 쓸 때 사용하는 규칙 (고유값이 들어감)
+                    onClick={props.onClickMovePage}
+                    id={String(props.startPage + index)}
+                  >
+                    {props.startPage + index}
+                  </Page>
+                )
+            )}
+            <PageButton
+              onClick={props.onClickNextPage}
+              src="/image/board/list/ic_navigate_next-24px.svg"
+            />
           </Pagination>
           <Button onClick={props.onClickMoveToCreateBoard}>
             <ButtonImg src="/image/board/list/ic_create-24px.svg" />
