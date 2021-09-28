@@ -88,10 +88,18 @@ export const ListBottom = styled.div`
   padding-top: 40px;
 `;
 
-export const Abc = styled.div`
+export const Pagination = styled.div`
   width: 300px;
   height: 60px;
   background-color: red;
+`;
+
+export const Page = styled.span`
+  margin: 0 10px;
+  cursor: pointer;
+  :hover {
+    color: orange;
+  }
 `;
 
 export const Button = styled.div`

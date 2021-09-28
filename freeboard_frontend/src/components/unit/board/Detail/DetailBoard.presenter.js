@@ -54,11 +54,17 @@ export default function DetailBoardUI(props) {
         <Video src="/image/video.png" />
         <Recommand>
           <Like>
-            <LikeImg src="/image/ic_thumb_up_off_alt-24px.svg" />
+            <LikeImg
+              src="/image/ic_thumb_up_off_alt-24px.svg"
+              onClick={props.onClickLike}
+            />
             <LikeCount>{props.data?.fetchBoard.likeCount}</LikeCount>
           </Like>
           <Dislike>
-            <DislikeImg src="/image/ic_thumb_down-24px.svg" />
+            <DislikeImg
+              src="/image/ic_thumb_down-24px.svg"
+              onClick={props.onClickDislike}
+            />
             <DislikeCount>{props.data?.fetchBoard.dislikeCount}</DislikeCount>
           </Dislike>
         </Recommand>

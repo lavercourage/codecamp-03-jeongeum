@@ -6,10 +6,19 @@ import { FETCH_BOARDS } from "./ListBoard.queries";
 export default function ListBoard() {
   const router = useRouter();
 
-  const { data } = useQuery(FETCH_BOARDS, {
-    variables: { boardId: router.query.secondpage },
+  // const { data } = useQuery(FETCH_BOARDS, {
+  //   variables: { boardId: router.query.secondpage },
+  // });
+
+  const { data, refetch } = useQuery(FETCH_BOARDS, {
+    variables: { page: 1 },
   });
-  function onClickMoveToDetailBoard(event) {
+
+  function onClickMovePage(event: any) {
+    refetch({ page: Number(event.target.id) });
+  }
+
+  function onClickMoveToDetailBoard(event: any) {
     router.push(`/boards/${event.target.id}`);
   }
 
@@ -22,6 +31,7 @@ export default function ListBoard() {
       data={data}
       onClickMoveToDetailBoard={onClickMoveToDetailBoard}
       onClickMoveToCreateBoard={onClickMoveToCreateBoard}
+      onClickMovePage={onClickMovePage}
     />
   );
 }
