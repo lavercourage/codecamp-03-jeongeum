@@ -22,9 +22,9 @@ export default function BoardWrite(props) {
   const [qqq, setQqq] = useState(false);
   // setQqq는 필요없음 지워도 괜찮
 
-  const [imageUrl, setImageUrl] = useState(["", "", ""]);
-  // const [imageUrl2, setImageUrl2] = useState("");
-  // const [imageUrl3, setImageUrl3] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl2, setImageUrl2] = useState("");
+  const [imageUrl3, setImageUrl3] = useState("");
 
   const [makeBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);

@@ -130,6 +130,10 @@ export default function BoardWriteUI(props) {
               type="file"
               onChange={props.onChangeImageFile1}
             />
+            <InputImage
+              src={`https://storage.googleapisl.com/${props?.imageUrl}`}
+              onChange={props.onClickImageUpload1}
+            />
           </Plusimg>
 
           <Plusimg onClick={props.onClickImageUpload2}>
@@ -140,10 +144,11 @@ export default function BoardWriteUI(props) {
               type="file"
               onChange={props.onChangeImageFile2}
             />
+            <InputImage
+              src={`https://storage.googleapisl.com/${props?.imageUrl}`}
+              onChange={props.onClickImageUpload2}
+            />
           </Plusimg>
-          {/* <InputImage
-            src={`https://storage.googleapisl.com/${props?.imageUrl}`}
-          /> */}
 
           <Plusimg onClick={props.onClickImageUpload3}>
             <Plus src="/image/PlusVector.svg" />
@@ -152,6 +157,10 @@ export default function BoardWriteUI(props) {
               ref={props.fileRef3}
               type="file"
               onChange={props.onChangeImageFile3}
+            />
+            <InputImage
+              src={`https://storage.googleapisl.com/${props?.imageUrl}`}
+              onChange={props.onClickImageUpload3}
             />
           </Plusimg>
         </Upload>
