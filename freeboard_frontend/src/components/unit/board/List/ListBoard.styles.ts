@@ -99,11 +99,19 @@ export const PageButton = styled.img`
   cursor: pointer;
 `;
 
-export const Page = styled.span`
+interface IPageProps {
+  isActive: boolean;
+}
+
+export const Page = styled.span<IPageProps>`
   margin: 0 16px;
   cursor: pointer;
+  color: ${(props) => (props.isActive ? "orange" : "black")};
+  font-weight: ${(props) => (props.isActive ? "bold" : "black")};
+  cursor: ${(props) => (props.isActive ? "none" : "pointer")};
+
   :hover {
-    color: orange;
+    color: "orange";
   }
 `;
 

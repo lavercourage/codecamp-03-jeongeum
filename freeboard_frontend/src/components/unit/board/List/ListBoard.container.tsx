@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function ListBoard() {
   const router = useRouter();
   const [startPage, setStartPage] = useState(1);
+  const [activePage, setActivePage] = useState(1);
 
   const { data, refetch } = useQuery(FETCH_BOARDS, {
     variables: { page: startPage },
@@ -17,15 +18,19 @@ export default function ListBoard() {
 
   function onClickBeforePage() {
     if (startPage === 1) return;
+    setActivePage(startPage - 10);
     setStartPage((prev) => prev - 10);
   }
 
   function onClickNextPage() {
     if (startPage + 10 > lastPage) return;
+    setActivePage(startPage + 10);
     setStartPage((prev) => prev + 10);
   }
 
   function onClickMovePage(event: any) {
+    const activedPage = Number(event.target.id);
+    setActivePage(activedPage);
     refetch({ page: Number(event.target.id) });
   }
 
@@ -47,6 +52,7 @@ export default function ListBoard() {
       onClickNextPage={onClickNextPage}
       startPage={startPage}
       lastPage={lastPage}
+      activePage={activePage}
     />
   );
 }

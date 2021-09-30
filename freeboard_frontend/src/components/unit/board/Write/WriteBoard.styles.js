@@ -189,6 +189,18 @@ export const Upload2 = styled.div`
   font-size: 12px;
   margin-top: 5px;
 `;
+
+export const Input = styled.input`
+  display: none;
+  width: 100px;
+  height: 100px;
+`;
+
+// export const InputImage = styled.img`
+//   width: 78px;
+//   height: 78px;
+// `;
+
 export const Section7 = styled.div`
   width: 996px;
   margin-top: 40px;

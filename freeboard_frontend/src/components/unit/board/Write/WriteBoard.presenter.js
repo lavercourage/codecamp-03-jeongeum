@@ -26,6 +26,8 @@ import {
   Plusimg,
   Plus,
   Upload2,
+  InputImage,
+  Input,
   Section7,
   Select,
   RadioBt,
@@ -37,6 +39,10 @@ import {
 } from "./WriteBoard.styles";
 
 export default function BoardWriteUI(props) {
+  // const fileRef = useRef<HTMLTextAreaElement>();
+  // function onClickTextArea() {
+  //   textRef.current.focus();
+  // }
   return (
     <Wrapper>
       <Title>{props.isEdit ? "게시물 수정" : "게시물 등록"}</Title>
@@ -106,26 +112,47 @@ export default function BoardWriteUI(props) {
       <Section5>
         <Label>유튜브</Label>
         <Address3
-          name="address3"
           type="text"
           placeholder="링크를 복사해주세요."
-          // onChange={props.onChangeYoutube}
+          onChange={props.onChangeYoutube}
+          defaultValue={props.data?.fetchBoard.youtubeUrl}
         />
       </Section5>
       <Section6>
         <Label>사진 첨부</Label>
+
         <Upload>
-          <Plusimg>
+          <Plusimg onClick={props.onClickImageUpload1}>
             <Plus src="/image/PlusVector.svg" />
             <Upload2>Upload</Upload2>
+            <Input
+              ref={props.fileRef1}
+              type="file"
+              onChange={props.onChangeImageFile1}
+            />
           </Plusimg>
-          <Plusimg>
+
+          <Plusimg onClick={props.onClickImageUpload2}>
             <Plus src="/image/PlusVector.svg" />
             <Upload2>Upload</Upload2>
+            <Input
+              ref={props.fileRef2}
+              type="file"
+              onChange={props.onChangeImageFile2}
+            />
           </Plusimg>
-          <Plusimg>
+          {/* <InputImage
+            src={`https://storage.googleapisl.com/${props?.imageUrl}`}
+          /> */}
+
+          <Plusimg onClick={props.onClickImageUpload3}>
             <Plus src="/image/PlusVector.svg" />
             <Upload2>Upload</Upload2>
+            <Input
+              ref={props.fileRef3}
+              type="file"
+              onChange={props.onChangeImageFile3}
+            />
           </Plusimg>
         </Upload>
       </Section6>

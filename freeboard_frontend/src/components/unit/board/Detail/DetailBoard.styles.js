@@ -1,3 +1,4 @@
+import ReactPlayer from "react-player";
 import styled from "@emotion/styled";
 
 export const Page = styled.div`
@@ -72,8 +73,7 @@ export const MainImg = styled.img`
   width: 996px;
   margin-top: 40px;
 `;
-export const Video = styled.img`
-  width: 486px;
+export const Video = styled(ReactPlayer)`
   margin-top: 120px;
 `;
 export const Recommand = styled.div`

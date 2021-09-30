@@ -1,7 +1,7 @@
 import BoardWriteUI from "./WriteBoard.presenter";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { CREATE_BOARD, UPDATE_BOARD } from "./WriteBoard.queries";
+import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./WriteBoard.queries";
 import { useRouter } from "next/router";
 // import { Writer } from "./CreatedBoard.styles"
 
@@ -12,6 +12,7 @@ export default function BoardWrite(props) {
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
   const [substance, setSubstance] = useState("");
+  const [youtube, setYoutube] = useState("");
 
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -21,8 +22,17 @@ export default function BoardWrite(props) {
   const [qqq, setQqq] = useState(false);
   // setQqq는 필요없음 지워도 괜찮
 
+  const [imageUrl, setImageUrl] = useState(["", "", ""]);
+  // const [imageUrl2, setImageUrl2] = useState("");
+  // const [imageUrl3, setImageUrl3] = useState("");
+
   const [makeBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
+
+  const fileRef1 = useRef();
+  const fileRef2 = useRef();
+  const fileRef3 = useRef();
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -108,6 +118,8 @@ export default function BoardWrite(props) {
             password: password,
             title: title,
             contents: substance,
+            youtubeUrl: youtube,
+            images: [...imageUrl],
           },
         },
       });
@@ -145,6 +157,9 @@ export default function BoardWrite(props) {
       if (substance) {
         myVariables.updateBoardInput.contents = substance;
       }
+      if (youtube) {
+        myVariables.updateBoardInput.youtubeUrl = youtube;
+      }
 
       await updateBoard({
         variables: myVariables,
@@ -161,7 +176,93 @@ export default function BoardWrite(props) {
     // router.push(`/boards/list-board`);
   }
 
-  // function onChangeYoutube() {}
+  function onChangeYoutube(event) {
+    setYoutube(event.target.value);
+  }
+
+  async function onChangeImageFile1(event) {
+    const myFile = event.target.files[0];
+    console.log(myFile);
+    if (!myFile) {
+      alert("파일이 없습니다!");
+      return;
+    }
+    if (myFile.size > 5 * 1024 * 1024) {
+      alert("파일 용량이 너무 큽니다!(제한 5mb)");
+      return;
+    }
+    if (!myFile.type.includes("jpeg") && !myFile.type.includes("png")) {
+      alert("jpeg 또는 png만 업로드 가능합니다!");
+      return;
+    }
+    const result = await uploadFile({
+      variables: {
+        file: myFile,
+      },
+    });
+    console.log(result.data.uploadFile.url);
+    setImageUrl(result.data.uploadFile.url);
+  }
+
+  function onClickImageUpload1() {
+    fileRef1.current?.click();
+  }
+
+  async function onChangeImageFile2(event) {
+    const myFile = event.target.files[0];
+    console.log(myFile);
+    if (!myFile) {
+      alert("파일이 없습니다!");
+      return;
+    }
+    if (myFile.size > 5 * 1024 * 1024) {
+      alert("파일 용량이 너무 큽니다!(제한 5mb)");
+      return;
+    }
+    if (!myFile.type.includes("jpeg") && !myFile.type.includes("png")) {
+      alert("jpeg 또는 png만 업로드 가능합니다!");
+      return;
+    }
+    const result = await uploadFile({
+      variables: {
+        file: myFile,
+      },
+    });
+    console.log(result.data.uploadFile.url);
+    setImageUrl(result.data.uploadFile.url);
+  }
+
+  function onClickImageUpload2() {
+    fileRef2.current?.click();
+  }
+
+  async function onChangeImageFile3(event) {
+    const myFile = event.target.files[0];
+    console.log(myFile);
+    if (!myFile) {
+      alert("파일이 없습니다!");
+      return;
+    }
+    if (myFile.size > 5 * 1024 * 1024) {
+      alert("파일 용량이 너무 큽니다!(제한 5mb)");
+      return;
+    }
+    if (!myFile.type.includes("jpeg") && !myFile.type.includes("png")) {
+      alert("jpeg 또는 png만 업로드 가능합니다!");
+      return;
+    }
+    const result = await uploadFile({
+      variables: {
+        file: myFile,
+      },
+    });
+    console.log(result.data.uploadFile.url);
+    setImageUrl(result.data.uploadFile.url);
+  }
+
+  function onClickImageUpload3() {
+    fileRef3.current?.click();
+  }
 
   return (
     <BoardWriteUI
@@ -184,7 +285,19 @@ export default function BoardWrite(props) {
       qqq={qqq}
       data={props.data}
       // 이 데이터는 수정페이지에서 받아오는 데이터
-      // onChangeYoutube={onChangeYoutube}
+      onChangeYoutube={onChangeYoutube}
+      onChangeImageFile1={onChangeImageFile1}
+      onClickImageUpload1={onClickImageUpload1}
+      onChangeImageFile2={onChangeImageFile2}
+      onClickImageUpload2={onClickImageUpload2}
+      onChangeImageFile3={onChangeImageFile3}
+      onClickImageUpload3={onClickImageUpload3}
+      imageUrl={imageUrl}
+      imageUrl2={imageUrl2}
+      imageUrl3={imageUrl3}
+      fileRef1={fileRef1}
+      fileRef2={fileRef2}
+      fileRef3={fileRef3}
     />
   );
 }

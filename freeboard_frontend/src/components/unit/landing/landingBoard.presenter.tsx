@@ -7,10 +7,10 @@ import {
 export default function LandingBoard(props) {
   return (
     <Wrapper>
-      <BackgroundImg></BackgroundImg>
       <BackgroundImgButton onClick={props.onClickBoard}>
         게시판으로 이동하기
       </BackgroundImgButton>
+      {/* <BackgroundImg></BackgroundImg> */}
       {/* src="/image/landing-forest.jpg" */}
     </Wrapper>
   );

@@ -49,9 +49,17 @@ export default function DetailBoardUI(props) {
         </TitleBar>
         <Line></Line>
         <Title>{props.data?.fetchBoard.title}</Title>
-        <MainImg src="/image/image.png" />
+        {props.data?.fetchBoard.images
+          ?.filter((el) => el !== "")
+          .map((el) => (
+            <MainImg key={el} src={`https://storage.googleapis.com/${el}`} />
+          ))}
         <Content>{props.data?.fetchBoard.contents}</Content>
-        <Video src="/image/video.png" />
+        <Video
+          url={props.data?.fetchBoard.youtubeUrl}
+          width={480}
+          height={360}
+        />
         <Recommand>
           <Like>
             <LikeImg

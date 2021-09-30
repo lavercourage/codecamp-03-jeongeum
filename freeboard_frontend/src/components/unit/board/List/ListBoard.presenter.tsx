@@ -18,7 +18,7 @@ import {
   Page,
 } from "./ListBoard.styles";
 
-export default function ListBoardUI(props) {
+export default function ListBoardUI(props: any) {
   return (
     <>
       <List>
@@ -60,6 +60,7 @@ export default function ListBoardUI(props) {
                     // key는 map을 쓸 때 사용하는 규칙 (고유값이 들어감)
                     onClick={props.onClickMovePage}
                     id={String(props.startPage + index)}
+                    isActive={props.startPage + index === props.activePage}
                   >
                     {props.startPage + index}
                   </Page>
