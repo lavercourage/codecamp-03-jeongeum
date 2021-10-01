@@ -22,17 +22,17 @@ export default function BoardWrite(props) {
   const [qqq, setQqq] = useState(false);
   // setQqq는 필요없음 지워도 괜찮
 
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl1, setImageUrl1] = useState("");
   const [imageUrl2, setImageUrl2] = useState("");
   const [imageUrl3, setImageUrl3] = useState("");
-
-  const [makeBoard] = useMutation(CREATE_BOARD);
-  const [updateBoard] = useMutation(UPDATE_BOARD);
-  const [uploadFile] = useMutation(UPLOAD_FILE);
 
   const fileRef1 = useRef();
   const fileRef2 = useRef();
   const fileRef3 = useRef();
+
+  const [makeBoard] = useMutation(CREATE_BOARD);
+  const [updateBoard] = useMutation(UPDATE_BOARD);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -119,7 +119,7 @@ export default function BoardWrite(props) {
             title: title,
             contents: substance,
             youtubeUrl: youtube,
-            images: [...imageUrl],
+            images: [imageUrl1, imageUrl2, imageUrl3],
           },
         },
       });
@@ -201,7 +201,7 @@ export default function BoardWrite(props) {
       },
     });
     console.log(result.data.uploadFile.url);
-    setImageUrl(result.data.uploadFile.url);
+    setImageUrl1(result.data.uploadFile.url);
   }
 
   function onClickImageUpload1() {
@@ -229,7 +229,7 @@ export default function BoardWrite(props) {
       },
     });
     console.log(result.data.uploadFile.url);
-    setImageUrl(result.data.uploadFile.url);
+    setImageUrl2(result.data.uploadFile.url);
   }
 
   function onClickImageUpload2() {
@@ -257,7 +257,7 @@ export default function BoardWrite(props) {
       },
     });
     console.log(result.data.uploadFile.url);
-    setImageUrl(result.data.uploadFile.url);
+    setImageUrl3(result.data.uploadFile.url);
   }
 
   function onClickImageUpload3() {
@@ -292,7 +292,7 @@ export default function BoardWrite(props) {
       onClickImageUpload2={onClickImageUpload2}
       onChangeImageFile3={onChangeImageFile3}
       onClickImageUpload3={onClickImageUpload3}
-      imageUrl={imageUrl}
+      imageUrl1={imageUrl1}
       imageUrl2={imageUrl2}
       imageUrl3={imageUrl3}
       fileRef1={fileRef1}
