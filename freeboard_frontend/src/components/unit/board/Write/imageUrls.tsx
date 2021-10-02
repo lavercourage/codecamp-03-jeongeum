@@ -5,7 +5,7 @@ import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./WriteBoard.queries";
 import { useRouter } from "next/router";
 // import { Writer } from "./CreatedBoard.styles"
 
-export default function BoardWrite(props: any) {
+export default function BoardWrite(props) {
   const router = useRouter();
 
   const [writer, setWriter] = useState("");
@@ -25,6 +25,10 @@ export default function BoardWrite(props: any) {
   const [imageUrl1, setImageUrl1] = useState("");
   const [imageUrl2, setImageUrl2] = useState("");
   const [imageUrl3, setImageUrl3] = useState("");
+  const [imageUrls, setImageUrls] = useState(["", "", ""])
+
+  imageUrls[2] = "aaa" // ["", "", ""]
+  [...imageUrls] // ["", "", ""]
 
   const fileRef1 = useRef();
   const fileRef2 = useRef();
@@ -34,7 +38,7 @@ export default function BoardWrite(props: any) {
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
-  function onChangeWriter(event: any) {
+  function onChangeWriter(event) {
     setWriter(event.target.value);
     if (event.target.value !== "") {
       setWriterError("");
@@ -49,7 +53,7 @@ export default function BoardWrite(props: any) {
     }
   }
 
-  function onChangePassword(event: any) {
+  function onChangePassword(event) {
     setPassword(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
@@ -64,7 +68,7 @@ export default function BoardWrite(props: any) {
     }
   }
 
-  function onChangeLabel(event: any) {
+  function onChangeLabel(event) {
     setTitle(event.target.value);
     if (event.target.value) {
       setTitleError("");
@@ -79,7 +83,7 @@ export default function BoardWrite(props: any) {
     }
   }
 
-  function onChangeSubstance(event: any) {
+  function onChangeSubstance(event) {
     setSubstance(event.target.value);
     if (event.target.value) {
       setSubstanceError("");
@@ -119,7 +123,9 @@ export default function BoardWrite(props: any) {
             title: title,
             contents: substance,
             youtubeUrl: youtube,
-            images: [imageUrl1, imageUrl2, imageUrl3],
+            // images: [imageUrl1, imageUrl2, imageUrl3],
+            images: [...imageUrl],
+
           },
         },
       });
