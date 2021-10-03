@@ -2,7 +2,6 @@ import { useQuery, gql } from "@apollo/client";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import _ from "lodash";
 
 const FETCH_BOARDS = gql`
   query fetchBoards($search: String, $page: Int) {
@@ -16,56 +15,57 @@ const FETCH_BOARDS = gql`
 `;
 
 const Column = styled.span`
-  padding: 0px 100px;
+  margin-right: 100px;
+`;
+const Column2 = styled.span`
+  margin-right: 100px;
+  color: orange;
+`;
+const Aaa = styled.input`
+  margin: 0px 50px;
+`;
+const Bbb = styled.button`
+  margin: 0px 50px;
 `;
 const Page = styled.span`
-  padding: 0px 20px;
+  margin: 0 20px;
   cursor: pointer;
 `;
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
-export default function SearchDebouncePage() {
-  const { data, refetch } = useQuery(FETCH_BOARDS);
-  // const [mySearch, setMySearch] = useState("");
+export default function SearchPage() {
+  const [mySearch, setMySearch] = useState("");
   const [myKeyword, setMyKeyword] = useState("");
-  const getDebuonce = _.debounce((data) => {
-    refetch({ search: data, page: 1 });
-    setMyKeyword(data);
-  }, 500);
+  const { data, refetch } = useQuery(FETCH_BOARDS);
 
   function onChangeSearch(event) {
-    getDebuonce(event.target.value);
-    // refetch({ search: event.target.value });
-    // setMyKeyword(event.target.value);
-    // setMySearch(event.target.value);
+    refetch({ search: event.target.value });
+    setMyKeyword(event.target.value);
   }
   // function onClickSearch() {
   //   refetch({ search: mySearch, page: 1 });
   //   setMyKeyword(mySearch);
   // }
   function onClickPage(event) {
-    refetch({ search: myKeyword, page: Number(event.target.id) });
+    refetch({
+      search: myKeyword,
+      page: Number(event.target.id),
+    });
   }
 
   return (
     <>
-      <div>검색 페이지</div>
-      <input type="text" onChange={onChangeSearch} />
-      {/* <button onClick={onClickSearch}>검색</button> */}
-      <Wrapper>
-        {data?.fetchBoards.map((el) => (
-          <div key={el._id}>
-            <Column>{el.writer}</Column>
-            <Column>{el.title}</Column>
-            <Column>{el.createdAt.slice(0, 10)}</Column>
-          </div>
-        ))}
-      </Wrapper>
+      <div>검색페이지</div>
+      <Aaa type="text" onChange={onChangeSearch} />
+      {/* <Bbb onClick={onClickSearch}>검색</Bbb> */}
+      {data?.fetchBoards.map((el: any) => (
+        <div key={el._id}>
+          <Column>{el.title}</Column>
+          <Column2>{el.writer}</Column2>
+          <Column>{el.createdAt.slice(0, 10)}</Column>
+        </div>
+      ))}
       {new Array(10).fill(1).map((_, index) => (
-        <Page key={uuidv4()} onClick={onClickPage} id={String(index + 1)}>
+        <Page key={uuidv4} onClick={onClickPage} id={String(index + 1)}>
           {index + 1}
         </Page>
       ))}
