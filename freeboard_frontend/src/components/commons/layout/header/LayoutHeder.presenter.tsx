@@ -6,14 +6,18 @@ import {
   SignIn,
 } from "./LayoutHeader.styles";
 
-export default function LayoutHeaderUI() {
+export default function LayoutHeaderUI(props) {
   return (
     <Wrapper>
       <InnerWrapper>
-        <Logo />
+        <Logo id="/" onClick={props.onClickHeader} />
         <div>
-          <LogIn>로그인</LogIn>
-          <SignIn>회원가입</SignIn>
+          <LogIn id="/logIn" onClick={props.onClickHeader}>
+            로그인
+          </LogIn>
+          <SignIn id="/signIn" onClick={props.onClickHeader}>
+            회원가입
+          </SignIn>
         </div>
       </InnerWrapper>
     </Wrapper>

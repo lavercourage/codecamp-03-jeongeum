@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  /* display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #f0d158;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: turquoise; */
 `;
 
 export const BackgroundImg = styled.div`
@@ -16,6 +17,7 @@ export const BackgroundImgButton = styled.button`
   width: 200px;
   height: 100px;
   margin-top: 400px;
+  margin-bottom: 400px;
   border: 1px solid white;
   border-radius: 20px;
   cursor: pointer;

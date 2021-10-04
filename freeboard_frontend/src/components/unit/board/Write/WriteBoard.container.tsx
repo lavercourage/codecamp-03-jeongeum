@@ -18,6 +18,9 @@ export default function BoardWrite(props: any) {
   const [passwordError, setPasswordError] = useState("");
   const [titleError, setTitleError] = useState("");
   const [substanceError, setSubstanceError] = useState("");
+  const [isPreview, setIsPreview] = useState(true);
+  const [isPreview2, setIsPreview2] = useState(true);
+  const [isPreview3, setIsPreview3] = useState(true);
 
   const [qqq, setQqq] = useState(false);
   // setQqq는 필요없음 지워도 괜찮
@@ -202,6 +205,7 @@ export default function BoardWrite(props: any) {
     });
     console.log(result.data.uploadFile.url);
     setImageUrl1(result.data.uploadFile.url);
+    setIsPreview(false);
   }
 
   function onClickImageUpload1() {
@@ -230,6 +234,7 @@ export default function BoardWrite(props: any) {
     });
     console.log(result.data.uploadFile.url);
     setImageUrl2(result.data.uploadFile.url);
+    setIsPreview2(false);
   }
 
   function onClickImageUpload2() {
@@ -258,6 +263,7 @@ export default function BoardWrite(props: any) {
     });
     console.log(result.data.uploadFile.url);
     setImageUrl3(result.data.uploadFile.url);
+    setIsPreview3(false);
   }
 
   function onClickImageUpload3() {
@@ -298,6 +304,9 @@ export default function BoardWrite(props: any) {
       fileRef1={fileRef1}
       fileRef2={fileRef2}
       fileRef3={fileRef3}
+      isPreview={isPreview}
+      isPreview2={isPreview2}
+      isPreview3={isPreview3}
     />
   );
 }

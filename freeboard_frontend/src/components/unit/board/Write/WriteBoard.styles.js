@@ -199,6 +199,13 @@ export const Input = styled.input`
 export const InputImage = styled.img`
   width: 78px;
   height: 78px;
+  margin-top: 16px;
+  margin-right: 24px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Section7 = styled.div`

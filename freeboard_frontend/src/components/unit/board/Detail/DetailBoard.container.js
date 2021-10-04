@@ -7,6 +7,7 @@ import {
   LIKE_BOARD,
   DISLIKE_BOARD,
 } from "./DetailBoard.queries";
+import { useState } from "react";
 
 export default function DetailBoard() {
   const router = useRouter();

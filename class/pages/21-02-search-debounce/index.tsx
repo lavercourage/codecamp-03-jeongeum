@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import _ from "lodash";
 
 const FETCH_BOARDS = gql`
   query fetchBoards($search: String, $page: Int) {
@@ -24,27 +25,24 @@ const Column2 = styled.span`
 const Aaa = styled.input`
   margin: 0px 50px;
 `;
-const Bbb = styled.button`
-  margin: 0px 50px;
-`;
 const Page = styled.span`
   margin: 0 20px;
   cursor: pointer;
 `;
 
 export default function SearchPage() {
-  const [mySearch, setMySearch] = useState("");
+  // const [mySearch, setMySearch] = useSt ate("");
   const [myKeyword, setMyKeyword] = useState("");
   const { data, refetch } = useQuery(FETCH_BOARDS);
+  const getDebounce = _.debounce((data) => {
+    refetch({ search: data, page: 1 });
+    setMyKeyword(data);
+  }, 500);
 
   function onChangeSearch(event) {
-    refetch({ search: event.target.value });
-    setMyKeyword(event.target.value);
+    getDebounce(event.target.value);
   }
-  // function onClickSearch() {
-  //   refetch({ search: mySearch, page: 1 });
-  //   setMyKeyword(mySearch);
-  // }
+
   function onClickPage(event) {
     refetch({
       search: myKeyword,
@@ -56,7 +54,6 @@ export default function SearchPage() {
     <>
       <div>검색페이지</div>
       <Aaa type="text" onChange={onChangeSearch} />
-      {/* <Bbb onClick={onClickSearch}>검색</Bbb> */}
       {data?.fetchBoards.map((el: any) => (
         <div key={el._id}>
           <Column>{el.title}</Column>

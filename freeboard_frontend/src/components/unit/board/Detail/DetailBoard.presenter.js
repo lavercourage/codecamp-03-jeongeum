@@ -60,6 +60,7 @@ export default function DetailBoardUI(props) {
           width={480}
           height={360}
         />
+
         <Recommand>
           <Like>
             <LikeImg

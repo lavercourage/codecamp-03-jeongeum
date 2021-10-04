@@ -20,6 +20,7 @@ export const Logo = styled.div`
   height: 50px;
   width: 120px;
   background-color: yellowgreen;
+  cursor: pointer;
 `;
 
 export const LogIn = styled.button`
@@ -30,6 +31,7 @@ export const LogIn = styled.button`
   border: 1px solid #bdbdbd;
   font-family: "NotoSansKR";
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const SignIn = styled.button`
@@ -39,4 +41,5 @@ export const SignIn = styled.button`
   border-radius: 10px;
   background-color: #ffd600;
   border: none;
+  cursor: pointer;
 `;

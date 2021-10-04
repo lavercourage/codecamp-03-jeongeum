@@ -122,47 +122,61 @@ export default function BoardWriteUI(props) {
         <Label>사진 첨부</Label>
 
         <Upload>
-          <Plusimg onClick={props.onClickImageUpload1}>
-            <Plus src="/image/PlusVector.svg" />
-            <Upload2>Upload</Upload2>
-            <Input
-              ref={props.fileRef1}
-              type="file"
-              onChange={props.onChangeImageFile1}
-            />
-            <InputImage
-              src={`https://storage.googleapisl.com/${props?.imageUrl}`}
-              onChange={props.onClickImageUpload1}
-            />
-          </Plusimg>
+          {props.isPreview && (
+            <Plusimg onClick={props.onClickImageUpload1}>
+              <Plus src="/image/PlusVector.svg" />
+              <Upload2>Upload</Upload2>
+            </Plusimg>
+          )}
 
-          <Plusimg onClick={props.onClickImageUpload2}>
-            <Plus src="/image/PlusVector.svg" />
-            <Upload2>Upload</Upload2>
-            <Input
-              ref={props.fileRef2}
-              type="file"
-              onChange={props.onChangeImageFile2}
-            />
+          <Input
+            ref={props.fileRef1}
+            type="file"
+            onChange={props.onChangeImageFile1}
+          />
+
+          {!props.isPreview && (
             <InputImage
-              src={`https://storage.googleapisl.com/${props?.imageUrl}`}
+              src={`https://storage.googleapis.com/${props?.imageUrl1}`}
+              // onChange={props.onClickImageUpload1}
+            />
+          )}
+
+          {props.isPreview2 && (
+            <Plusimg onClick={props.onClickImageUpload2}>
+              <Plus src="/image/PlusVector.svg" />
+              <Upload2>Upload</Upload2>
+            </Plusimg>
+          )}
+          <Input
+            ref={props.fileRef2}
+            type="file"
+            onChange={props.onChangeImageFile2}
+          />
+          {!props.isPreview2 && (
+            <InputImage
+              src={`https://storage.googleapis.com/${props?.imageUrl2}`}
               onChange={props.onClickImageUpload2}
             />
-          </Plusimg>
+          )}
 
-          <Plusimg onClick={props.onClickImageUpload3}>
-            <Plus src="/image/PlusVector.svg" />
-            <Upload2>Upload</Upload2>
-            <Input
-              ref={props.fileRef3}
-              type="file"
-              onChange={props.onChangeImageFile3}
-            />
+          {props.isPreview3 && (
+            <Plusimg onClick={props.onClickImageUpload3}>
+              <Plus src="/image/PlusVector.svg" />
+              <Upload2>Upload</Upload2>
+            </Plusimg>
+          )}
+          <Input
+            ref={props.fileRef3}
+            type="file"
+            onChange={props.onChangeImageFile3}
+          />
+          {!props.isPreview3 && (
             <InputImage
-              src={`https://storage.googleapisl.com/${props?.imageUrl}`}
+              src={`https://storage.googleapis.com/${props?.imageUrl3}`}
               onChange={props.onClickImageUpload3}
             />
-          </Plusimg>
+          )}
         </Upload>
       </Section6>
       <Section7>
