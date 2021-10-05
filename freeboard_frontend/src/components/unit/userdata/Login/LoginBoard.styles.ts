@@ -96,12 +96,13 @@ export const LoginButton = styled.button`
   width: 384px;
   height: 64px;
   margin-top: 40px;
-  color: ${(props) => (props.isActive ? "#000000" : "#ffffff")};
+  color: ${(props: any) => (props.isActive ? "#000000" : "#ffffff")};
   font-size: 16px;
   text-align: center;
-  background-color: ${(props) => (props.isActive ? "#FFD600" : "#4f4f4f")};
+  background-color: ${(props: any) => (props.isActive ? "#FFD600" : "#4f4f4f")};
   border: none;
   border-radius: 16px;
+  cursor: ${(props: any) => (props.isActive ? "pointer" : "default")};
 `;
 
 export const BottomBorder = styled.div`

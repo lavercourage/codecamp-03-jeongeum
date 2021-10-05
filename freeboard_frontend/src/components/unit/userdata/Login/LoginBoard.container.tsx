@@ -1,13 +1,17 @@
 import LoginBoardUI from "./LoginBoard.presenter";
-import { LOGIN_BOARD } from "./LoginBoard.queries";
-import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { LOGIN_BOARD, FETCH_USER_LOGGED_IN } from "./LoginBoard.queries";
+import { useMutation, useQuery } from "@apollo/client";
+import { useContext, useEffect, useState } from "react";
+import { GlobalContext } from "../../../../../pages/_app";
 import { useRouter } from "next/router";
 
 export default function LoginBoard() {
   const router = useRouter();
 
-  const [loginBoard] = useMutation(LOGIN_BOARD);
+  const [loginUser] = useMutation(LOGIN_BOARD);
+  // LOGIN_BOARD를 실행시키는 함수 명은 loginUser
+
+  const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +19,18 @@ export default function LoginBoard() {
   const [emptyPasswordError, setEmptyPasswordError] = useState("");
 
   const [isActive, setIsActive] = useState(false);
+
+  const { accessToken, setAccessToken, userInfo, setUserInfo } =
+    useContext(GlobalContext);
+
+  useEffect(() => {
+    if (userInfo.email) return;
+    setUserInfo({
+      email: data?.fetchUserLoggedIn.email,
+      name: data?.fetchUserLoggedIn.name,
+    });
+  }, [data]);
+  console.log(userInfo);
 
   function onChangeEmail(event: any) {
     setEmail(event.target.value);
@@ -32,7 +48,11 @@ export default function LoginBoard() {
     if (event.target.value !== "") {
       setEmptyPasswordError("");
     }
-    if (email !== "" && event.target.value !== "") {
+    if (
+      email !== "" &&
+      event.target.value !== ""
+      // 이메일에 @가 꼭 포함될때 로그인창 활성화 includes?
+    ) {
       setIsActive(true);
     } else {
       setIsActive(false);
@@ -42,6 +62,9 @@ export default function LoginBoard() {
     if (email === "") {
       setEmptyEmailError("이메일은 필수 입력입니다.");
     }
+    if (!email.includes("@")) {
+      setEmptyEmailError("올바른 이메일 형식이 아닙니다.");
+    }
     if (password === "") {
       setEmptyPasswordError("비밀번호는 필수 입력입니다.");
     }
@@ -50,14 +73,19 @@ export default function LoginBoard() {
     //   alert("로그인진행할거임! 지워도되는 알럿창!");
     // }
     try {
-      const result = await loginBoard({
+      const result = await loginUser({
+        // loginUser 위에 있는 [loginUser]와 동일
         variables: {
           email: email,
           password: password,
+          // 서로 이름이 같을 때는 뒷 내용 생략가능
         },
       });
-      router.push(`/boards/create-board`);
-      console.log(result.data?.loginBoard.accessToken);
+      // router.push(`/boards/list-board`);
+      console.log(result.data?.loginUser.accessToken);
+      localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
+      setAccessToken(result.data?.loginUser.accessToken);
+      alert(result.data?.fetchUserLoggedIn.name + " 환영합니다");
     } catch (error) {
       console.log(error);
     }
