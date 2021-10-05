@@ -17,12 +17,12 @@ export default function Layout(props) {
   // const isHiddenHeader = HIDDEN_HEADER.includes(router.pathname)
 
   return (
-    <>
+    <div style={{ width: "1920px" }}>
       {/* {!isHiddenHeader && <LayoutHeader />} */}
       <LayoutHeader />
       <LayoutBanner />
       <LayoutNavigation />
       <Body>{props.children}</Body>
-    </>
+    </div>
   );
 }

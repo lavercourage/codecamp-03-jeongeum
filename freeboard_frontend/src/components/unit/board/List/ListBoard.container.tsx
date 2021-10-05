@@ -8,12 +8,16 @@ export default function ListBoard() {
   const router = useRouter();
   const [startPage, setStartPage] = useState(1);
   const [activePage, setActivePage] = useState(1);
+  const [keyword, setKeyword] = useState("");
 
   const { data, refetch } = useQuery(FETCH_BOARDS, {
-    variables: { page: startPage },
+    variables: { page: startPage, search: keyword },
   });
 
-  const { data: dataBoardsCountano } = useQuery(FETCH_BOARDS_COUNT);
+  const { data: dataBoardsCountano } = useQuery(FETCH_BOARDS_COUNT, {
+    variables: { search: keyword },
+  });
+
   const lastPage = Math.ceil(dataBoardsCountano?.fetchBoardsCount / 10);
 
   function onClickBeforePage() {
@@ -42,6 +46,10 @@ export default function ListBoard() {
     router.push(`/boards/create-board/`);
   }
 
+  function onChangeKeyword(value) {
+    setKeyword(value);
+  }
+
   return (
     <ListBoardUI
       data={data}
@@ -53,6 +61,8 @@ export default function ListBoard() {
       startPage={startPage}
       lastPage={lastPage}
       activePage={activePage}
+      refetch={refetch}
+      onChangeKeyword={onChangeKeyword}
     />
   );
 }

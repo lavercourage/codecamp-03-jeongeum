@@ -135,3 +135,7 @@ export const ButtonImg = styled.img`
   width: 18px;
   margin-right: 8px;
 `;
+
+export const TextToken = styled.span`
+  color: ${(props: any) => (props.isMatched ? "red" : "black")};
+`;

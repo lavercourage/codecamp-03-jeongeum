@@ -1,22 +1,4 @@
-import {
-  Wrapper,
-  ArrowDiv,
-  Arrow,
-  Logo,
-  LogInBoard,
-  InputEmail,
-  InputPassword,
-  InputError,
-  LogginIn,
-  Button,
-  ButtonWord,
-  LoginButton,
-  BottomBorder,
-  BottomButton,
-  SubButton,
-} from "./LoginBoard.styles";
-
-export default function LoginBoardUI(props: any) {
+export default function SigninBoardUI() {
   return (
     <Wrapper>
       {/* src="/image/board/login/backgroundimg.jpg" */}

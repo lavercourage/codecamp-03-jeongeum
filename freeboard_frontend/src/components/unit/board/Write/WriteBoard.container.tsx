@@ -23,8 +23,7 @@ export default function BoardWrite(props: any) {
   const [isPreview2, setIsPreview2] = useState(true);
   const [isPreview3, setIsPreview3] = useState(true);
 
-  const [qqq, setQqq] = useState(false);
-  // setQqq는 필요없음 지워도 괜찮
+  const [isActive, setIsActive] = useState(false);
 
   const [imageUrl1, setImageUrl1] = useState("");
   const [imageUrl2, setImageUrl2] = useState("");
@@ -49,7 +48,9 @@ export default function BoardWrite(props: any) {
       title !== "" &&
       substance !== ""
     ) {
-      setQqq(true);
+      setIsActive(true);
+    } else {
+      setIsActive(false);
     }
   }
 
@@ -64,7 +65,9 @@ export default function BoardWrite(props: any) {
       title !== "" &&
       substance !== ""
     ) {
-      setQqq(true);
+      setIsActive(true);
+    } else {
+      setIsActive(false);
     }
   }
 
@@ -79,7 +82,9 @@ export default function BoardWrite(props: any) {
       event.target.value !== "" &&
       substance !== ""
     ) {
-      setQqq(true);
+      setIsActive(true);
+    } else {
+      setIsActive(false);
     }
   }
 
@@ -94,7 +99,9 @@ export default function BoardWrite(props: any) {
       title !== "" &&
       event.target.value !== ""
     ) {
-      setQqq(true);
+      setIsActive(true);
+    } else {
+      setIsActive(false);
     }
   }
 
@@ -289,7 +296,7 @@ export default function BoardWrite(props: any) {
       // presenter로 빠진 기능명 = {const [key,~~}
       // 앞 명칭과 뒤 명칭 알아놓기
       // 에러에 해당하는 부분
-      qqq={qqq}
+      isActive={isActive}
       data={props.data}
       // 이 데이터는 수정페이지에서 받아오는 데이터
       onChangeYoutube={onChangeYoutube}

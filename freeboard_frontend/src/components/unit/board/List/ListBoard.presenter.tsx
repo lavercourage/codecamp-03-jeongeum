@@ -8,6 +8,7 @@ import {
   Row,
   ColumnNumber,
   ColumnTitle,
+  TextToken,
   ColumnWriter,
   ColumnUpDate,
   ListBottom,
@@ -17,10 +18,16 @@ import {
   PageButton,
   Page,
 } from "./ListBoard.styles";
+import SearchBarBoard from "../../../commons/searchbar/searchbar.container";
+import { v4 as uuidv4 } from "uuid";
 
 export default function ListBoardUI(props: any) {
   return (
     <>
+      <SearchBarBoard
+        refech={props.refetch}
+        onChangeKeyword={props.onChangeKeyword}
+      />
       <List>
         <Row2>
           <Number>번호</Number>
@@ -35,7 +42,19 @@ export default function ListBoardUI(props: any) {
             onClick={props.onClickMoveToDetailBoard}
           >
             <ColumnNumber>{index + 1}</ColumnNumber>
-            <ColumnTitle id={el._id}>{el.title}</ColumnTitle>
+            {/* <ColumnTitle id={el._id}>{el.title}</ColumnTitle> */}
+
+            <ColumnTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
+              {el.title
+                .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
+                .split("@#$%")
+                .map((el) => (
+                  <TextToken key={uuidv4()} isMatched={props.keyword === el}>
+                    {el}
+                  </TextToken>
+                ))}
+            </ColumnTitle>
+
             <ColumnWriter>{el.writer}</ColumnWriter>
             <ColumnUpDate>{el.createdAt.slice(0, 10)}</ColumnUpDate>
           </Row>

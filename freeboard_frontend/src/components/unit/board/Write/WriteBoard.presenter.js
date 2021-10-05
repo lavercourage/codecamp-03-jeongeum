@@ -190,25 +190,29 @@ export default function BoardWriteUI(props) {
       </Section7>
       <Section8>
         {/* <Cancle onClick={onClickCancle}>취소하기</Cancle> */}
-        {/* <Submit onClick={props.onClickSubmit} qqq={props.qqq}>
+        {/* <Submit onClick={props.onClickSubmit} isActive={props.isActive}>
           {props.isEdit ? "수정하기" : "등록하기"}
-          <Submit onClick={props.onClickSubmit} qqq={props.qqq}>
+          <Submit onClick={props.onClickSubmit} isActive={props.isActive}>
           {props.isEdit ? "수정하기" : "등록하기"}
-        {props.isEdit && <Submit onClick={props.onClickSubmit} qqq={props.qqq}>}
+        {props.isEdit && <Submit onClick={props.onClickSubmit} isActive={props.isActive}>}
           onClickEdit
         </Submit> */}
         {!props.isEdit && (
-          <Submit onClick={props.onClickSubmit} qqq={props.qqq}>
+          <Submit
+            onClick={props.onClickSubmit}
+            isActive={props.isActive}
+            disabled={!props.isActive}
+          >
             등록하기
           </Submit>
         )}
         {props.isEdit && (
-          <SubmitCancle onClick={props.onClickCancel} qqq={props.qqq}>
+          <SubmitCancle onClick={props.onClickCancel} isActive={props.isActive}>
             취소하기
           </SubmitCancle>
         )}
         {props.isEdit && (
-          <Submit onClick={props.onClickEdit} qqq={props.qqq}>
+          <Submit onClick={props.onClickEdit} isActive={props.isActive}>
             수정하기
           </Submit>
         )}

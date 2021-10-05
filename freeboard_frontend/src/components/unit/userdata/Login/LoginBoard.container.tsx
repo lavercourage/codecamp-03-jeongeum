@@ -14,18 +14,28 @@ export default function LoginBoard() {
   const [emptyEmailError, setEmptyEmailError] = useState("");
   const [emptyPasswordError, setEmptyPasswordError] = useState("");
 
-  // const [setOnButton];
+  const [isActive, setIsActive] = useState(false);
 
   function onChangeEmail(event: any) {
     setEmail(event.target.value);
     if (event.target.value !== "") {
       setEmptyEmailError("");
     }
+    if (event.target.value !== "" && password !== "") {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
   }
   function onChangePassword(event: any) {
     setPassword(event.target.value);
     if (event.target.value !== "") {
       setEmptyPasswordError("");
+    }
+    if (email !== "" && event.target.value !== "") {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
     }
   }
   async function onClickLogin() {
@@ -47,6 +57,7 @@ export default function LoginBoard() {
         },
       });
       router.push(`/boards/create-board`);
+      console.log(result.data?.loginBoard.accessToken);
     } catch (error) {
       console.log(error);
     }
@@ -63,6 +74,7 @@ export default function LoginBoard() {
       // onClickFindEmail={onClickFindEmail}
       // onClickFindPassword={onClickFindPassword}
       // onClickSignin={onClickSignin}
+      isActive={isActive}
     />
   );
 }
