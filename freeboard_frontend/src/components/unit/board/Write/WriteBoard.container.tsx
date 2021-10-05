@@ -18,6 +18,7 @@ export default function BoardWrite(props: any) {
   const [passwordError, setPasswordError] = useState("");
   const [titleError, setTitleError] = useState("");
   const [substanceError, setSubstanceError] = useState("");
+
   const [isPreview, setIsPreview] = useState(true);
   const [isPreview2, setIsPreview2] = useState(true);
   const [isPreview3, setIsPreview3] = useState(true);

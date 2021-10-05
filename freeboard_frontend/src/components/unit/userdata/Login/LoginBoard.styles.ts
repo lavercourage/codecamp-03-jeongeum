@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url("/image/board/login/backgroundimg.jpg");
 `;
 
 export const ArrowDiv = styled.div`

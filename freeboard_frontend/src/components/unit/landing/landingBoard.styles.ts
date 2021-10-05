@@ -1,12 +1,15 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: #f0d158;
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background-color: #f0d158; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 1920px;
+  height: 1080px;
+  background-image: url("/image/board/login/backgroundimg.jpg");
 `;
 
 export const BackgroundImg = styled.div`
