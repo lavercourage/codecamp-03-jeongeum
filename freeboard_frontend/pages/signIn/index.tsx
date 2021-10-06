@@ -1,6 +1,6 @@
 // 회원가입 페이지
-import SigninBoard from ""
+import SigninBoard from "";
 
-export default function SigninPage(){
-    return </>;
+export default function SigninPage() {
+  return <></>;
 }

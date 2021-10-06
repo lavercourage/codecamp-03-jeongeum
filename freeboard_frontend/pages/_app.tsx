@@ -12,10 +12,17 @@ import Layout from "../src/components/commons/layout";
 import "antd/dist/antd.css";
 
 import { createContext, useEffect, useState } from "react";
+import { AppProps } from "next/dist/shared/lib/router/router";
 
-export const GlobalContext = createContext(null);
+export type IGlobalContext = {
+  accessToken?: any;
+  setAccessToken?: any;
+  userInfo: any;
+  setUserInfo: any;
+} | null;
+export const GlobalContext = createContext<IGlobalContext>(null);
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   const [accessToken, setAccessToken] = useState("");
   const [userInfo, setUserInfo] = useState({});
   const value = {
@@ -36,7 +43,7 @@ function MyApp({ Component, pageProps }) {
   });
 
   const client = new ApolloClient({
-    link: ApolloLink.from([uploadLink]),
+    link: ApolloLink.from([uploadLink as unknown as ApolloLink]),
     cache: new InMemoryCache(),
   });
 

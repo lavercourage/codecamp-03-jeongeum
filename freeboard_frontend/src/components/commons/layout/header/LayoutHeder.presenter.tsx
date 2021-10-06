@@ -6,7 +6,7 @@ import {
   SignIn,
 } from "./LayoutHeader.styles";
 
-export default function LayoutHeaderUI(props) {
+export default function LayoutHeaderUI(props: any) {
   return (
     <Wrapper>
       <InnerWrapper>

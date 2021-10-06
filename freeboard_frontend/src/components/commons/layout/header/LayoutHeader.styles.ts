@@ -43,3 +43,8 @@ export const SignIn = styled.button`
   border: none;
   cursor: pointer;
 `;
+
+export const UserInfo = styled.div`
+  font-size: 16px;
+  color: red;
+`;

@@ -2,7 +2,7 @@ import LoginBoardUI from "./LoginBoard.presenter";
 import { LOGIN_BOARD, FETCH_USER_LOGGED_IN } from "./LoginBoard.queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { useContext, useEffect, useState } from "react";
-import { GlobalContext } from "../../../../../pages/_app";
+import { GlobalContext, IGlobalContext } from "../../../../../pages/_app";
 import { useRouter } from "next/router";
 
 export default function LoginBoard() {
@@ -20,17 +20,15 @@ export default function LoginBoard() {
 
   const [isActive, setIsActive] = useState(false);
 
-  const { accessToken, setAccessToken, userInfo, setUserInfo } =
-    useContext(GlobalContext);
+  const globalState = useContext<IGlobalContext>(GlobalContext);
 
   useEffect(() => {
-    if (userInfo.email) return;
-    setUserInfo({
-      email: data?.fetchUserLoggedIn.email,
-      name: data?.fetchUserLoggedIn.name,
+    if (globalState?.userInfo.email) return;
+    globalState?.setUserInfo({
+      email: String(data?.fetchUserLoggedIn.email),
+      name: String(data?.fetchUserLoggedIn.name),
     });
   }, [data]);
-  console.log(userInfo);
 
   function onChangeEmail(event: any) {
     setEmail(event.target.value);
@@ -62,9 +60,9 @@ export default function LoginBoard() {
     if (email === "") {
       setEmptyEmailError("이메일은 필수 입력입니다.");
     }
-    if (!email.includes("@")) {
-      setEmptyEmailError("올바른 이메일 형식이 아닙니다.");
-    }
+    // if (!email.includes("@")) {
+    //   setEmptyEmailError("올바른 이메일 형식이 아닙니다.");
+    // }
     if (password === "") {
       setEmptyPasswordError("비밀번호는 필수 입력입니다.");
     }
@@ -84,8 +82,8 @@ export default function LoginBoard() {
       // router.push(`/boards/list-board`);
       console.log(result.data?.loginUser.accessToken);
       localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
-      setAccessToken(result.data?.loginUser.accessToken);
-      alert(result.data?.fetchUserLoggedIn.name + " 환영합니다");
+      globalState?.setAccessToken(result.data?.loginUser.accessToken);
+      alert(data?.fetchUserLoggedIn.name + " 환영합니다");
     } catch (error) {
       console.log(error);
     }
