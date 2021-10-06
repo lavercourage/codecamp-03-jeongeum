@@ -1,28 +1,42 @@
+// import { useRouter } from "next/router";
 // import { useContext, useEffect } from "react";
 // import { GlobalContext } from "../_app";
-// import { useRouter } from "next/router";
-
-// export default function HocPage() {
-// const router = useRouter();
-// const { accessToken } = useContext(GlobalContext);
-
-// useEffect(() => {
-//   if (!accessToken) {
-//     alert("로그인한 사람만 입장 가능!");
-//     router.push("/23-01-login");
-//   }
-// }, []);
-
-// // accessToken이 있는가?
-// // accessToken이 없다면, login 페이지로 보내기!
-
-// return <div>HOC 연습 페이지 입니다!</div>;
-// }
 
 import { withAuth } from "../../src/componentsanynameok/commons/hocs/withAuth";
 
+// // oooooooooooooooooooooooooooooooo
+// const withAuth = (Component) => (props) => {
+//   const { accessToken } = useContext(GlobalContext);
+//   const router = useRouter();
+
+//   useEffect(() => {
+//     if (!accessToken) {
+//       alert("로그인한사람만입장가능");
+//       router.push("/23-01-login");
+//     }
+//   }, []);
+//   return <Component {...props} />;
+// };
+// // oooooooooooooooooooooooooooooooo
 const HocPage = () => {
-  return <div>HOC 연습 페이지 입니다!</div>;
+  //   const { accessToken } = useContext(GlobalContext);
+  //   const router = useRouter();
+
+  //   useEffect(() => {
+  //     if (!accessToken) {
+  //       alert("로그인한사람만입장가능");
+  //       router.push("/23-01-login");
+  //     }
+  //   }, []);
+
+  //   // 엑세스 토큰이 있는가?
+  //   // 엑세스 토큰이 없다면 로그인 페이지로 이동하기
+
+  return <div>HOC 연습 페이지</div>;
 };
 
 export default withAuth(HocPage);
+
+// 24-03은 마이페이지라고 생각하면 됨
+// 마이페이지는 로그인된 엑세스 토큰이 있어야 입장가능한데
+// 엑세스토큰이 없다면(로그인이 안된상태) 로그인이 이뤄줘야하므로
