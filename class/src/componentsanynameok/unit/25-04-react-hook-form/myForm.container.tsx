@@ -1,22 +1,22 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "./SignInBoard.validations";
-import SignInBoardUI from "./SignInBoard.presenter";
+import { schema } from "./myForm.validations";
+import MyFormUI from "./myForm.presenter";
 
-export default function SignInBoard() {
+export default function MyForm() {
   const { handleSubmit, register, formState } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
   });
 
-  function onClickSignIn(data: any) {
+  function onClickLogin(data) {
     console.log(data);
   }
 
   return (
-    <SignInBoardUI
+    <MyFormUI
       handleSubmit={handleSubmit}
-      onClickSignIn={onClickSignIn}
+      onClickLogin={onClickLogin}
       register={register}
       formState={formState}
     />

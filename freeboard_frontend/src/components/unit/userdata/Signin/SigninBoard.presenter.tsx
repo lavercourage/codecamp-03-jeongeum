@@ -1,50 +1,60 @@
-export default function SigninBoardUI() {
+import UserDataInputBar from "../../../commons/inputs/userdatainput";
+import RegisterButton from "../../../commons/buttons/registerbutton";
+import {
+  Wrapper,
+  CancleDiv,
+  Arrow,
+  Title,
+  ErrorMessage,
+} from "./SignInBoard.styles";
+
+export default function SignInBoardUI(props: any) {
   return (
-    <Wrapper>
-      {/* src="/image/board/login/backgroundimg.jpg" */}
-      <ArrowDiv>
-        <Arrow src="/image/board/login/ic_cancel.svg" />
-      </ArrowDiv>
-      <Logo src="/image/board/login/logo.svg" />
-      <LogInBoard>
-        <InputEmail
+    <>
+      <Wrapper onSubmit={props.handleSubmit(props.onClickSignIn)}>
+        {/* CancleDiv에 onClick기능 줘야함 */}
+        <CancleDiv>
+          <Arrow src="/image/board/login/ic_cancel.svg" />
+        </CancleDiv>
+        <Title>회원가입</Title>
+        <UserDataInputBar
+          title="이메일"
           type="text"
+          register={props.register("MyEmail")}
           placeholder="이메일을 입력해주세요."
-          onChange={props.onChangeEmail}
         />
-        <InputError>{props.emptyEmailError}</InputError>
-        <InputPassword
+        <ErrorMessage>{props.formState.errors.MyEmail?.message}</ErrorMessage>
+        <UserDataInputBar
+          title="이름"
+          type="text"
+          register={props.register("MyName")}
+          placeholder="이름을 입력해주세요."
+        />
+        <ErrorMessage>{props.formState.errors.MyName?.message}</ErrorMessage>
+        <UserDataInputBar
+          title="비밀번호"
           type="password"
-          placeholder="비밀번호를 입력해주세요."
-          onChange={props.onChangePassword}
+          register={props.register("MyPassword")}
+          placeholder="비밀번호는 필수 입력입니다."
         />
-        <InputError>{props.emptyPasswordError}</InputError>
-        <LogginIn>
-          <Button
-            src="/image/board/login/logging_in.svg"
-            onClick={props.onClickLogginIn}
-          />
-          {/* onClick을 줘도 될거같긴한데 클릭 시 색이 변해야 하므로 고민좀 해보기 아마도 안트디자인 사용하지 않을까?*/}
-          <ButtonWord>로그인 상태 유지</ButtonWord>
-        </LogginIn>
-      </LogInBoard>
-      <LoginButton
-        onClick={props.onClickLogin}
-        isActive={props.isActive}
-        disabled={!props.isActive}
-      >
-        로그인하기
-      </LoginButton>
-      <BottomBorder />
-      <BottomButton>
-        <SubButton onClick={props.onClickFindEmail}>이메일 찾기</SubButton>
-        <SubButton>|</SubButton>
-        <SubButton onClick={props.onClickFindPassword}>비밀번호 찾기</SubButton>
-        <SubButton>|</SubButton>
-        <SubButton id="/signIn" onClick={props.onClickSignin}>
-          회원가입
-        </SubButton>
-      </BottomButton>
-    </Wrapper>
+        <ErrorMessage>
+          {props.formState.errors.MyPassword?.message}
+        </ErrorMessage>
+        <UserDataInputBar
+          title="비밀번호"
+          type="password"
+          register={props.register("MyPassword")}
+          placeholder="비밀번호는 필수 입력입니다."
+        />
+        <ErrorMessage>
+          {props.formState.errors.MyPassword?.message}
+        </ErrorMessage>
+        <RegisterButton
+          name="회원가입하기"
+          type="submit"
+          isValid={props.formState.isValid}
+        />
+      </Wrapper>
+    </>
   );
 }
