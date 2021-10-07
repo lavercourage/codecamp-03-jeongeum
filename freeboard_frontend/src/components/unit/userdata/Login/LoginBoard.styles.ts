@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1920px;
+  width: 100%;
   height: 1080px;
   background-color: #222222;
   display: flex;
@@ -11,9 +11,10 @@ export const Wrapper = styled.div`
 `;
 
 export const ArrowDiv = styled.div`
-  width: 1760px;
-  height: 24px;
-  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 80px 80px 0 80px;
 `;
 
 export const Arrow = styled.img`
@@ -118,6 +119,13 @@ export const BottomButton = styled.div`
 `;
 
 export const SubButton = styled.div`
+  margin: 0 10px;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+`;
+
+export const SubButtonBar = styled.div`
   margin: 0 10px;
   color: #ffffff;
   font-size: 14px;

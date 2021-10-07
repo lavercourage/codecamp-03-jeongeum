@@ -89,6 +89,10 @@ export default function LoginBoard() {
     }
   }
 
+  function onClickSignin() {
+    router.push("/signIn");
+  }
+
   return (
     <LoginBoardUI
       onChangeEmail={onChangeEmail}
@@ -99,7 +103,7 @@ export default function LoginBoard() {
       onClickLogin={onClickLogin}
       // onClickFindEmail={onClickFindEmail}
       // onClickFindPassword={onClickFindPassword}
-      // onClickSignin={onClickSignin}
+      onClickSignin={onClickSignin}
       isActive={isActive}
     />
   );

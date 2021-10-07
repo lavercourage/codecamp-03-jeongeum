@@ -29,3 +29,14 @@ export default function MyFormUI(props) {
     </div>
   );
 }
+
+{
+  /* <form onSubmit={handleSubmit(onClickLogin)}>
+  <div>리액트 훅 폼</div>
+  이메일: <input type="text" {...register("myEmail")} />
+  <div>{formState.errors.myEmail?.message}</div>
+  비밀번호: <input type="password" {...register("myPassword")} />
+  <div>{formState.errors.myPassword?.message}</div>
+  <button type="submit">로그인</button>
+</form>; */
+}

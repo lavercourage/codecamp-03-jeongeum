@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1920px;
+  width: 100%;
   height: 1080px;
   display: flex;
   flex-direction: column;
@@ -10,9 +10,11 @@ export const Wrapper = styled.div`
 `;
 
 export const CancleDiv = styled.div`
-  width: 1760px;
-  height: 24px;
-  margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 80px 80px 0 80px;
+  /* background-color: red; */
 `;
 
 export const Arrow = styled.img`

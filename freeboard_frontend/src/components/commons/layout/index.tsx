@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 // import { useRouter } from "next/router";
 
 const Body = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +18,7 @@ export default function Layout(props) {
   // const isHiddenHeader = HIDDEN_HEADER.includes(router.pathname)
 
   return (
-    <div style={{ width: "1920px" }}>
+    <div style={{ width: "100%" }}>
       {/* {!isHiddenHeader && <LayoutHeader />} */}
       <LayoutHeader />
       <LayoutBanner />

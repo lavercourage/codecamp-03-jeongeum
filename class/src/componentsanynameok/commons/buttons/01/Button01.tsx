@@ -14,7 +14,7 @@ const MyBotton = styled.button`
 export default function Button01(props) {
   return (
     <MyBotton type={props.type} isValid={props.isValid}>
-      {props.name}
+      {props.namecontent}
     </MyBotton>
   );
 }

@@ -14,6 +14,7 @@ import {
   BottomBorder,
   BottomButton,
   SubButton,
+  SubButtonBar,
 } from "./LoginBoard.styles";
 
 export default function LoginBoardUI(props: any) {
@@ -56,9 +57,9 @@ export default function LoginBoardUI(props: any) {
       <BottomBorder />
       <BottomButton>
         <SubButton onClick={props.onClickFindEmail}>이메일 찾기</SubButton>
-        <SubButton>|</SubButton>
+        <SubButtonBar>|</SubButtonBar>
         <SubButton onClick={props.onClickFindPassword}>비밀번호 찾기</SubButton>
-        <SubButton>|</SubButton>
+        <SubButtonBar>|</SubButtonBar>
         <SubButton id="/signIn" onClick={props.onClickSignin}>
           회원가입
         </SubButton>
