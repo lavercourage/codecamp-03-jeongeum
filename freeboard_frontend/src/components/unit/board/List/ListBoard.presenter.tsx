@@ -18,16 +18,17 @@ import {
   PageButton,
   Page,
 } from "./ListBoard.styles";
-import SearchBarBoard from "../../../commons/searchbar/searchbar.container";
+// import Searchbars01 from "../../../commons/searchbars/Searchbars01.container";
+import SearchBarBoard from "../../../commons/error-searchbar/searchbar.container";
 import { v4 as uuidv4 } from "uuid";
 
 export default function ListBoardUI(props: any) {
   return (
     <>
-      {/* <SearchBarBoard
-        refech={props.refetch}
+      <SearchBarBoard
+        refetch={props.refetch}
         onChangeKeyword={props.onChangeKeyword}
-      /> */}
+      />
       <List>
         <Row2>
           <Number>번호</Number>

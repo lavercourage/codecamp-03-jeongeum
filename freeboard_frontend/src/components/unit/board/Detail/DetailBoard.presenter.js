@@ -28,6 +28,7 @@ import {
   ToDelete,
   Border,
 } from "./DetailBoard.styles";
+import { Tooltip } from "antd";
 
 export default function DetailBoardUI(props) {
   return (
@@ -45,7 +46,12 @@ export default function DetailBoardUI(props) {
           </TitleBarLeft>
           <TitleBarRight>
             <Clip src="/image/ic_link-32px.svg" />
-            <Location src="/image/ic_location_on-32px.svg" />
+            <Tooltip
+              placement="topRight"
+              title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+            >
+              <Location src="/image/ic_location_on-32px.svg" />
+            </Tooltip>
           </TitleBarRight>
         </TitleBar>
         <Line></Line>

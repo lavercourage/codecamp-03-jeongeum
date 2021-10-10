@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.form`
   width: 100%;
   height: 1080px;
+  padding: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,17 +11,17 @@ export const Wrapper = styled.form`
 `;
 
 export const CancleDiv = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin: 80px 80px 0 80px;
   /* background-color: red; */
 `;
 
 export const Arrow = styled.img`
   width: 24px;
   height: 24px;
-  margin-left: 1736px;
+  cursor: pointer;
 `;
 
 export const Title = styled.div`

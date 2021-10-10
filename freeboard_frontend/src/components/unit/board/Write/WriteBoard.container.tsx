@@ -229,6 +229,15 @@ export default function BoardWrite(props: any) {
     if (youtube) {
       myVariables.updateBoardInput.youtubeUrl = youtube;
     }
+    if (imageUrl1) {
+      myVariables.updateBoardInput.images = imageUrl1;
+    }
+    if (imageUrl2) {
+      myVariables.updateBoardInput.images = imageUrl2;
+    }
+    if (imageUrl3) {
+      myVariables.updateBoardInput.images = imageUrl3;
+    }
 
     try {
       const result = await updateBoard({
@@ -347,8 +356,8 @@ export default function BoardWrite(props: any) {
       titleError={titleError}
       contentsError={contentsError}
       onChangeYoutube={onChangeYoutube}
-      onChangeAddressDetail={onChangeAddressDetail}
       onClickAddressSearch={onClickAddressSearch}
+      onChangeAddressDetail={onChangeAddressDetail}
       onCompleteAddressSearch={onCompleteAddressSearch}
       onClickEdit={onClickEdit}
       onClickCancel={onClickCancel}

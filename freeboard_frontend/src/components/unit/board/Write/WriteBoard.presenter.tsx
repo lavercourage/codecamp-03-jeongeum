@@ -37,12 +37,15 @@ import {
   SubmitCancle,
   Error,
 } from "./WriteBoard.styles";
+import { Modal } from "antd";
+import DaumPostcode from "react-daum-postcode";
 
-export default function BoardWriteUI(props) {
+export default function BoardWriteUI(props: any) {
   // const fileRef = useRef<HTMLTextAreaElement>();
   // function onClickTextArea() {
   //   textRef.current.focus();
   // }
+
   return (
     <Wrapper>
       <Title>{props.isEdit ? "게시물 수정" : "게시물 등록"}</Title>
@@ -58,6 +61,7 @@ export default function BoardWriteUI(props) {
             placeholder="이름을 적어주세요."
             onChange={props.onChangeWriter}
             defaultValue={props.data?.fetchBoard.writer}
+            readOnly={Boolean(props.data?.fetchBoard.writer)}
           />
           <Error>{props.writerError}</Error>
         </SecLeft>
@@ -87,7 +91,7 @@ export default function BoardWriteUI(props) {
         <Label>내용</Label>
         <Substance
           // name="substance"
-          type="text"
+          // type="text"
           placeholder="내용을 작성해주세요."
           onChange={props.onChangeContents}
           defaultValue={props.data?.fetchBoard.contents}
@@ -98,16 +102,38 @@ export default function BoardWriteUI(props) {
         <Label>주소</Label>
         <Address>
           <Address1>
-            <Postnum name="postnum" type="text" placeholder="07250" />
-            {/* onChange={onChangePostNumber} */}
-            <Button>우편번호 검색</Button>
-            {/* onClick={onClickPostNumber}  */}
+            <Postnum
+              name="zipcode"
+              type="text"
+              placeholder="07250"
+              readOnly
+              value={
+                props.zipcode || props.data?.fetchBoard.boardAddress?.zipcode
+              }
+            />
+            <Button onClick={props.onClickAddressSearch}>우편번호 검색</Button>
           </Address1>
           {/* <Coreect>{postNumberCorrect}</Coreect>
                     <Error>{postNumberError}</Error> */}
-          <Address2 name="address2" type="text" placeholder="" />
-          <Address2 name="address3" type="text" placeholder="" />
+          <Address2
+            readOnly
+            value={
+              props.address || props.data?.fetchBoard.boardAddress?.address
+            }
+          />
+          <Address2
+            onChange={props.onChangeAddressDetail}
+            defaultValue={props.data?.fetchBoard.boardAddress?.addressDetail}
+          />
         </Address>
+        {props.isOpen && (
+          <Modal visible={true}>
+            <DaumPostcode
+              onComplete={props.onCompleteAddressSearch}
+              autoClose
+            />
+          </Modal>
+        )}
       </Section4>
       <Section5>
         <Label>유튜브</Label>
@@ -133,12 +159,13 @@ export default function BoardWriteUI(props) {
             ref={props.fileRef1}
             type="file"
             onChange={props.onChangeImageFile1}
+            // defaultValue={props.data?.fetchBoard.images}
           />
 
           {!props.isPreview && (
             <InputImage
               src={`https://storage.googleapis.com/${props?.imageUrl1}`}
-              // onChange={props.onClickImageUpload1}
+              onChange={props.onClickImageUpload1}
             />
           )}
 
@@ -152,6 +179,7 @@ export default function BoardWriteUI(props) {
             ref={props.fileRef2}
             type="file"
             onChange={props.onChangeImageFile2}
+            // defaultValue={props.data?.fetchBoard.images}
           />
           {!props.isPreview2 && (
             <InputImage
@@ -170,6 +198,7 @@ export default function BoardWriteUI(props) {
             ref={props.fileRef3}
             type="file"
             onChange={props.onChangeImageFile3}
+            // defaultValue={props.data?.fetchBoard.images}
           />
           {!props.isPreview3 && (
             <InputImage
@@ -212,7 +241,7 @@ export default function BoardWriteUI(props) {
           </SubmitCancle>
         )}
         {props.isEdit && (
-          <Submit onClick={props.onClickEdit} isActive={props.isActive}>
+          <Submit onClick={props.onClickEdit} isActive={true}>
             수정하기
           </Submit>
         )}

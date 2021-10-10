@@ -7,8 +7,8 @@ import { useState } from "react";
 export default function ListBoard() {
   const router = useRouter();
   const [startPage, setStartPage] = useState(1);
-  const [activePage, setActivePage] = useState(1);
   const [keyword, setKeyword] = useState("");
+  const [activePage, setActivePage] = useState(1);
 
   const { data, refetch } = useQuery(FETCH_BOARDS, {
     variables: { page: startPage, search: keyword },
@@ -39,7 +39,8 @@ export default function ListBoard() {
   }
 
   function onClickMoveToDetailBoard(event: any) {
-    router.push(`/boards/${event.currentTarget.id}`);
+    router.push(`/boards/${event.target.id}`);
+    // router.push(`/boards/${event.currentTarget.id}`);
   }
 
   function onClickMoveToCreateBoard() {
@@ -59,10 +60,13 @@ export default function ListBoard() {
       onClickBeforePage={onClickBeforePage}
       onClickNextPage={onClickNextPage}
       startPage={startPage}
+      setStartPage={setStartPage}
       lastPage={lastPage}
       activePage={activePage}
       refetch={refetch}
       onChangeKeyword={onChangeKeyword}
+      keyword={keyword}
+      count={dataBoardsCountano?.fetchBoardsCount}
     />
   );
 }

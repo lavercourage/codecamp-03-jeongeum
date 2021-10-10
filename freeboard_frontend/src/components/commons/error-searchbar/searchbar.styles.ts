@@ -6,6 +6,8 @@ export const SearchBar = styled.div`
   height: 52px;
   border-radius: 16px;
   background-color: #f2f2f2;
+  margin-top: 80px;
+  margin-right: 424px;
   padding: 0 20px;
   display: flex;
   align-items: center;

@@ -44,7 +44,26 @@ export const SignIn = styled.button`
   cursor: pointer;
 `;
 
+export const LoggeedIn = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const UserInfo = styled.div`
   font-size: 16px;
-  color: red;
+  margin: 0px 10px;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+`;
+
+export const LogOut = styled.button`
+  width: 90px;
+  height: 45px;
+  margin: 0px 10px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
 `;

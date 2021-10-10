@@ -1,6 +1,7 @@
 import UserDataInputBar from "../../../commons/inputs/userdatainput";
 import RegisterButton from "../../../commons/buttons/registerbutton";
 import { Wrapper, CancleDiv, Arrow, Title } from "./SignInBoard.styles";
+import { Modal, Button } from "antd";
 
 export default function SignInBoardUI(props: any) {
   return (
@@ -8,7 +9,10 @@ export default function SignInBoardUI(props: any) {
       <Wrapper onSubmit={props.handleSubmit(props.onClickSignIn)}>
         {/* CancleDiv에 onClick기능 줘야함 */}
         <CancleDiv>
-          <Arrow src="/image/board/login/ic_cancel.svg" />
+          <Arrow
+            src="/image/board/login/ic_cancel.svg"
+            onClick={props.onClickCancle}
+          />
         </CancleDiv>
         <Title>회원가입</Title>
         <UserDataInputBar
@@ -46,6 +50,23 @@ export default function SignInBoardUI(props: any) {
           type="submit"
           isValid={props.formState.isValid}
         />
+        {/* {props.isActive && (
+          <>
+            <Modal
+              title="Basic Modal"
+              visible={props.isModalVisible}
+              onOk={props.handleOk}
+              onCancel={props.handleCancel}
+            >
+              회원가입을 축하합니다!
+              <br />
+              로그인 후 이용해주세요!
+            </Modal>
+            <Button type="primary" onClick={props.showModal}>
+              Open Modal
+            </Button>
+          </>
+        )} */}
       </Wrapper>
     </>
   );

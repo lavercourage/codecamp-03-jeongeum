@@ -80,11 +80,12 @@ export default function LoginBoard() {
           // 서로 이름이 같을 때는 뒷 내용 생략가능
         },
       });
-      // router.push(`/boards/list-board`);
       console.log(result.data?.loginUser.accessToken);
       localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
       globalState?.setAccessToken(result.data?.loginUser.accessToken);
+      router.push(`/boards/list-board`);
       alert(data?.fetchUserLoggedIn.name + " 환영합니다");
+      setIsActive(true);
     } catch (error) {
       console.log(error);
     }
