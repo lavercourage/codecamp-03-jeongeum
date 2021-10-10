@@ -16,4 +16,9 @@ export const schema = yup.object().shape({
     .min(4, "비밀번호는 최소 4자리 이상입니다.")
     .max(15, "비밀번호는 최대 15자리까지 입니다.")
     .required("비밀번호는 필수 입력입니다."),
+  MyPasswordCheck: yup
+    .string()
+    .min(4, "비밀번호는 최소 4자리 이상입니다.")
+    .max(15, "비밀번호는 최대 15자리까지 입니다.")
+    .required("비밀번호는 필수 입력입니다."),
 });

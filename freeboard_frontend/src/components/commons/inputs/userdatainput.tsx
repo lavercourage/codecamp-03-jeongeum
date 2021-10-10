@@ -34,11 +34,12 @@ const InputBar = styled.input`
 const ErrorMessage = styled.div`
   color: #ff0000;
   font-size: 14px;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-left: 16px;
 `;
 
 export default function UserDataInputBar(props: any) {
+  console.log(props);
   return (
     <Wrapper>
       <Title>{props.title}</Title>
@@ -47,7 +48,7 @@ export default function UserDataInputBar(props: any) {
         {...props.register}
         placeholder={props.placeholder}
       />
-      {/* <ErrorMessage>{props.formState.errors.myEmail?.message}</ErrorMessage> */}
+      <ErrorMessage>{props.error}</ErrorMessage>
     </Wrapper>
   );
 }

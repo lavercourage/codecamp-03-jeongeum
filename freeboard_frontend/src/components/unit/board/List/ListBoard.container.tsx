@@ -46,7 +46,7 @@ export default function ListBoard() {
     router.push(`/boards/create-board/`);
   }
 
-  function onChangeKeyword(value) {
+  function onChangeKeyword(value: any) {
     setKeyword(value);
   }
 

@@ -12,6 +12,7 @@ export default function LoginBoard() {
   // LOGIN_BOARD를 실행시키는 함수 명은 loginUser
 
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
+  console.log(data);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

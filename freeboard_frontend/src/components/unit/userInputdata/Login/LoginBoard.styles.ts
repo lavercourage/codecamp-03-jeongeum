@@ -14,7 +14,7 @@ export const ArrowDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin: 80px 80px 0 80px;
+  padding: 80px 80px 0 80px;
 `;
 
 export const Arrow = styled.img`

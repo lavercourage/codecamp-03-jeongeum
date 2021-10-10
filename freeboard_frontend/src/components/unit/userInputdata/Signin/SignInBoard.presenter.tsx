@@ -1,12 +1,6 @@
 import UserDataInputBar from "../../../commons/inputs/userdatainput";
 import RegisterButton from "../../../commons/buttons/registerbutton";
-import {
-  Wrapper,
-  CancleDiv,
-  Arrow,
-  Title,
-  ErrorMessage,
-} from "./SignInBoard.styles";
+import { Wrapper, CancleDiv, Arrow, Title } from "./SignInBoard.styles";
 
 export default function SignInBoardUI(props: any) {
   return (
@@ -22,33 +16,31 @@ export default function SignInBoardUI(props: any) {
           type="text"
           register={props.register("MyEmail")}
           placeholder="이메일을 입력해주세요."
+          error={props.formState.errors.MyEmail?.message}
+          // error={props.formState?.errors?.MyEmail?.message}
         />
-        <ErrorMessage>{props.formState.errors.MyEmail?.message}</ErrorMessage>
+        {/* <ErrorMessage>{props.formState.errors.MyEmail?.message}</ErrorMessage> */}
         <UserDataInputBar
           title="이름"
           type="text"
           register={props.register("MyName")}
           placeholder="이름을 입력해주세요."
+          error={props.formState.errors.MyName?.message}
         />
-        <ErrorMessage>{props.formState.errors.MyName?.message}</ErrorMessage>
         <UserDataInputBar
           title="비밀번호"
           type="password"
           register={props.register("MyPassword")}
           placeholder="비밀번호는 필수 입력입니다."
+          error={props.formState.errors.MyPassword?.message}
         />
-        <ErrorMessage>
-          {props.formState.errors.MyPassword?.message}
-        </ErrorMessage>
         <UserDataInputBar
           title="비밀번호"
           type="password"
-          register={props.register("MyPassword")}
+          register={props.register("MyPasswordCheck")}
           placeholder="비밀번호는 필수 입력입니다."
+          error={props.formState.errors.MyPasswordCheck?.message}
         />
-        <ErrorMessage>
-          {props.formState.errors.MyPassword?.message}
-        </ErrorMessage>
         <RegisterButton
           name="회원가입하기"
           type="submit"

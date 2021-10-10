@@ -24,10 +24,10 @@ import { v4 as uuidv4 } from "uuid";
 export default function ListBoardUI(props: any) {
   return (
     <>
-      <SearchBarBoard
+      {/* <SearchBarBoard
         refech={props.refetch}
         onChangeKeyword={props.onChangeKeyword}
-      />
+      /> */}
       <List>
         <Row2>
           <Number>번호</Number>
@@ -48,7 +48,7 @@ export default function ListBoardUI(props: any) {
               {el.title
                 .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
                 .split("@#$%")
-                .map((el) => (
+                .map((el: any) => (
                   <TextToken key={uuidv4()} isMatched={props.keyword === el}>
                     {el}
                   </TextToken>

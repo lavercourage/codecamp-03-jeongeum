@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import LayoutHeaderUI from "./LayoutHeder.presenter";
-import { FETCH_USER_LOGGED_IN } from "../../../../../src/components/unit/userdata/Login/LoginBoard.queries";
+import { FETCH_USER_LOGGED_IN } from "../../../unit/userInputdata/Login/LoginBoard.queries";
 
 export default function LayoutHeader() {
   const { data } = useQuery(FETCH_USER_LOGGED_IN);

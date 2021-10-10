@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   width: 100%;
   height: 1080px;
   display: flex;
@@ -29,12 +29,4 @@ export const Title = styled.div`
   color: #ffffff;
   margin-top: 60px;
   margin-bottom: 20px;
-`;
-
-export const ErrorMessage = styled.div`
-  width: 384px;
-  color: #ff0000;
-  font-size: 14px;
-  margin-top: 8px;
-  padding-left: 16px;
 `;
