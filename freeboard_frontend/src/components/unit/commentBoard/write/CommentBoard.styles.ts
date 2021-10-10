@@ -1,6 +1,4 @@
-// import { Rate } from "antd";
-
-// export const Star = styled(Rate)``;
+import { Rate } from "antd";
 
 import styled from "@emotion/styled";
 
@@ -11,17 +9,14 @@ export const Page = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  margin: 87px;
+  margin-top: 40px;
   width: 1200px;
 `;
-export const Border = styled.div`
-  width: 1200px;
-  border-top: 1px solid #bdbdbd;
-`;
+
 export const TopTitle = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 `;
 export const CommentIcon = styled.img`
   width: 20px;
@@ -55,12 +50,16 @@ export const Password = styled.input`
   border: 1px solid #bdbdbd;
 `;
 
+export const Star = styled(Rate)`
+  margin-left: 30px;
+`;
+
 export const BottomTitle = styled.div`
   box-sizing: border-box;
   width: 1200px;
   height: 161px;
   margin-top: 20px;
-  border: 1px solid red;
+  border: 1px solid #bdbdbd;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -74,7 +73,7 @@ export const Content = styled.textarea`
   font-size: 16px;
   padding-left: 20px;
   padding: 20px 20px 0px 20px;
-  border: 1px solid #bdbdbd;
+  border: none;
   border-bottom: 1px solid #f2f2f2;
   z-index: -1;
   :focus {
@@ -104,7 +103,6 @@ export const Button = styled.button`
   height: 51px;
   border: none;
   font-size: 16px;
-  color: white;
-  background-color: ${(props) =>
-    props.isEdit === true ? "#ffd600" : "#000000"};
+  color: ${(props: any) => (props.isEdit ? "#000000" : "#ffffff")};
+  background-color: ${(props: any) => (props.isEdit ? "#ffd600" : "#000000")};
 `;

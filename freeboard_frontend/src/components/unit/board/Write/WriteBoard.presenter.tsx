@@ -78,7 +78,7 @@ export default function BoardWriteUI(props) {
           // name="topic"
           type="text"
           placeholder="제목을 작성해주세요."
-          onChange={props.onChangeLabel}
+          onChange={props.onChangeTitle}
           defaultValue={props.data?.fetchBoard.title}
         />
         <Error>{props.titleError}</Error>
@@ -89,10 +89,10 @@ export default function BoardWriteUI(props) {
           // name="substance"
           type="text"
           placeholder="내용을 작성해주세요."
-          onChange={props.onChangeSubstance}
+          onChange={props.onChangeContents}
           defaultValue={props.data?.fetchBoard.contents}
         />
-        <Error>{props.substanceError}</Error>
+        <Error>{props.contentsError}</Error>
       </Section3>
       <Section4>
         <Label>주소</Label>

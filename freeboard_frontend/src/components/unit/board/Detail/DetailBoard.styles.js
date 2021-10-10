@@ -161,3 +161,9 @@ export const ToDelete = styled.button`
   padding: 0;
   cursor: pointer;
 `;
+
+export const Border = styled.div`
+  width: 1200px;
+  border-top: 1px solid #bdbdbd;
+  margin-top: 90px;
+`;

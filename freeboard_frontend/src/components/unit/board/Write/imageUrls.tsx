@@ -1,4 +1,4 @@
-import BoardWriteUI from "./WriteBoard.presenter";
+import BoardWriteUI from "./WriteBoard.presenter.tsx";
 import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./WriteBoard.queries";

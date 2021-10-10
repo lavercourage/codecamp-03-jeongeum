@@ -26,6 +26,7 @@ import {
   ToList,
   ToEdit,
   ToDelete,
+  Border,
 } from "./DetailBoard.styles";
 
 export default function DetailBoardUI(props) {
@@ -84,6 +85,7 @@ export default function DetailBoardUI(props) {
         <ToDelete onClick={props.onClickMoveToDelete}>삭제하기</ToDelete>
         {/* onClick={onClickToDelete} */}
       </ThreeButton>
+      <Border />
     </Page>
   );
 }

@@ -7,23 +7,28 @@ import { useRouter } from "next/router";
 
 export default function BoardWrite(props: any) {
   const router = useRouter();
+  const [isActive, setIsActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
-  const [substance, setSubstance] = useState("");
+  const [contents, setContents] = useState("");
+
   const [youtube, setYoutube] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [address, setAddress] = useState("");
+  const [addressDetail, setAddressDetail] = useState("");
 
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [titleError, setTitleError] = useState("");
-  const [substanceError, setSubstanceError] = useState("");
+  const [contentsError, setContentsError] = useState("");
 
+  // 이미지 최적화 전 이미지 업로드 영역 시작
   const [isPreview, setIsPreview] = useState(true);
   const [isPreview2, setIsPreview2] = useState(true);
   const [isPreview3, setIsPreview3] = useState(true);
-
-  const [isActive, setIsActive] = useState(false);
 
   const [imageUrl1, setImageUrl1] = useState("");
   const [imageUrl2, setImageUrl2] = useState("");
@@ -32,8 +37,9 @@ export default function BoardWrite(props: any) {
   const fileRef1 = useRef();
   const fileRef2 = useRef();
   const fileRef3 = useRef();
+  // 이미지 최적화 전 이미지 업로드 영역 시작
 
-  const [makeBoard] = useMutation(CREATE_BOARD);
+  const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
@@ -46,7 +52,7 @@ export default function BoardWrite(props: any) {
       event.target.value !== "" &&
       password !== "" &&
       title !== "" &&
-      substance !== ""
+      contents !== ""
     ) {
       setIsActive(true);
     } else {
@@ -63,7 +69,7 @@ export default function BoardWrite(props: any) {
       writer !== "" &&
       event.target.value !== "" &&
       title !== "" &&
-      substance !== ""
+      contents !== ""
     ) {
       setIsActive(true);
     } else {
@@ -71,7 +77,7 @@ export default function BoardWrite(props: any) {
     }
   }
 
-  function onChangeLabel(event: any) {
+  function onChangeTitle(event: any) {
     setTitle(event.target.value);
     if (event.target.value) {
       setTitleError("");
@@ -80,7 +86,7 @@ export default function BoardWrite(props: any) {
       writer !== "" &&
       password !== "" &&
       event.target.value !== "" &&
-      substance !== ""
+      contents !== ""
     ) {
       setIsActive(true);
     } else {
@@ -88,10 +94,10 @@ export default function BoardWrite(props: any) {
     }
   }
 
-  function onChangeSubstance(event: any) {
-    setSubstance(event.target.value);
+  function onChangeContents(event: any) {
+    setContents(event.target.value);
     if (event.target.value) {
-      setSubstanceError("");
+      setContentsError("");
     }
     if (
       writer !== "" &&
@@ -105,6 +111,24 @@ export default function BoardWrite(props: any) {
     }
   }
 
+  function onChangeYoutube(event: any) {
+    setYoutube(event.target.value);
+  }
+
+  function onChangeAddressDetail(event: any) {
+    setAddressDetail(event.target.value);
+  }
+
+  function onClickAddressSearch() {
+    setIsOpen(true);
+  }
+
+  function onCompleteAddressSearch(data: any) {
+    setAddress(data.address);
+    setZipcode(data.zonecode);
+    setIsOpen(false);
+  }
+
   async function onClickSubmit() {
     if (writer === "") {
       setWriterError("작성자를 입력해주세요!");
@@ -115,21 +139,26 @@ export default function BoardWrite(props: any) {
     if (title === "") {
       setTitleError("제목을 입력해주세요!");
     }
-    if (substance === "") {
-      setSubstanceError("내용을 입력해주세요!");
+    if (contents === "") {
+      setContentsError("내용을 입력해주세요!");
     }
-    if (writer !== "" && password !== "" && title !== "" && substance !== "") {
+    if (writer !== "" && password !== "" && title !== "" && contents !== "") {
       alert("게시물을 등록합니다!");
     }
     try {
-      const result = await makeBoard({
+      const result = await createBoard({
         variables: {
           createBoardInput: {
             writer: writer,
             password: password,
             title: title,
-            contents: substance,
+            contents: contents,
             youtubeUrl: youtube,
+            boardAddress: {
+              zipcode: zipcode,
+              address: address,
+              addressDetail: addressDetail,
+            },
             images: [imageUrl1, imageUrl2, imageUrl3],
           },
         },
@@ -146,7 +175,37 @@ export default function BoardWrite(props: any) {
       console.log(error);
     }
   }
-  // function onClickSubmit() {} 버튼을 발동하는 if조건문이 있다. 그리고 useMutation을 하기 위한 makeBoard 내용?이 있음 걍 같이 쓰면 됨..
+
+  //////////////////////////////////////////////////
+  // async function onClickSubmit() {
+  //   if (writer === "") {
+  //     setWriterError("작성자를 입력해주세요.");
+  //   }
+  //   if (password === "") {
+  //     setPasswordError("비밀번호를 입력해주세요.");
+  //   }
+  //   if (title === "") {
+  //     setTitleError("제목을 입력해주세요.");
+  //   }
+  //   if (contents === "") {
+  //     setContentsError("내용을 입력해주세요.");
+  //   }
+  //   if (writer !== "" && password !== "" && title !== "" && contents !== "") {
+  //     try {
+  //       const result = await createBoard({
+  //         variables: {
+  //           createBoardInput: mycreateBoardInput,
+  //         },
+  //       });
+  //       router.push(`/boards/${result.data.createBoard._id}`);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // }
+  //////////////////////////////////////////////////
+
+  // function onClickSubmit() {} 버튼을 발동하는 if조건문이 있다. 그리고 useMutation을 하기 위한 createBoard 내용?이 있음 걍 같이 쓰면 됨..
   // 왼쪽 writer는 playground에서 확인하는 createBoard(createBoardInput:CreateBoardInput!):Board! 의 CreateBoardInput! 안에 들어있는 writer:String password:String title:String! 이런 내용의 형태? 항목임
   // const = [state, setState] = useState("") state: 변수명 / useState: 변수를 바꿔주는 도구 / useState(""): 초기값
   // 오른쪽의 writer는 const의 변수명
@@ -156,26 +215,27 @@ export default function BoardWrite(props: any) {
   // }
 
   async function onClickEdit() {
-    try {
-      const myVariables = {
-        boardId: router.query.secondpage,
-        password: password,
-        updateBoardInput: {},
-      };
-      if (title) {
-        myVariables.updateBoardInput.title = title;
-      }
-      if (substance) {
-        myVariables.updateBoardInput.contents = substance;
-      }
-      if (youtube) {
-        myVariables.updateBoardInput.youtubeUrl = youtube;
-      }
+    const myVariables = {
+      boardId: router.query.secondpage,
+      password: password,
+      updateBoardInput: {},
+    };
+    if (title) {
+      myVariables.updateBoardInput.title = title;
+    }
+    if (contents) {
+      myVariables.updateBoardInput.contents = contents;
+    }
+    if (youtube) {
+      myVariables.updateBoardInput.youtubeUrl = youtube;
+    }
 
-      await updateBoard({
+    try {
+      const result = await updateBoard({
         variables: myVariables,
       });
-      router.push(`/boards/${router.query.secondpage}`);
+      router.push(`/boards/${result.data.updateBoard._id}`);
+      // router.push(`/boards/${router.query.secondpage}`);
     } catch (error) {
       console.log(error);
       alert(error.message);
@@ -185,10 +245,6 @@ export default function BoardWrite(props: any) {
   function onClickCancel() {
     router.push(`/boards/${router.query.secondpage}`);
     // router.push(`/boards/list-board`);
-  }
-
-  function onChangeYoutube(event) {
-    setYoutube(event.target.value);
   }
 
   async function onChangeImageFile1(event) {
@@ -220,7 +276,7 @@ export default function BoardWrite(props: any) {
     fileRef1.current?.click();
   }
 
-  async function onChangeImageFile2(event) {
+  async function onChangeImageFile2(event: any) {
     const myFile = event.target.files[0];
     console.log(myFile);
     if (!myFile) {
@@ -283,13 +339,17 @@ export default function BoardWrite(props: any) {
       isEdit={props.isEdit}
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
-      onChangeLabel={onChangeLabel}
-      onChangeSubstance={onChangeSubstance}
+      onChangeTitle={onChangeTitle}
+      onChangeContents={onChangeContents}
       onClickSubmit={onClickSubmit}
       writerError={writerError}
       passwordError={passwordError}
       titleError={titleError}
-      substanceError={substanceError}
+      contentsError={contentsError}
+      onChangeYoutube={onChangeYoutube}
+      onChangeAddressDetail={onChangeAddressDetail}
+      onClickAddressSearch={onClickAddressSearch}
+      onCompleteAddressSearch={onCompleteAddressSearch}
       onClickEdit={onClickEdit}
       onClickCancel={onClickCancel}
       // 키 = {값 함수}
@@ -297,9 +357,10 @@ export default function BoardWrite(props: any) {
       // 앞 명칭과 뒤 명칭 알아놓기
       // 에러에 해당하는 부분
       isActive={isActive}
-      data={props.data}
+      isOpen={isOpen}
       // 이 데이터는 수정페이지에서 받아오는 데이터
-      onChangeYoutube={onChangeYoutube}
+      data={props.data}
+      //이미지 업로드
       onChangeImageFile1={onChangeImageFile1}
       onClickImageUpload1={onClickImageUpload1}
       onChangeImageFile2={onChangeImageFile2}

@@ -1,12 +1,14 @@
 // 디테일페이지
 import DetailBoard from "../../../src/components/unit/board/Detail/DetailBoard.container";
 import CommentBoard from "../../../src/components/unit/commentBoard/write/CommentBoard.container";
+import BoardCommentList from "../../../src/components/unit/commentBoard/list/CommentListBoard.container";
 
 export default function BoardDetailPage() {
   return (
     <>
       <DetailBoard />
       <CommentBoard />
+      <BoardCommentList />
     </>
   );
 }
