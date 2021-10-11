@@ -19,7 +19,7 @@ import {
   Page,
 } from "./ListBoard.styles";
 // import Searchbars01 from "../../../commons/searchbars/Searchbars01.container";
-import SearchBarBoard from "../../../commons/error-searchbar/searchbar.container";
+import SearchBarBoard from "../../../commons/searchbar/searchbar.container";
 import { v4 as uuidv4 } from "uuid";
 
 export default function ListBoardUI(props: any) {

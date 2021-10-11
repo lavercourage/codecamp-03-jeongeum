@@ -60,6 +60,7 @@ export const Content = styled.div`
   width: 996px;
   margin-top: 40px;
   font-size: 16px;
+  word-wrap: break-word;
 `;
 export const ProfileImg = styled.img`
   width: 48px;

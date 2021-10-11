@@ -21,7 +21,7 @@ export default function MarketCreateBoard(props: any) {
   });
 
   const onClickCancle = () => {
-    router.push("/");
+    router.push(`/`);
     // 취소버튼 눌렀을 때, 걍 완전 메인페이지 이동
   };
 
@@ -50,7 +50,7 @@ export default function MarketCreateBoard(props: any) {
       console.log(data);
       alert("success");
       // router.push(`/market/${result.data.createUseditem._id}`);
-      // router.push("./login");
+      // router.push(`./login`);
     } catch (error) {
       console.log(error.message);
     }
