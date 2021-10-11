@@ -244,7 +244,7 @@ export default function BoardWrite(props: any) {
         variables: myVariables,
       });
       router.push(`/boards/${result.data.updateBoard._id}`);
-      // router.push(`/boards/${router.query.secondpage}`);
+      // router.push(`/boards/${router.query.marketpage}`);
     } catch (error) {
       console.log(error);
       alert(error.message);

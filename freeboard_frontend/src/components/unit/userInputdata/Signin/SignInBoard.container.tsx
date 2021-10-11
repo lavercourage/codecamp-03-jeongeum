@@ -12,7 +12,10 @@ export default function SignInBoard() {
   const [isActive, setIsActive] = useState(false);
   const [createUser] = useMutation(CREATE_USER);
   const { handleSubmit, register, formState } = useForm({
+    // mode: "onSubmit",
+    // submit을 눌렀을 때, 검증하기
     mode: "onChange",
+    // 변경이 일어났을 때, 검증하기
     resolver: yupResolver(schema),
   });
 
@@ -37,6 +40,7 @@ export default function SignInBoard() {
       });
       setIsActive(true);
       console.log(data);
+      alert("회원가입성공!");
       // router.push("./login");
     } catch (error) {
       console.log(error.message);
@@ -51,6 +55,7 @@ export default function SignInBoard() {
       register={register}
       formState={formState}
       isActive={isActive}
+      // 모달
       // isModalVisible={isModalVisible}
       // handleOk={handleOk}
       // handleCancel={handleCancel}

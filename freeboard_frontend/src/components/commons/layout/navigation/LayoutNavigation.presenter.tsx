@@ -11,7 +11,9 @@ export default function LayoutNavigationUI(props) {
         자유게시판
       </MenuItem>
       <>|</>
-      <MenuItem>중고마켓</MenuItem>
+      <MenuItem id="/market/create-board" onClick={props.onClickNav}>
+        중고마켓
+      </MenuItem>
       <>|</>
       <MenuItem>마이페이지</MenuItem>
     </Wrapper>

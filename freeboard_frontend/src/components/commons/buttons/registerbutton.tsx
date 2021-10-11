@@ -5,12 +5,10 @@ interface IProps {
 }
 
 const SignInButton = styled.button`
-  width: 384px;
-  height: 64px;
+  width: 179px;
+  height: 52px;
   border: none;
-  margin-top: 40px;
-  border-radius: 16px;
-  font-weight: bold;
+  margin-top: 80px;
   color: ${(props: IProps) => (props.isValid ? "#000000" : "#bdbdbd")};
   background-color: ${(props: IProps) =>
     props.isValid ? "#ffd600" : "#4f4f4f"};
