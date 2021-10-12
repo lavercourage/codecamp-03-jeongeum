@@ -80,6 +80,8 @@ export default function LoginBoard() {
           // 서로 이름이 같을 때는 뒷 내용 생략가능
         },
       });
+      // result.data?.loginUser.accessToken 26-1 하게 된다면 로그인할 때 맞게 로그인 할 수 있음
+
       console.log(result.data?.loginUser.accessToken);
       localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
       globalState?.setAccessToken(result.data?.loginUser.accessToken);

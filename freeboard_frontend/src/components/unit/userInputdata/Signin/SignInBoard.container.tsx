@@ -39,10 +39,10 @@ export default function SignInBoard() {
           },
         },
       });
-      // setIsActive(true);
-      console.log(data);
-      alert("회원가입성공!");
-      // router.push("./login");
+      setIsActive(true);
+      console.log("회원가입!!: ", data);
+      // alert("회원가입성공!");
+      router.push("./logIn");
     } catch (error) {
       console.log(error.message);
     }

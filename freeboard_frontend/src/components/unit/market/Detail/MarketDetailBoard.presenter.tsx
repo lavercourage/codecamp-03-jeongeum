@@ -41,7 +41,7 @@ export default function MarketDetailBoardUI(props: any) {
           <TitleBarLeft>
             <ProfileImg src="/image/marketboard/detail/profile.svg" />
             <ProfileData>
-              <Profile>{props.data?.fetchUseditem.seller}</Profile>
+              <Profile>{props.data?.fetchUseditem.seller.name}</Profile>
               <CreateAt>
                 Date : {props.data?.fetchUseditem.createdAt.slice(0, 10)}
               </CreateAt>

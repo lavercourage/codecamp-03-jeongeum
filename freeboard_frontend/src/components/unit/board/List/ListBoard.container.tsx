@@ -39,8 +39,8 @@ export default function ListBoard() {
   }
 
   function onClickMoveToDetailBoard(event: any) {
-    router.push(`/boards/${event.target.id}`);
-    // router.push(`/boards/${event.currentTarget.id}`);
+    // router.push(`/boards/${event.target.id}`);
+    router.push(`/boards/${event.currentTarget.id}`);
   }
 
   function onClickMoveToCreateBoard() {

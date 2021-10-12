@@ -127,6 +127,7 @@ export default function BoardWrite(props: any) {
     setAddress(data.address);
     setZipcode(data.zonecode);
     setIsOpen(false);
+    console.log("주소: ", data);
   }
 
   async function onClickSubmit() {
@@ -385,6 +386,9 @@ export default function BoardWrite(props: any) {
       isPreview={isPreview}
       isPreview2={isPreview2}
       isPreview3={isPreview3}
+      zipcode={zipcode}
+      address={address}
+      addressDetail={addressDetail}
     />
   );
 }

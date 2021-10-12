@@ -45,7 +45,8 @@ export default function ListBoardUI(props: any) {
             <ColumnNumber>{index + 1}</ColumnNumber>
             {/* <ColumnTitle id={el._id}>{el.title}</ColumnTitle> */}
 
-            <ColumnTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
+            {/* onClick={props.onClickMoveToBoardDetail} */}
+            <ColumnTitle id={el._id}>
               {el.title
                 .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
                 .split("@#$%")

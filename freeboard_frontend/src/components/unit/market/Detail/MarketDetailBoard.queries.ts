@@ -12,8 +12,12 @@ export const FETCH_USED_ITEM = gql`
       tags
       images
       pickedCount
-      buyer
-      seller
+      buyer {
+        name
+      }
+      seller {
+        name
+      }
       soldAt
       createdAt
     }

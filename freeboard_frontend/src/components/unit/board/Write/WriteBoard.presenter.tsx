@@ -113,8 +113,6 @@ export default function BoardWriteUI(props: any) {
             />
             <Button onClick={props.onClickAddressSearch}>우편번호 검색</Button>
           </Address1>
-          {/* <Coreect>{postNumberCorrect}</Coreect>
-                    <Error>{postNumberError}</Error> */}
           <Address2
             readOnly
             value={

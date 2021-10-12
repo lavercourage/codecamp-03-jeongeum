@@ -8,6 +8,7 @@ export default function MarketDetailBoard() {
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.marketpage },
   });
+
   const [toggleUseditemPick] = useMutation(ITEM_PICK);
 
   const onClickPickItem = () => {
@@ -29,6 +30,8 @@ export default function MarketDetailBoard() {
   const onClickMoveToEdit = () => {
     router.push(`/market/${router.query.marketpage}/edit-board`);
   };
+
+  console.log(data);
 
   return (
     <MarketDetailBoardUI

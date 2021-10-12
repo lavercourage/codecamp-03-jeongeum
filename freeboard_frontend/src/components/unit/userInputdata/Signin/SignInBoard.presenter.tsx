@@ -1,9 +1,33 @@
 import UserDataInputBar from "../../../commons/inputs/userdatainput";
 import RegisterButton from "../../../commons/buttons/registerbutton";
 import { Wrapper, CancleDiv, Arrow, Title } from "./SignInBoard.styles";
-import { Modal, Button } from "antd";
+// import { Modal, Button } from "antd";
+import { useState } from "react";
+
+// 모달
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+
+// 모달 스타일
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 export default function SignInBoardUI(props: any) {
+  // 모달 const
+  const [open, setOpen] = React.useState(true);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <Wrapper onSubmit={props.handleSubmit(props.onClickSignIn)}>
@@ -50,19 +74,27 @@ export default function SignInBoardUI(props: any) {
           type="submit"
           isValid={props.formState.isValid}
         />
+
+        {props.isActive && (
+          <>
+            <Modal open={open} onClose={handleClose}>
+              <Box sx={style}>dd</Box>
+            </Modal>
+          </>
+        )}
         {/* {props.isActive && (
           <>
             <Modal
               title="Basic Modal"
-              visible={props.isModalVisible}
-              onOk={props.handleOk}
-              onCancel={props.handleCancel}
+              visible={isModalVisible}
+              onOk={handleOk}
+              onCancel={handleCancel}
             >
               회원가입을 축하합니다!
               <br />
               로그인 후 이용해주세요!
             </Modal>
-            <Button type="primary" onClick={props.showModal}>
+            <Button type="primary" onClick={showModal}>
               Open Modal
             </Button>
           </>

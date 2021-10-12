@@ -8,7 +8,8 @@ const SignInButton = styled.button`
   width: 179px;
   height: 52px;
   border: none;
-  margin-top: 80px;
+  /* margin-top: 80px; */
+  margin: 80px 12px 0px;
   color: ${(props: IProps) => (props.isValid ? "#000000" : "#bdbdbd")};
   background-color: ${(props: IProps) =>
     props.isValid ? "#ffd600" : "#4f4f4f"};
@@ -17,7 +18,11 @@ const SignInButton = styled.button`
 
 export default function RegisterButton(props: any) {
   return (
-    <SignInButton type={props.type} isValid={props.isValid}>
+    <SignInButton
+      type={props.type}
+      isValid={props.isValid}
+      onClick={props.onClick}
+    >
       {props.name}
     </SignInButton>
   );

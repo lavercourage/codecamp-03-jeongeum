@@ -20,6 +20,7 @@ export type IGlobalContext = {
   userInfo: any;
   setUserInfo: any;
 } | null;
+
 export const GlobalContext = createContext<IGlobalContext>(null);
 
 function MyApp({ Component, pageProps }: AppProps) {

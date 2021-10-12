@@ -104,9 +104,12 @@ export default function MarketCreateBoardUI(props: any) {
           </MainSetting>
           <Button>
             {props.isEdit && (
-              <CancleButton onClick={props.onClickCancle}>
-                취소하기
-              </CancleButton>
+              <RegisterButton
+                name="목록으로"
+                type="button"
+                onClick={props.onClickCancle}
+                isValid={true}
+              />
             )}
             <RegisterButton
               name={props.isEdit ? "수정하기" : "등록하기"}

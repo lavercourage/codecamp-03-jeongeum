@@ -136,6 +136,7 @@ export const Address2 = styled.input`
   height: 52px;
   margin-top: 16px;
   padding-left: 16px;
+  color: #000000;
   font-size: 16px;
   border: 1px solid #bdbdbd;
   ::-webkit-input-placeholder {
