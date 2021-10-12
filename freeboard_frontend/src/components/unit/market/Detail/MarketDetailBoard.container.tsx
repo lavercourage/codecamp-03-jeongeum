@@ -10,7 +10,7 @@ export default function MarketDetailBoard() {
   });
   const [toggleUseditemPick] = useMutation(ITEM_PICK);
 
-  function onClickPickItem() {
+  const onClickPickItem = () => {
     toggleUseditemPick({
       variables: { useditemId: router.query.marketpage },
       refetchQueries: [
@@ -20,7 +20,7 @@ export default function MarketDetailBoard() {
         },
       ],
     });
-  }
+  };
 
   const onClickMoveToList = () => {
     router.push(`/market/list-board`);

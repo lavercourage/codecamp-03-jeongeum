@@ -41,12 +41,9 @@ export default function MarketDetailBoardUI(props: any) {
           <TitleBarLeft>
             <ProfileImg src="/image/marketboard/detail/profile.svg" />
             <ProfileData>
-              <Profile>
-                {props.data?.fetchUseditem.seller}하드코딩 판매자
-              </Profile>
+              <Profile>{props.data?.fetchUseditem.seller}</Profile>
               <CreateAt>
-                Date : {props.data?.fetchUseditem.createdAt.slice(0, 10)}{" "}
-                하드코딩 (2021.10.12) 내용없애기
+                Date : {props.data?.fetchUseditem.createdAt.slice(0, 10)}
               </CreateAt>
             </ProfileData>
           </TitleBarLeft>
@@ -64,22 +61,18 @@ export default function MarketDetailBoardUI(props: any) {
         <Border />
         <ContentBar>
           <ContentLeft>
-            <OneWrite>
-              {props.data?.fetchUseditem.remarks}하드코딩 한줄요약
-            </OneWrite>
-            <Product>{props.data?.fetchUseditem.name}하드코딩 상품명</Product>
+            <OneWrite>{props.data?.fetchUseditem.remarks}</OneWrite>
+            <Product>{props.data?.fetchUseditem.name}</Product>
           </ContentLeft>
           <ContentRight>
             <PickItemIcon onClick={props.onClickPickItem} />
             {/* 이건 하트 아이콘 */}
             <PickItemCount>
-              {props.data?.fetchUseditem.pickedCount}하코20
+              {props.data?.fetchUseditem.pickedCount}
             </PickItemCount>
           </ContentRight>
         </ContentBar>
-        <ProducPrice>
-          {props.data?.fetchUseditem.price}하드코딩 10,000원
-        </ProducPrice>
+        <ProducPrice>{props.data?.fetchUseditem.price}</ProducPrice>
         <SlideImgContent>
           <SlideImg>슬라이드캐러셀궁시렁</SlideImg>
           <Aaa>
@@ -89,14 +82,8 @@ export default function MarketDetailBoardUI(props: any) {
             <ThumbnailImg>썸네일</ThumbnailImg>
           </Aaa>
         </SlideImgContent>
-        <ContentsBox>
-          {props.data?.fetchUseditem.contents}
-          sdfdsfssdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafsdfdsfsafaf
-        </ContentsBox>
-        <TagContent>
-          {props.data?.fetchUseditem.tags} 하드코딩 #가나다 #나라라 #나라라
-          #나라라 하드코딩
-        </TagContent>
+        <ContentsBox>{props.data?.fetchUseditem.contents}</ContentsBox>
+        <TagContent>{props.data?.fetchUseditem.tags}</TagContent>
         <Border />
         <Map>지도api아마도</Map>
         <BottomButton>

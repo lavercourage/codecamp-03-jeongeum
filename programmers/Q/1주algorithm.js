@@ -8,7 +8,6 @@
 // name = "철수"
 // console.log(name)
 
-
 // // 2.배열
 // // 3)배열의 선언과 할당
 // fruits = ["사과", "바나나", "파인애플"]
@@ -34,7 +33,6 @@
 // arr.push(number.slice(3,7))
 // arr.push(number.slice(7,11))
 // let arr = [number.slice(0,3), number.slice(3,7), number.slice(7,11)]
-
 
 // // 3.객체
 // // 8)객체의 선언과 할당
@@ -79,7 +77,6 @@
 //     }
 // ]
 // classmate[1].school = "다람쥐초등학교"
-
 
 // // 6.조건문
 // // 18.조건문 연습(2가지 코드 작성)
@@ -139,115 +136,100 @@
 // }
 
 // 23.숫자더하기
-function sum(num){
-    let count = 0;
-    for (let i = 0; i <= num; i++){
-        count = count + i;
-    }
-    console.log("count")
+function sum(num) {
+  let count = 0;
+  for (let i = 0; i <= num; i++) {
+    count = count + i;
+  }
+  console.log("count");
 }
 
-
-
 //001
-let name = "정음"
-console.log(name)
-> 정음
+let name = "정음";
+console.log(name) > 정음;
 
 //002
-let name = "영희"
-console.log(name)
-> 영희
+let name = "영희";
+console.log(name) > 영희;
 
-let name = "철수"
-console.log(name)
-> 철수
+let name = "철수";
+console.log(name) > 철수;
 
 //003
-let fruits = ["사과", "바나나", "파인애플"]
-console.log(fruits)
-> ["사과", "바나나", "파인애플"]
+let fruits = ["사과", "바나나", "파인애플"];
+console.log(fruits) > ["사과", "바나나", "파인애플"];
 
 //004
-let fruits = ["사과", "바나나", "파인애플"]
-
-
-
-
+let fruits = ["사과", "바나나", "파인애플"];
 
 // 조건문 : 점수에 따른 등급
-function grade(score){
-    if (score > 100 || score < 0){
-        console.log("잘못된 점수입니다")
-    } else if (score >= 90 && score <= 100){
-        console.log("A")
-    } else if (score >= 80 && score <= 89){
-        console.log("B")
-    } else if (score >= 70 && score <= 79){
-        console.log("C")
-    } else if (score >= 60 && score <= 69){
-        console.log("D")
-    } else {
-        console.log("F")
-    }
-};
-
+function grade(score) {
+  if (score > 100 || score < 0) {
+    console.log("잘못된 점수입니다");
+  } else if (score >= 90 && score <= 100) {
+    console.log("A");
+  } else if (score >= 80 && score <= 89) {
+    console.log("B");
+  } else if (score >= 70 && score <= 79) {
+    console.log("C");
+  } else if (score >= 60 && score <= 69) {
+    console.log("D");
+  } else {
+    console.log("F");
+  }
+}
 
 // 문자열을 정수로 바꾸기
 function solution(s) {
-    let answer = Number(s);
-    return answer;
+  let answer = Number(s);
+  return answer;
 }
 
-function strToInt(str){
-    return str/1
+function strToInt(str) {
+  return str / 1;
 }
-
 
 // 같은 숫자는 싫어
-function solution(arr)
-{
-    let answer = [];
-    
-    for (let i = 0; i < arr.length; i++){
-        if (arr[i] !== arr[i+1])
-            answer.push(arr[i])
-    }
-    
-    return answer;
-}
+function solution(arr) {
+  let answer = [];
 
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== arr[i + 1]) answer.push(arr[i]);
+  }
+
+  return answer;
+}
 
 // 핸드폰 번호 가리기
 
-
 // 짝수와 홀수
 function solution(num) {
-    let answer = '';
-    
-    if(num%2 !== 0){
-        answer = "Odd";
-    } else {
-        answer = "Even";
-    }
-    
-    return answer;
+  let answer = "";
+
+  if (num % 2 !== 0) {
+    answer = "Odd";
+  } else {
+    answer = "Even";
+  }
+
+  return answer;
 }
 
 function solution(num) {
-    return ((num%2 !== 0) ? "Odd":"Even");
+  return num % 2 !== 0 ? "Odd" : "Even";
 }
-
 
 // x만큼 간격이 있는 n개의 숫자
 function solution(x, n) {
-    let answer = [];
-    for (let i = 1; i<=n; i++){
-        answer.push(x*i)
-    }
-    return answer;
+  let answer = [];
+  for (let i = 1; i <= n; i++) {
+    answer.push(x * i);
+  }
+  return answer;
 }
 
 function solution(x, n) {
-    return Array(n).fill(x).map((v, i) => (i + 1) * v)
+  return Array(n)
+    .fill(x)
+    .map((v, i) => (i + 1) * v);
 }

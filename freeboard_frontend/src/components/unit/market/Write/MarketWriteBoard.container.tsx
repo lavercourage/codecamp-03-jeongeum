@@ -29,11 +29,11 @@ export default function MarketCreateBoard(props: any) {
     try {
       const result = await createUseditem({
         variables: {
-          createUseditem: {
+          createUseditemInput: {
             name: data.MyProduct,
             remarks: data.MyOneWrite,
             contents: data.MyContents,
-            price: data.MyPrice,
+            price: Number(data.MyPrice),
             tags: data.MyTag,
             // useditemAddress: {
             //   zipcode: aaa,
@@ -49,7 +49,7 @@ export default function MarketCreateBoard(props: any) {
       // setIsActive(true);
       console.log(data);
       alert("success");
-      // router.push(`/market/${result.data.createUseditem._id}`);
+      router.push(`/market/${result.data.createUseditem._id}`);
       // router.push(`./login`);
     } catch (error) {
       console.log(error.message);

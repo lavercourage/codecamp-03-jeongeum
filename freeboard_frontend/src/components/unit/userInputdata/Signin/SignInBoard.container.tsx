@@ -35,10 +35,11 @@ export default function SignInBoard() {
             name: data.MyName,
             email: data.MyEmail,
             password: data.MyPassword,
+            // ...data 로 가능? 그러려면 MyName을 name으로 변경?
           },
         },
       });
-      setIsActive(true);
+      // setIsActive(true);
       console.log(data);
       alert("회원가입성공!");
       // router.push("./login");
