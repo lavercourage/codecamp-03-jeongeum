@@ -4,7 +4,7 @@ export const globalStyles = css`
   * {
     margin: 0;
     box-sizing: border-box;
-    font-size: 48px;
+    /* font-size: 48px; */
   }
   @font-face {
     font-family: "pixelfont"; //폰트이름, 변수같음, 내 맘대로 이름 짓기 가능
