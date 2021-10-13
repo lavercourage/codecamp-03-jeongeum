@@ -72,7 +72,9 @@ export default function MarketDetailBoardUI(props: any) {
             </PickItemCount>
           </ContentRight>
         </ContentBar>
-        <ProducPrice>{props.data?.fetchUseditem.price}</ProducPrice>
+        <ProducPrice>
+          {props.data?.fetchUseditem.price.toLocaleString()}
+        </ProducPrice>
         <SlideImgContent>
           <SlideImg>슬라이드캐러셀궁시렁</SlideImg>
           <Aaa>

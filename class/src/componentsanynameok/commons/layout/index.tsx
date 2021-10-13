@@ -20,6 +20,7 @@ const SidebarWrapper = styled.div`
 const Sidebar = styled.div`
   background-color: pink;
   width: 360px;
+  /* height: 1000px; */
 `;
 
 const HIDDEN_FOOTER = ["/13-01-layout-hidden"];

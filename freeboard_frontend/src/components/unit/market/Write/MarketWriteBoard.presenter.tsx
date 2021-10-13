@@ -31,6 +31,7 @@ import {
 export default function MarketCreateBoardUI(props: any) {
   return (
     <>
+      {/* <Wrapper onSubmit={props.handleSubmit(props.isEdit ? props.onClickEdit : props.onClickSubmit)}> */}
       <Wrapper onSubmit={props.handleSubmit(props.onClickSubmit)}>
         <InnerWrapper>
           <Title>{props.isEdit ? "상품 수정하기" : "상품 등록하기"}</Title>
