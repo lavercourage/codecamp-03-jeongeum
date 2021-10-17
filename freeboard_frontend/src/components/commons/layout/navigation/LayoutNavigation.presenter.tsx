@@ -11,11 +11,13 @@ export default function LayoutNavigationUI(props) {
         자유게시판
       </MenuItem>
       <>|</>
-      <MenuItem id="/market/create-board" onClick={props.onClickNav}>
+      <MenuItem id="/market/list-board" onClick={props.onClickNav}>
         중고마켓
       </MenuItem>
       <>|</>
-      <MenuItem>마이페이지</MenuItem>
+      <MenuItem id="/market/create-board" onClick={props.onClickNav}>
+        마이페이지와 중고마켓글쓰기
+      </MenuItem>
     </Wrapper>
   );
 }

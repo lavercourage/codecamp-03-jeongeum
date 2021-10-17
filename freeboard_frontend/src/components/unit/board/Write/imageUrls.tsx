@@ -1,11 +1,11 @@
-import BoardWriteUI from "./WriteBoard.presenter.tsx";
+import BoardWriteUI from "./WriteBoard.presenter";
 import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./WriteBoard.queries";
 import { useRouter } from "next/router";
 // import { Writer } from "./CreatedBoard.styles"
 
-export default function BoardWrite(props) {
+export default function BoardWrite(props: any) {
   const router = useRouter();
 
   const [writer, setWriter] = useState("");
@@ -25,10 +25,10 @@ export default function BoardWrite(props) {
   const [imageUrl1, setImageUrl1] = useState("");
   const [imageUrl2, setImageUrl2] = useState("");
   const [imageUrl3, setImageUrl3] = useState("");
-  const [imageUrls, setImageUrls] = useState(["", "", ""])
+  // aa const [imageUrls, setImageUrls] = useState(["", "", ""])
 
-  imageUrls[2] = "aaa" // ["", "", ""]
-  [...imageUrls] // ["", "", ""]
+  // aa imageUrls[2] = "aaa" // ["", "", ""]
+  // aa [...imageUrls] // ["", "", ""]
 
   const fileRef1 = useRef();
   const fileRef2 = useRef();
@@ -38,7 +38,7 @@ export default function BoardWrite(props) {
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
-  function onChangeWriter(event) {
+  function onChangeWriter(event: any) {
     setWriter(event.target.value);
     if (event.target.value !== "") {
       setWriterError("");
@@ -53,7 +53,7 @@ export default function BoardWrite(props) {
     }
   }
 
-  function onChangePassword(event) {
+  function onChangePassword(event: any) {
     setPassword(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
@@ -68,7 +68,7 @@ export default function BoardWrite(props) {
     }
   }
 
-  function onChangeLabel(event) {
+  function onChangeLabel(event: any) {
     setTitle(event.target.value);
     if (event.target.value) {
       setTitleError("");
@@ -83,7 +83,7 @@ export default function BoardWrite(props) {
     }
   }
 
-  function onChangeSubstance(event) {
+  function onChangeSubstance(event: any) {
     setSubstance(event.target.value);
     if (event.target.value) {
       setSubstanceError("");
@@ -123,9 +123,8 @@ export default function BoardWrite(props) {
             title: title,
             contents: substance,
             youtubeUrl: youtube,
-            // images: [imageUrl1, imageUrl2, imageUrl3],
-            images: [...imageUrl],
-
+            images: [imageUrl1, imageUrl2, imageUrl3],
+            // aa images: [...imageUrl],
           },
         },
       });
@@ -182,11 +181,11 @@ export default function BoardWrite(props) {
     // router.push(`/boards/list-board`);
   }
 
-  function onChangeYoutube(event) {
+  function onChangeYoutube(event: any) {
     setYoutube(event.target.value);
   }
 
-  async function onChangeImageFile1(event) {
+  async function onChangeImageFile1(event: any) {
     const myFile = event.target.files[0];
     console.log(myFile);
     if (!myFile) {
@@ -214,7 +213,7 @@ export default function BoardWrite(props) {
     fileRef1.current?.click();
   }
 
-  async function onChangeImageFile2(event) {
+  async function onChangeImageFile2(event: any) {
     const myFile = event.target.files[0];
     console.log(myFile);
     if (!myFile) {
@@ -242,7 +241,7 @@ export default function BoardWrite(props) {
     fileRef2.current?.click();
   }
 
-  async function onChangeImageFile3(event) {
+  async function onChangeImageFile3(event: any) {
     const myFile = event.target.files[0];
     console.log(myFile);
     if (!myFile) {

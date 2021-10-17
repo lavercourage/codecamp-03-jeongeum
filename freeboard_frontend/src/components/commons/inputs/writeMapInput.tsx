@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 `;
 
 const Title = styled.div`
@@ -11,19 +11,37 @@ const Title = styled.div`
   color: #000000;
 `;
 
-const InputBar = styled.input`
-  width: 996px;
+// const InputBar = styled.input`
+//   width: 108px;
+//   height: 52px;
+//   color: #000000;
+//   font-size: 16px;
+//   margin-top: 16px;
+//   padding-left: 16px;
+//   border: 1px solid #bdbdbd;
+//   :focus {
+//     outline: none;
+//   }
+//   ::-webkit-input-placeholder {
+//     color: #bdbdbd;
+//     text-align: center;
+//   }
+// `;
+
+export const InputBar = styled.input`
+  width: 108px;
   height: 52px;
   color: #000000;
   font-size: 16px;
-  margin-top: 16px;
-  padding-left: 16px;
+  text-align: center;
+  /* padding-left: 16px; */
   border: 1px solid #bdbdbd;
   :focus {
     outline: none;
   }
   ::-webkit-input-placeholder {
-    color: #bdbdbd;
+    color: #4f4f4f;
+    text-align: center;
   }
 `;
 
@@ -34,18 +52,18 @@ const ErrorMessage = styled.div`
   margin-left: 16px;
 `;
 
-export default function WriteInputBar(props: any) {
+export default function WriteMapInputBar(props: any) {
   console.log(props);
   return (
     <Wrapper>
-      <Title>{props.title}</Title>
+      {/* <Title>{props.title}</Title> */}
       <InputBar
         type={props.type}
         {...props.register}
         placeholder={props.placeholder}
         defaultValue={props.defaultValue}
       />
-      <ErrorMessage>{props.error}</ErrorMessage>
+      {/* <ErrorMessage>{props.error}</ErrorMessage> */}
     </Wrapper>
   );
 }

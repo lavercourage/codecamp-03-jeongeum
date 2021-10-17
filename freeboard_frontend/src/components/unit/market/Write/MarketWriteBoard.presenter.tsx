@@ -1,6 +1,8 @@
 import WriteInputBar from "../../../commons/inputs/writeInput";
 import WriteDetailInputBar from "../../../commons/inputs/writeDetailInput";
+import WriteMapInputBar from "../../../commons/inputs/writeMapInput";
 import RegisterButton from "../../../commons/buttons/registerbutton";
+import ToListButton from "../../../commons/buttons/tolistbutton";
 import {
   Wrapper,
   InnerWrapper,
@@ -23,16 +25,20 @@ import {
   Select,
   RadioBt,
   RadioName,
-  Button,
+  Button1,
   CancleButton,
 } from "./MarketWriteBoard.styles";
-// import { Modal, Button } from "antd";
+import { Modal, Button } from "antd";
 
 export default function MarketCreateBoardUI(props: any) {
   return (
     <>
-      {/* <Wrapper onSubmit={props.handleSubmit(props.isEdit ? props.onClickEdit : props.onClickSubmit)}> */}
-      <Wrapper onSubmit={props.handleSubmit(props.onClickSubmit)}>
+      <Wrapper
+        onSubmit={props.handleSubmit(
+          props.isEdit ? props.onClickEdit : props.onClickSubmit
+        )}
+      >
+        {/* <Wrapper onSubmit={props.handleSubmit(props.onClickSubmit)}> */}
         <InnerWrapper>
           <Title>{props.isEdit ? "상품 수정하기" : "상품 등록하기"}</Title>
           <WriteInputBar
@@ -40,23 +46,27 @@ export default function MarketCreateBoardUI(props: any) {
             type="text"
             register={props.register("MyProduct")}
             placeholder="상품명을 작성해주세요."
+            defaultValue={props.data?.fetchUseditem.name}
           />
           <WriteInputBar
             title="한줄요약"
             type="text"
             register={props.register("MyOneWrite")}
             placeholder="한줄요약을 작성해주세요."
+            defaultValue={props.data?.fetchUseditem.remarks}
           />
           <WriteDetailInputBar
             title="상품설명"
             register={props.register("MyContents")}
             placeholder="상품을 설명해주세요."
+            defaultValue={props.data?.fetchUseditem.contents}
           />
           <WriteInputBar
             title="판매 가격"
             type="text"
             register={props.register("MyPrice")}
             placeholder="판매 가격을 입력해주세요."
+            defaultValue={props.data?.fetchUseditem.price}
             error={props.formState.errors.MyPrice?.message}
           />
           <WriteInputBar
@@ -64,6 +74,7 @@ export default function MarketCreateBoardUI(props: any) {
             type="text"
             register={props.register("MyTag")}
             placeholder="#태그 #태그 #태그"
+            defaultValue={props.data?.fetchUseditem.tags}
             error={props.formState.errors.MyTag?.message}
           />
           <Map>
@@ -75,9 +86,21 @@ export default function MarketCreateBoardUI(props: any) {
               <LoTop>
                 <SubTitle>GPS</SubTitle>
                 <LoBox>
-                  <LoInput placeholder="위도(LAT)"></LoInput>
+                  {/* <LoInput placeholder="위도(LAT)"></LoInput> */}
+                  <WriteMapInputBar
+                    type="text"
+                    register={props.register("MyLat")}
+                    placeholder="위도(LAT)"
+                    // defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
+                  />
                   <LoImg src="/image/marketboard/write/ic_location_on-32px.svg" />
-                  <LoInput placeholder="경도(LNG)"></LoInput>
+                  {/* <LoInput placeholder="경도(LNG)"></LoInput>{" "} */}
+                  <WriteMapInputBar
+                    type="text"
+                    register={props.register("MyLng")}
+                    placeholder="경도(LNG)"
+                    // defaultValue={props.data?.fetchUseditem.useditemAddress.lng}
+                  />
                 </LoBox>
               </LoTop>
               <LoBottom>
@@ -103,13 +126,12 @@ export default function MarketCreateBoardUI(props: any) {
               <RadioName htmlFor="img2">사진 2</RadioName>
             </Select>
           </MainSetting>
-          <Button>
+          <Button1>
             {props.isEdit && (
-              <RegisterButton
+              <ToListButton
                 name="목록으로"
                 type="button"
                 onClick={props.onClickCancle}
-                isValid={true}
               />
             )}
             <RegisterButton
@@ -117,24 +139,24 @@ export default function MarketCreateBoardUI(props: any) {
               type="submit"
               isValid={props.formState.isValid}
             />
-          </Button>
+          </Button1>
           {/* {props.isActive && (
-          <>
-            <Modal
-              title="Basic Modal"
-              visible={props.isModalVisible}
-              onOk={props.handleOk}
-              onCancel={props.handleCancel}
-            >
-              회원가입을 축하합니다!
-              <br />
-              로그인 후 이용해주세요!
-            </Modal>
-            <Button type="primary" onClick={props.showModal}>
-              Open Modal
-            </Button>
-          </>
-        )} */}
+            <>
+              <Modal
+                title="Basic Modal"
+                visible={props.isModalVisible}
+                onOk={props.handleOk}
+                onCancel={props.handleCancel}
+              >
+                회원가입을 축하합니다!
+                <br />
+                로그인 후 이용해주세요!
+              </Modal>
+              <Button type="primary" onClick={props.showModal}>
+                Open Modal
+              </Button>
+            </>
+          )} */}
         </InnerWrapper>
       </Wrapper>
     </>

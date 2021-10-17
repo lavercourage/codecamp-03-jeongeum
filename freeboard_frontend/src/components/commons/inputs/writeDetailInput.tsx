@@ -46,6 +46,7 @@ export default function WriteDetailInputBar(props: any) {
         // type={props.type}
         {...props.register}
         placeholder={props.placeholder}
+        defaultValue={props.defaultValue}
       />
       {/* <ErrorMessage>{props.error}</ErrorMessage> */}
     </Wrapper>

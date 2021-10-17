@@ -39,8 +39,8 @@ export default function MarketCreateBoard(props: any) {
             //   zipcode: aaa,
             //   address: aaa,
             //   addressDetail: aaa,
-            //   lat: aaaa,
-            //   lng: aaa,
+            //   lat: Number(data.MyLat),
+            //   lng: Number(data.MyLng),
             // },
             // images: data.images,
           },
@@ -56,11 +56,44 @@ export default function MarketCreateBoard(props: any) {
     }
   };
 
+  async function onClickEdit(data: any) {
+    const myVariables = {
+      useditemId: router.query.marketpage,
+      updateUseditemInput: {},
+    };
+    if (data.MyProduct) {
+      myVariables.updateUseditemInput.name = data.MyProduct;
+    }
+    if (data.MyOneWrite) {
+      myVariables.updateUseditemInput.remarks = data.MyOneWrite;
+    }
+    if (data.MyContents) {
+      myVariables.updateUseditemInput.contents = data.MyContents;
+    }
+    if (data.MyPrice) {
+      myVariables.updateUseditemInput.price = Number(data.MyPrice);
+    }
+    if (data.MyTag) {
+      myVariables.updateUseditemInput.tags = data.MyTag;
+    }
+
+    try {
+      const result = await updateUseditem({
+        variables: myVariables,
+      });
+      router.push(`/market/${result.data.updateUseditem._id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <MarketCreateBoardUI
       isEdit={props.isEdit}
+      data={props.data}
       handleSubmit={handleSubmit}
       onClickSubmit={onClickSubmit}
+      onClickEdit={onClickEdit}
       onClickCancle={onClickCancle}
       register={register}
       formState={formState}

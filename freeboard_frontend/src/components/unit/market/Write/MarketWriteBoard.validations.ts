@@ -13,4 +13,8 @@ export const schema = yup.object().shape({
     .required("금액은 필수 입력입니다."),
 
   MyTag: yup.string(),
+
+  // MyLat: yup.number(),
+
+  // Mylng: yup.number(),
 });

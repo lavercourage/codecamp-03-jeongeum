@@ -73,7 +73,7 @@ export default function MarketDetailBoardUI(props: any) {
           </ContentRight>
         </ContentBar>
         <ProducPrice>
-          {props.data?.fetchUseditem.price.toLocaleString()}
+          {props.data?.fetchUseditem.price.toLocaleString()} 원
         </ProducPrice>
         <SlideImgContent>
           <SlideImg>슬라이드캐러셀궁시렁</SlideImg>

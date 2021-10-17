@@ -159,7 +159,7 @@ export const RadioName = styled.label`
   font-size: 16px;
 `;
 
-export const Button = styled.div`
+export const Button1 = styled.div`
   display: flex;
 `;
 
