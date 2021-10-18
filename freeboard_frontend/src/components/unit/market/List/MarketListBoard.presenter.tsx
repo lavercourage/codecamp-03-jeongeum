@@ -2,13 +2,13 @@ import InfiniteScroll from "react-infinite-scroller";
 
 export default function MarketListBoardUI(props: any) {
   return (
-    <div style={{ overflow: "auto", backgroundColor: "gray" }}>
+    <div style={{ overflow: "auto", height: "300px", backgroundColor: "gray" }}>
       <InfiniteScroll
         pageStart={0}
         loadMore={props.onLoadMore}
         hasMore={true}
         useWindow={false}
-        style={{ height: "1004px" }}
+        // style={{ height: "300px", backgroundColor: "red" }}
         //   loader={<div className="loader" key={0}> Loading ... </div>}
       >
         {props.data?.fetchUseditems.map((el: any) => (
