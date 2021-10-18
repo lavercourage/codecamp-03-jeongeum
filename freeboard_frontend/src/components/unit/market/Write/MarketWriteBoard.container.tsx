@@ -14,7 +14,7 @@ export default function MarketCreateBoard(props: any) {
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
 
-  const { handleSubmit, register, formState } = useForm({
+  const { handleSubmit, register, formState, setValue, trigger } = useForm({
     mode: "onChange",
     // mode: "onChange" -> 내용이 바뀔 때마다 검증하기
     resolver: yupResolver(schema),
@@ -87,6 +87,15 @@ export default function MarketCreateBoard(props: any) {
     }
   }
 
+  function onChangeMyContents(value: any) {
+    // register로 등록하지 않고, 강제로 값을 넣어주는 기능
+    setValue("MyContents", value === "<p><br></p>" ? "" : value);
+    console.log(value);
+
+    // onChange 됐는지 react-hook-form에 알려주는 기능
+    trigger("MyContents");
+  }
+
   return (
     <MarketCreateBoardUI
       isEdit={props.isEdit}
@@ -95,8 +104,10 @@ export default function MarketCreateBoard(props: any) {
       onClickSubmit={onClickSubmit}
       onClickEdit={onClickEdit}
       onClickCancle={onClickCancle}
+      onChangeMyContents={onChangeMyContents}
       register={register}
       formState={formState}
+      setValue={setValue}
       // 모달
       // isActive={isActive}
       // isModalVisible={isModalVisible}

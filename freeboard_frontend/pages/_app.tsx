@@ -37,7 +37,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     // localStorage.clear();
     // >> 토큰 만료 해결 방법
     // >> chrome개발자 도구 >> Application >> Local Storage >> accessToken 삭제
-
     const accessToken = localStorage.getItem("accessToken") || "";
     // localStorage.getItem("accessToken") 있으면 저장
     // 없으면 ("")

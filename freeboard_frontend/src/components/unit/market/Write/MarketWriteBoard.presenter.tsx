@@ -30,6 +30,14 @@ import {
 } from "./MarketWriteBoard.styles";
 import { Modal, Button } from "antd";
 
+// import ReactQuill from "react-quill";
+// 프론트엔드 서버에서 그릴 때, document가 없어서 문제가 됨!
+import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+// ssr 서버사이드 렌더링 / 서버에서 그릴거니? => fasle : 아니 거기는 document 없으니 그리지 마
+
 export default function MarketCreateBoardUI(props: any) {
   return (
     <>
@@ -47,6 +55,7 @@ export default function MarketCreateBoardUI(props: any) {
             register={props.register("MyProduct")}
             placeholder="상품명을 작성해주세요."
             defaultValue={props.data?.fetchUseditem.name}
+            error={props.formState.errors.MyProduct?.message}
           />
           <WriteInputBar
             title="한줄요약"
@@ -55,12 +64,21 @@ export default function MarketCreateBoardUI(props: any) {
             placeholder="한줄요약을 작성해주세요."
             defaultValue={props.data?.fetchUseditem.remarks}
           />
-          <WriteDetailInputBar
+          {/* <ContentsForm> */}
+          {/* <ContentsTitle>상품설명</ContentsTitle> */}
+          <ReactQuill
+            // value={this.state.text}
+            onChange={props.onChangeMyContents}
+            placeholder={"상품을 설명해주세요."}
+          />
+          {/* </ContentsForm> */}
+
+          {/* <WriteDetailInputBar
             title="상품설명"
             register={props.register("MyContents")}
             placeholder="상품을 설명해주세요."
             defaultValue={props.data?.fetchUseditem.contents}
-          />
+          /> */}
           <WriteInputBar
             title="판매 가격"
             type="text"

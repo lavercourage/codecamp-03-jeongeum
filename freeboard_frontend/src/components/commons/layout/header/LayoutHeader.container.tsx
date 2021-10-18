@@ -20,10 +20,19 @@ export default function LayoutHeader() {
     router.push("/");
   }
 
+  function removeToken() {
+    localStorage.removeItem("accessToken");
+    setAccessToken("");
+    router.push("/");
+  }
+
   return (
     <LayoutHeaderUI
       onClickHeader={onClickHeader}
       onClickLogOut={onClickLogOut}
+      // 토큰지우기 버튼
+      removeToken={removeToken}
+      // 토큰지우기 버튼
       data={data}
     />
   );
