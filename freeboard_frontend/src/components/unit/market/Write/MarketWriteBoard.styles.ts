@@ -172,3 +172,39 @@ export const CancleButton = styled.button`
   color: #4f4f4f;
   background-color: #bdbdbd;
 `;
+
+export const ContentsForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+`;
+
+export const ContentsTitle = styled.div`
+  font-size: 16px;
+  color: #000000;
+`;
+
+// import ReactQuill from "react-quill";
+// 프론트엔드 서버에서 그릴 때, document가 없어서 문제가 됨!
+import "react-quill/dist/quill.snow.css";
+import dynamic from "next/dynamic";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+// ssr 서버사이드 렌더링 / 서버에서 그릴거니? => fasle : 아니 거기는 document 없으니 그리지 마
+
+export const ReactQuillBox = styled(ReactQuill)`
+  width: 996px;
+  height: 320px;
+  margin-top: 16px;
+  ::-webkit-input-placeholder {
+    /* color: #bdbdbd; */
+    color: red;
+  }
+
+  /* width: 996px;
+  height: 320px;
+  background-color: white;
+  font-family: "myfontko";
+  border: 1px solid gray;
+  padding-bottom: 40px; */
+`;

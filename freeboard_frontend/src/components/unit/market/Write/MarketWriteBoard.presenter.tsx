@@ -27,18 +27,29 @@ import {
   RadioName,
   Button1,
   CancleButton,
+  ContentsForm,
+  ContentsTitle,
+  ReactQuillBox,
 } from "./MarketWriteBoard.styles";
 import { Modal, Button } from "antd";
 
-// import ReactQuill from "react-quill";
-// 프론트엔드 서버에서 그릴 때, document가 없어서 문제가 됨!
-import "react-quill/dist/quill.snow.css";
-import dynamic from "next/dynamic";
-
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-// ssr 서버사이드 렌더링 / 서버에서 그릴거니? => fasle : 아니 거기는 document 없으니 그리지 마
-
 export default function MarketCreateBoardUI(props: any) {
+  // const formats = [
+  //   "header",
+  //   "font",
+  //   "size",
+  //   "bold",
+  //   "italic",
+  //   "underline",
+  //   "strike",
+  //   "blockquote",
+  //   "list",
+  //   "bullet",
+  //   "indent",
+  //   "link",
+  //   "image",
+  //   "color",
+  // ];
   return (
     <>
       <Wrapper
@@ -64,14 +75,17 @@ export default function MarketCreateBoardUI(props: any) {
             placeholder="한줄요약을 작성해주세요."
             defaultValue={props.data?.fetchUseditem.remarks}
           />
-          {/* <ContentsForm> */}
-          {/* <ContentsTitle>상품설명</ContentsTitle> */}
-          <ReactQuill
-            // value={this.state.text}
-            onChange={props.onChangeMyContents}
-            placeholder={"상품을 설명해주세요."}
-          />
-          {/* </ContentsForm> */}
+          <ContentsForm>
+            <ContentsTitle>상품설명</ContentsTitle>
+            <ReactQuillBox
+              // value={this.state.text}
+              theme="Bubble"
+              onChange={props.onChangeMyContents}
+              defaultValue={props.data?.fetchUseditem.contents}
+              placeholder={"상품을 설명해주세요."}
+              // modules={formats}
+            />
+          </ContentsForm>
 
           {/* <WriteDetailInputBar
             title="상품설명"

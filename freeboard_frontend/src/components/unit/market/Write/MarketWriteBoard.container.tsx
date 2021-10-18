@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import MarketCreateBoardUI from "./MarketWriteBoard.presenter";
 import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./MarketWriteBoard.queries";
@@ -95,6 +95,17 @@ export default function MarketCreateBoard(props: any) {
     // onChange 됐는지 react-hook-form에 알려주는 기능
     trigger("MyContents");
   }
+
+  // 수정시 기존의 데이터를 저장 (수정시 아무것도 변경하지 않아도 있는 데이터가 리액트 폼에 저장됨)
+  useEffect(() => {
+    if (props?.isEdit && props?.data?.fetchUseditem) {
+      setValue("MyProduct", props?.data?.fetchUseditem?.name);
+      setValue("MyOneWrite", props?.data?.fetchUseditem?.remarks);
+      setValue("MyContents", props?.data?.fetchUseditem?.contents);
+      setValue("MyPrice", props?.data?.fetchUseditem?.price);
+      setValue("MyTag", props?.data?.fetchUseditem?.tags);
+    }
+  }, [props?.isEdit, props?.data?.fetchUseditem]);
 
   return (
     <MarketCreateBoardUI

@@ -32,6 +32,7 @@ import {
   Border2,
 } from "./MarketDetailBoard.styles";
 import { Tooltip } from "antd";
+import DOMPurify from "dompurify";
 
 export default function MarketDetailBoardUI(props: any) {
   return (
@@ -96,7 +97,13 @@ export default function MarketDetailBoardUI(props: any) {
             <ThumbnailImg>썸네일</ThumbnailImg>
           </Aaa>
         </SlideImgContent>
-        <ContentsBox>{props.data?.fetchUseditem.contents}</ContentsBox>
+        {process.browser && (
+          <ContentsBox
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(props.data?.fetchUseditem.contents),
+            }}
+          />
+        )}
         <TagContent>{props.data?.fetchUseditem.tags}</TagContent>
         <Border />
         <Map>지도api아마도</Map>

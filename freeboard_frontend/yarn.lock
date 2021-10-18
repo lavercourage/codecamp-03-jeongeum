@@ -571,6 +571,13 @@
     "@types/extract-files" "*"
     graphql "^15.3.0"
 
+"@types/dompurify@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@types/dompurify/-/dompurify-2.3.1.tgz#2934adcd31c4e6b02676f9c22f9756e5091c04dd"
+  integrity sha512-YJth9qa0V/E6/XPH1Jq4BC8uCMmO8V1fKWn8PCvuZcAhMn7q0ez9LW6naQT04UZzjFfAPhyRMZmI2a2rbMlEFA==
+  dependencies:
+    "@types/trusted-types" "*"
+
 "@types/extract-files@*":
   version "8.1.1"
   resolved "https://registry.yarnpkg.com/@types/extract-files/-/extract-files-8.1.1.tgz#11b67e795ad2c8b483431e8d4f190db2fd22944b"
@@ -649,6 +656,11 @@
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
+
+"@types/trusted-types@*":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
+  integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
 "@types/uuid@^8.3.1":
   version "8.3.1"
