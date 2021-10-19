@@ -57,6 +57,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <GlobalContext.Provider value={value}>
       <Global styles={globalStyles} />
       <ApolloProvider client={client}>
+        {/* ApolloProvider에서 client가 없으면 useQuery, useMutation 등 apllo에 대한 모든것 사용 불가 */}
         <Layout>
           <Component {...pageProps} />
         </Layout>

@@ -14,11 +14,12 @@ export default function MarketCreateBoard(props: any) {
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
 
-  const { handleSubmit, register, formState, setValue, trigger } = useForm({
-    mode: "onChange",
-    // mode: "onChange" -> 내용이 바뀔 때마다 검증하기
-    resolver: yupResolver(schema),
-  });
+  const { handleSubmit, register, formState, setValue, trigger, watch } =
+    useForm({
+      mode: "onChange",
+      // mode: "onChange" -> 내용이 바뀔 때마다 검증하기
+      resolver: yupResolver(schema),
+    });
 
   const onClickCancle = () => {
     router.push(`/`);

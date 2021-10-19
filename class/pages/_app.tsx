@@ -6,6 +6,7 @@ import {
   InMemoryCache,
   ApolloLink,
 } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 
 import Layout from "../src/componentsanynameok/commons/layout";
 import { Global } from "@emotion/react";
@@ -14,6 +15,9 @@ import { initializeApp } from "firebase/app";
 import { createUploadLink } from "apollo-upload-client";
 import { createContext, useEffect, useState } from "react";
 import Head from "next/head";
+import { GraphQLError } from "graphql";
+import Operation from "antd/lib/transfer/operation";
+import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 
 export const firebaseApp = initializeApp({
   apiKey: "AIzaSyCDNoIic1AQr_BTyPNta9RDcZbp0X2Wzfs",
@@ -38,19 +42,38 @@ function MyApp({ Component, pageProps }) {
   };
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken") || "";
-    setAccessToken(accessToken);
+    // const accessToken = localStorage.getItem("accessToken") || "";
+    // setAccessToken(accessToken);
+    if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
   }, []);
 
   const uploadLink = createUploadLink({
-    uri: "http://backend03.codebootcamp.co.kr/graphql",
+    uri: "https://backend03.codebootcamp.co.kr/graphql",
     headers: {
       authorization: `Bearer ${accessToken}`,
     },
+    credentials: "include",
+  });
+
+  const errorLink = onError(({ graphQLErrors, operation, forward }) => {
+    if (graphQLErrors) {
+      for (const err of graphQLErrors) {
+        if (err.extensions?.code === "UNAUTHENTICATED") {
+          operation.setContext({
+            headers: {
+              ...operation.getContext().headers,
+              authorization: `Bearer ${getAccessToken(setAccessToken)}`,
+            },
+          });
+          return forward(operation);
+        }
+      }
+    }
   });
 
   const client = new ApolloClient({
-    link: ApolloLink.from([uploadLink]),
+    link: ApolloLink.from([errorLink, uploadLink]),
+    // 순서 넣는게 중요함
     cache: new InMemoryCache(),
   });
 
