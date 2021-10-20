@@ -144,7 +144,6 @@ export default function BoardWriteUI(props: any) {
       </Section5>
       <Section6>
         <Label>사진 첨부</Label>
-
         <Upload>
           {props.isPreview && (
             <Plusimg onClick={props.onClickImageUpload1}>
@@ -152,21 +151,18 @@ export default function BoardWriteUI(props: any) {
               <Upload2>Upload</Upload2>
             </Plusimg>
           )}
-
           <Input
             ref={props.fileRef1}
             type="file"
             onChange={props.onChangeImageFile1}
             // defaultValue={props.data?.fetchBoard.images}
           />
-
           {!props.isPreview && (
             <InputImage
               src={`https://storage.googleapis.com/${props?.imageUrl1}`}
               onChange={props.onClickImageUpload1}
             />
           )}
-
           {props.isPreview2 && (
             <Plusimg onClick={props.onClickImageUpload2}>
               <Plus src="/image/PlusVector.svg" />
@@ -185,7 +181,6 @@ export default function BoardWriteUI(props: any) {
               onChange={props.onClickImageUpload2}
             />
           )}
-
           {props.isPreview3 && (
             <Plusimg onClick={props.onClickImageUpload3}>
               <Plus src="/image/PlusVector.svg" />

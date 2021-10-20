@@ -34,6 +34,8 @@ export const TitleBarLeft = styled.div`
 export const ProfileImg = styled.img`
   width: 40px;
   height: 40px;
+  border-radius: 20px;
+  object-fit: cover;
 `;
 
 export const ProfileData = styled.div`

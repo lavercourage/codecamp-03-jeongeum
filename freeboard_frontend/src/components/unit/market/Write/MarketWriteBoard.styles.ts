@@ -126,6 +126,7 @@ export const AddPhoto = styled.div`
 export const Photos = styled.div`
   display: flex;
   margin-top: 16px;
+  margin-right: 20px;
 `;
 
 export const Images = styled.div`

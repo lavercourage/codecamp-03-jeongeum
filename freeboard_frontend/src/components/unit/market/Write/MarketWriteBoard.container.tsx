@@ -13,6 +13,7 @@ export default function MarketCreateBoard(props: any) {
   // const [isActive, setIsActive] = useState(false);
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
+  const [fileUrls, setFileUrls] = useState(["", "", ""]);
 
   const { handleSubmit, register, formState, setValue, trigger, watch } =
     useForm({
@@ -43,7 +44,7 @@ export default function MarketCreateBoard(props: any) {
             //   lat: Number(data.MyLat),
             //   lng: Number(data.MyLng),
             // },
-            // images: data.images,
+            images: [...fileUrls],
           },
         },
       });
@@ -108,6 +109,12 @@ export default function MarketCreateBoard(props: any) {
     }
   }, [props?.isEdit, props?.data?.fetchUseditem]);
 
+  function onChangeFileUrls(fileUrl: any, index: number) {
+    const newFileUrls = [...fileUrls];
+    newFileUrls[index] = fileUrl;
+    setFileUrls(newFileUrls);
+  }
+
   return (
     <MarketCreateBoardUI
       isEdit={props.isEdit}
@@ -120,6 +127,9 @@ export default function MarketCreateBoard(props: any) {
       register={register}
       formState={formState}
       setValue={setValue}
+      contents={watch("MyContents")}
+      fileUrls={fileUrls}
+      onChangeFileUrls={onChangeFileUrls}
       // 모달
       // isActive={isActive}
       // isModalVisible={isModalVisible}

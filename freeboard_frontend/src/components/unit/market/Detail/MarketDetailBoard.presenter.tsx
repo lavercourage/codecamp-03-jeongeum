@@ -47,11 +47,6 @@ export default function MarketDetailBoardUI(props: any) {
                   : "/image/marketboard/detail/profile.svg"
               }
             />
-            {/* user ? `https://storage.googleapis.com/${user}` : "/images/avatar.png" */}
-            {/* <ProfileImg>
-                {props.data?.fetchUseditem.seller.picture}
-              </ProfileImg>
-              <ProfileImg src="/image/marketboard/detail/profile.svg" /> */}
             <ProfileData>
               <Profile>{props.data?.fetchUseditem.seller.name}</Profile>
               <CreateAt>

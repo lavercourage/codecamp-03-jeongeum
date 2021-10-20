@@ -3,7 +3,6 @@ import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./WriteBoard.queries";
 import { useRouter } from "next/router";
-// import { Writer } from "./CreatedBoard.styles"
 
 export default function BoardWrite(props: any) {
   const router = useRouter();
@@ -30,6 +29,7 @@ export default function BoardWrite(props: any) {
   const [isPreview2, setIsPreview2] = useState(true);
   const [isPreview3, setIsPreview3] = useState(true);
 
+  // const [imageUrl, setImageUrl] = useState(["", "", ""]);
   const [imageUrl1, setImageUrl1] = useState("");
   const [imageUrl2, setImageUrl2] = useState("");
   const [imageUrl3, setImageUrl3] = useState("");
@@ -386,6 +386,7 @@ export default function BoardWrite(props: any) {
       isPreview={isPreview}
       isPreview2={isPreview2}
       isPreview3={isPreview3}
+      // imageUrl={imageUrl}
       zipcode={zipcode}
       address={address}
       addressDetail={addressDetail}

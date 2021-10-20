@@ -32,6 +32,8 @@ import {
   ReactQuillBox,
 } from "./MarketWriteBoard.styles";
 import { Modal, Button } from "antd";
+// 이미지 업로드 컴포넌트
+import ImageUploadPage from "../../../commons/upload/image/image.container";
 
 export default function MarketCreateBoardUI(props: any) {
   // const formats = [
@@ -50,6 +52,7 @@ export default function MarketCreateBoardUI(props: any) {
   //   "image",
   //   "color",
   // ];
+  console.log(props.contents);
   return (
     <>
       <Wrapper
@@ -81,7 +84,7 @@ export default function MarketCreateBoardUI(props: any) {
               // value={this.state.text}
               theme="Bubble"
               onChange={props.onChangeMyContents}
-              defaultValue={props.data?.fetchUseditem.contents}
+              value={props?.contents || ""}
               placeholder={"상품을 설명해주세요."}
               // modules={formats}
             />
@@ -145,8 +148,17 @@ export default function MarketCreateBoardUI(props: any) {
           <AddPhoto>
             <SubTitle>사진첨부</SubTitle>
             <Photos>
-              <Images />
-              <Images />
+              {/* 필터의 기능은 있는 아이는 보여주고 없는 아이는 안보여주는 역할 / 앞에 빈배열로 3개를 나열했기에 뒤에서 필터를 걸었을 때, 실제 화면에서는 아무것도 보이지 않은거임! */}
+              {/* 그렇다면 이미지를 업로드하기 위해서는 저 필터 기능만 제거하면 ok? */}
+              {/* 이미지 수정 시 기존 업로드했던 이미지 defaultValue는 어떻게 불러옴? */}
+              {props.fileUrls.map((el: any, index: any) => (
+                <ImageUploadPage
+                  key={`${el}_${index}`}
+                  index={index}
+                  fileUrl={el}
+                  onChangeFileUrls={props.onChangeFileUrls}
+                />
+              ))}
             </Photos>
           </AddPhoto>
           <MainSetting>
