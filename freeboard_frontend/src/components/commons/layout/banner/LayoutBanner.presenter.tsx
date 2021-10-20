@@ -6,8 +6,6 @@ import {
 } from "./LayoutBanner.styles";
 import React from "react";
 import Slider from "@ant-design/react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export default function LayoutBannerUI() {
   const settings = {

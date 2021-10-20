@@ -21,7 +21,7 @@ import {
   PickItemCount,
   SlideImgContent,
   SlideImg,
-  Aaa,
+  SliderThumb,
   ThumbnailImg,
   ContentsBox,
   TagContent,
@@ -30,11 +30,24 @@ import {
   ToList,
   ToEditBuy,
   Border2,
+  SliderWrapper,
+  SliderItem,
 } from "./MarketDetailBoard.styles";
 import { Tooltip } from "antd";
+import Slider from "@ant-design/react-slick";
 import DOMPurify from "dompurify";
 
 export default function MarketDetailBoardUI(props: any) {
+  let settings = {
+    dots: true,
+    infinite: true,
+    speed: 10,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: false,
+  };
+
   return (
     <Wrapper>
       <InnerWrapper>
@@ -83,13 +96,26 @@ export default function MarketDetailBoardUI(props: any) {
           {props.data?.fetchUseditem.price.toLocaleString()} 원
         </ProducPrice>
         <SlideImgContent>
-          <SlideImg>슬라이드캐러셀궁시렁</SlideImg>
-          <Aaa>
-            <ThumbnailImg>썸네일</ThumbnailImg>
-            <ThumbnailImg>썸네일</ThumbnailImg>
-            <ThumbnailImg>썸네일</ThumbnailImg>
-            <ThumbnailImg>썸네일</ThumbnailImg>
-          </Aaa>
+          <SliderWrapper>
+            <Slider {...settings}>
+              {props.data?.fetchUseditem.images.map((el: any) => (
+                <div key={el}>
+                  <SliderItem src={`https://storage.googleapis.com/${el}`} />
+                </div>
+              ))}
+            </Slider>
+          </SliderWrapper>
+          <SliderThumb>
+            {props.data?.fetchUseditem.images.map((el: any) => (
+              <div key={el}>
+                <ThumbnailImg
+                  src={`https://storage.googleapis.com/${el}`}
+                  onClick={props.onClickThumbImg}
+                  // 작은 이미지 클릭하면 큰 이미지 바로 볼 수 있게
+                />
+              </div>
+            ))}
+          </SliderThumb>
         </SlideImgContent>
         {process.browser && (
           <ContentsBox

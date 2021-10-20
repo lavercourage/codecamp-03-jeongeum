@@ -1,5 +1,7 @@
 import { HeartFilled } from "@ant-design/icons";
 import styled from "@emotion/styled";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -133,15 +135,15 @@ export const SlideImg = styled.div`
   background-color: #888888;
 `;
 
-export const Aaa = styled.div`
+export const SliderThumb = styled.div`
   width: 384px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 40px;
 `;
 
-export const ThumbnailImg = styled.div`
+export const ThumbnailImg = styled.img`
   width: 78px;
   height: 78px;
   background-color: #888888;
@@ -213,4 +215,16 @@ export const Border2 = styled.div`
   border-top: 1px solid #bdbdbd;
   margin-top: 80px;
   margin-bottom: 40px;
+`;
+
+export const SliderWrapper = styled.div`
+  width: 384px;
+  height: 384px;
+`;
+
+export const SliderItem = styled.img`
+  width: 384px;
+  height: 384px;
+  background-color: gray;
+  object-fit: cover;
 `;
