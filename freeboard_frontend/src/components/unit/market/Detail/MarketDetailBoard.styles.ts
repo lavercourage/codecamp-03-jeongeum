@@ -166,12 +166,12 @@ export const TagContent = styled.div`
   font-weight: 500;
 `;
 
-export const Map = styled.div`
-  width: 792px;
-  height: 360px;
-  margin: 60px 0;
-  background-color: #888888;
-`;
+// export const Map = styled.div`
+//   width: 792px;
+//   height: 360px;
+//   margin: 60px 0;
+//   background-color: #888888;
+// `;
 
 export const BottomButton = styled.div`
   margin-top: 20px;

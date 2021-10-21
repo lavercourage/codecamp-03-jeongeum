@@ -25,7 +25,7 @@ import {
   ThumbnailImg,
   ContentsBox,
   TagContent,
-  Map,
+  // Map,
   BottomButton,
   ToList,
   ToEditBuy,
@@ -33,6 +33,7 @@ import {
   SliderWrapper,
   SliderItem,
 } from "./MarketDetailBoard.styles";
+import KakaoMapDetail from "../../../commons/kakao/kakaoMapDetail/KakaoMapDetail";
 import { Tooltip } from "antd";
 import Slider from "@ant-design/react-slick";
 import DOMPurify from "dompurify";
@@ -130,7 +131,8 @@ export default function MarketDetailBoardUI(props: any) {
         )}
         <TagContent>{props.data?.fetchUseditem.tags}</TagContent>
         <Border />
-        <Map>지도api아마도</Map>
+        <KakaoMapDetail />
+        {/* <Map>지도api아마도</Map> */}
         <BottomButton>
           <ToList onClick={props.onClickMoveToList}>목록으로</ToList>
           <ToEditBuy onClick={props.onClickMoveToEdit}>

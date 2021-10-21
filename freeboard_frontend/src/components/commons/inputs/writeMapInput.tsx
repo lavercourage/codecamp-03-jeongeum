@@ -62,6 +62,7 @@ export default function WriteMapInputBar(props: any) {
         {...props.register}
         placeholder={props.placeholder}
         defaultValue={props.defaultValue}
+        readOnly={props.readOnly}
       />
       {/* <ErrorMessage>{props.error}</ErrorMessage> */}
     </Wrapper>

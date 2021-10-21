@@ -13,6 +13,7 @@ import "antd/dist/antd.css";
 
 import { createContext, useEffect, useState } from "react";
 import { AppProps } from "next/dist/shared/lib/router/router";
+// import Head from "next/head";
 
 export type IGlobalContext = {
   accessToken?: any;
@@ -54,15 +55,23 @@ function MyApp({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <GlobalContext.Provider value={value}>
-      <Global styles={globalStyles} />
-      <ApolloProvider client={client}>
-        {/* ApolloProvider에서 client가 없으면 useQuery, useMutation 등 apllo에 대한 모든것 사용 불가 */}
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ApolloProvider>
-    </GlobalContext.Provider>
+    <>
+      {/* <Head>
+        <script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0c35afa408f9ae186dace66aa85d84c"
+        ></script>
+      </Head> */}
+      <GlobalContext.Provider value={value}>
+        <Global styles={globalStyles} />
+        <ApolloProvider client={client}>
+          {/* ApolloProvider에서 client가 없으면 useQuery, useMutation 등 apllo에 대한 모든것 사용 불가 */}
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ApolloProvider>
+      </GlobalContext.Provider>
+    </>
   );
 }
 

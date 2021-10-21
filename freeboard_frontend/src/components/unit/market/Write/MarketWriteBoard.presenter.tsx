@@ -1,23 +1,23 @@
 import WriteInputBar from "../../../commons/inputs/writeInput";
-import WriteDetailInputBar from "../../../commons/inputs/writeDetailInput";
+// import WriteDetailInputBar from "../../../commons/inputs/writeDetailInput";
 import WriteMapInputBar from "../../../commons/inputs/writeMapInput";
 import RegisterButton from "../../../commons/buttons/registerbutton";
 import ToListButton from "../../../commons/buttons/tolistbutton";
+import KakaoMapInput from "../../../commons/kakao/kakaoMapInput/KakaoMapInput";
+
 import {
   Wrapper,
   InnerWrapper,
   Title,
-  Map,
-  LocationLeft,
+  // Map,
+  // LocationLeft,
   SubTitle,
-  LocationMap,
-  LocationRight,
-  LoTop,
-  LoBox,
-  LoInput,
-  LoImg,
-  LoBottom,
-  LoInput2,
+  // LocationRight,
+  // LoTop,
+  // LoBox,
+  // LoImg,
+  // LoBottom,
+  // LoInput2,
   AddPhoto,
   Photos,
   Images,
@@ -26,12 +26,11 @@ import {
   RadioBt,
   RadioName,
   Button1,
-  CancleButton,
   ContentsForm,
   ContentsTitle,
   ReactQuillBox,
 } from "./MarketWriteBoard.styles";
-import { Modal, Button } from "antd";
+// import { Modal, Button } from "antd";
 // 이미지 업로드 컴포넌트
 import ImageUploadPage from "../../../commons/upload/image/image.container";
 
@@ -112,39 +111,10 @@ export default function MarketCreateBoardUI(props: any) {
             defaultValue={props.data?.fetchUseditem.tags}
             error={props.formState.errors.MyTag?.message}
           />
-          <Map>
-            <LocationLeft>
-              <SubTitle>거래위치</SubTitle>
-              <LocationMap></LocationMap>
-            </LocationLeft>
-            <LocationRight>
-              <LoTop>
-                <SubTitle>GPS</SubTitle>
-                <LoBox>
-                  {/* <LoInput placeholder="위도(LAT)"></LoInput> */}
-                  <WriteMapInputBar
-                    type="text"
-                    register={props.register("MyLat")}
-                    placeholder="위도(LAT)"
-                    // defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
-                  />
-                  <LoImg src="/image/marketboard/write/ic_location_on-32px.svg" />
-                  {/* <LoInput placeholder="경도(LNG)"></LoInput>{" "} */}
-                  <WriteMapInputBar
-                    type="text"
-                    register={props.register("MyLng")}
-                    placeholder="경도(LNG)"
-                    // defaultValue={props.data?.fetchUseditem.useditemAddress.lng}
-                  />
-                </LoBox>
-              </LoTop>
-              <LoBottom>
-                <SubTitle>주소</SubTitle>
-                <LoInput2></LoInput2>
-                <LoInput2></LoInput2>
-              </LoBottom>
-            </LocationRight>
-          </Map>
+          {/* ////////////////////// */}
+          <KakaoMapInput />
+          {/* ////////////////////// */}
+
           <AddPhoto>
             <SubTitle>사진첨부</SubTitle>
             <Photos>

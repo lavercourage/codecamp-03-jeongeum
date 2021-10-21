@@ -27,48 +27,41 @@ export const Title = styled.div`
   margin-bottom: 20px;
 `;
 
-export const Map = styled.div`
-  width: 996px;
-  padding-top: 40px;
-  display: flex;
-  justify-content: space-between;
-`;
+// export const Map = styled.div`
+//   width: 996px;
+//   padding-top: 40px;
+//   display: flex;
+//   justify-content: space-between;
+// `;
 
-export const LocationLeft = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+// export const LocationLeft = styled.div`
+//   display: flex;
+//   flex-direction: column;
+// `;
 
 export const SubTitle = styled.div`
   font-size: 16px;
   color: #000000;
 `;
 
-export const LocationMap = styled.div`
-  width: 384px;
-  height: 252px;
-  margin-top: 16px;
-  background-color: #888888;
-`;
+// export const LocationRight = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+// `;
 
-export const LocationRight = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
+// export const LoTop = styled.div`
+//   display: flex;
+//   flex-direction: column;
+// `;
 
-export const LoTop = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const LoBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
-  margin-top: 16px;
-`;
+// export const LoBox = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: left;
+//   align-items: center;
+//   margin-top: 16px;
+// `;
 
 export const LoInput = styled.input`
   width: 108px;
@@ -87,34 +80,34 @@ export const LoInput = styled.input`
   }
 `;
 
-export const LoImg = styled.img`
-  /* width: 14px; */
-  /* height: 20px; */
-  height: 30px;
-  padding: 0 20px;
-`;
+// export const LoImg = styled.img`
+//   /* width: 14px; */
+//   /* height: 20px; */
+//   height: 30px;
+//   padding: 0 20px;
+// `;
 
-export const LoBottom = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+// export const LoBottom = styled.div`
+//   display: flex;
+//   flex-direction: column;
+// `;
 
-export const LoInput2 = styled.input`
-  width: 588px;
-  height: 52px;
-  color: #000000;
-  font-size: 16px;
-  margin-top: 16px;
-  padding-left: 16px;
-  border: 1px solid #bdbdbd;
-  :focus {
-    outline: none;
-  }
-  /* ::-webkit-input-placeholder {
-    color: #4f4f4f;
-    text-align: center;
-  } */
-`;
+// export const LoInput2 = styled.input`
+//   width: 588px;
+//   height: 52px;
+//   color: #000000;
+//   font-size: 16px;
+//   margin-top: 16px;
+//   padding-left: 16px;
+//   border: 1px solid #bdbdbd;
+//   :focus {
+//     outline: none;
+//   }
+//   /* ::-webkit-input-placeholder {
+//     color: #4f4f4f;
+//     text-align: center;
+//   } */
+// `;
 
 export const AddPhoto = styled.div`
   width: 996px;
