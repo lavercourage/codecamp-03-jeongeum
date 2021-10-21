@@ -98,23 +98,27 @@ export default function MarketDetailBoardUI(props: any) {
         <SlideImgContent>
           <SliderWrapper>
             <Slider {...settings}>
-              {props.data?.fetchUseditem.images.map((el: any) => (
-                <div key={el}>
-                  <SliderItem src={`https://storage.googleapis.com/${el}`} />
-                </div>
-              ))}
+              {props.data?.fetchUseditem.images
+                .filter((el: any) => el)
+                .map((el: any) => (
+                  <div key={el}>
+                    <SliderItem src={`https://storage.googleapis.com/${el}`} />
+                  </div>
+                ))}
             </Slider>
           </SliderWrapper>
           <SliderThumb>
-            {props.data?.fetchUseditem.images.map((el: any) => (
-              <div key={el}>
-                <ThumbnailImg
-                  src={`https://storage.googleapis.com/${el}`}
-                  onClick={props.onClickThumbImg}
-                  // 작은 이미지 클릭하면 큰 이미지 바로 볼 수 있게
-                />
-              </div>
-            ))}
+            {props.data?.fetchUseditem.images
+              .filter((el: any) => el)
+              .map((el: any) => (
+                <div key={el}>
+                  <ThumbnailImg
+                    src={`https://storage.googleapis.com/${el}`}
+                    onClick={props.onClickThumbImg}
+                    // 작은 이미지 클릭하면 큰 이미지 바로 볼 수 있게
+                  />
+                </div>
+              ))}
           </SliderThumb>
         </SlideImgContent>
         {process.browser && (

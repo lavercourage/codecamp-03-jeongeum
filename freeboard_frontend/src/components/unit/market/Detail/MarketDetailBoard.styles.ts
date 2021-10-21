@@ -138,7 +138,7 @@ export const SlideImg = styled.div`
 export const SliderThumb = styled.div`
   width: 384px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   margin-top: 40px;
 `;
