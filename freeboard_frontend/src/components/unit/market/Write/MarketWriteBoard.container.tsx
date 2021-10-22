@@ -38,11 +38,8 @@ export default function MarketCreateBoard(props: any) {
             price: Number(data.MyPrice),
             tags: data.MyTag,
             useditemAddress: {
-              //   zipcode: aaa,
-              //   address: aaa,
-              //   addressDetail: aaa,
-              lat: data.MyLat,
-              lng: data.MyLng,
+              lat: Number(data.MyLAT),
+              lng: Number(data.MyLNG),
             },
             images: [...fileUrls],
           },
@@ -54,7 +51,7 @@ export default function MarketCreateBoard(props: any) {
       router.push(`/market/${result.data.createUseditem._id}`);
       // router.push(`./login`);
     } catch (error) {
-      console.log(error.message);
+      console.log("등록오류: ", error);
     }
   };
 
@@ -85,7 +82,7 @@ export default function MarketCreateBoard(props: any) {
       });
       router.push(`/market/${result.data.updateUseditem._id}`);
     } catch (error) {
-      console.log(error);
+      console.log("등록오류: ", error);
     }
   }
 

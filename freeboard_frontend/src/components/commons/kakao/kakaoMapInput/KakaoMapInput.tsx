@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
+import WriteMapInputBar from "../../../commons/inputs/writeMapInput";
 
 const Map = styled.div`
   width: 996px;
@@ -78,7 +79,8 @@ declare const window: typeof globalThis & { kakao: any };
 // window 를 globalThis라고 표현하기도 함
 
 export default function KakaoMapInput(props: any) {
-  const [xy, setXy] = useState({});
+  const [xyLa, setXyLa] = useState("");
+  const [xyMa, setXyMa] = useState("");
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -96,8 +98,8 @@ export default function KakaoMapInput(props: any) {
           center: new window.kakao.maps.LatLng(
             37.497973081282595,
             127.02763975481963
-          ), //지도의 중심좌표.
-          level: 3, //지도의 레벨(확대, 축소 정도)
+          ),
+          level: 3,
         };
         const map = new window.kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
         console.log(map);
@@ -105,10 +107,8 @@ export default function KakaoMapInput(props: any) {
 
         // 지도를 클릭한 위치에 표출할 마커입니다
         const marker = new window.kakao.maps.Marker({
-          // 지도 중심좌표에 마커를 생성합니다
           position: map.getCenter(),
         });
-        // 지도에 마커를 표시합니다
         marker.setMap(map);
 
         // 지도에 클릭 이벤트를 등록합니다
@@ -123,7 +123,8 @@ export default function KakaoMapInput(props: any) {
             // 마커 위치를 클릭한 위치로 옮깁니다
             marker.setPosition(latlng);
             console.log(latlng);
-            setXy(latlng);
+            setXyLa(latlng.La);
+            setXyMa(latlng.Ma);
           }
         );
       });
@@ -144,20 +145,23 @@ export default function KakaoMapInput(props: any) {
           <LoTop>
             <SubTitle>GPS</SubTitle>
             <LoBox>
-              <InputBar
+              <WriteMapInputBar
                 type="text"
+                // setValue
+                register={props.register("MyLAT")}
                 placeholder="위도(LAT)"
+                value={xyLa}
                 readOnly
-                // defaultValue={xy.La} 이건 쿼리에서 받아야함
-                value={xy.La}
+                defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
               />
               <LoImg src="/image/marketboard/write/ic_location_on-32px.svg" />
-              <InputBar
+              <WriteMapInputBar
                 type="text"
+                register={props.register("MyLNG")}
                 placeholder="경도(LNG)"
                 readOnly
-                // defaultValue={xy.Ma} 이건 쿼리에서 받아야함
-                value={xy.Ma}
+                value={xyMa}
+                defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
               />
             </LoBox>
           </LoTop>
@@ -170,4 +174,23 @@ export default function KakaoMapInput(props: any) {
       </Map>
     </>
   );
+}
+
+{
+  /* <InputBar
+                type="text"
+                placeholder="위도(LAT)"
+                readOnly
+                // defaultValue={xy.La} 이건 쿼리에서 받아야함
+                value={xy.La}
+              /> */
+}
+{
+  /* <InputBar
+                type="text"
+                placeholder="경도(LNG)"
+                readOnly
+                // defaultValue={xy.Ma} 이건 쿼리에서 받아야함
+                value={xy.Ma}
+              /> */
 }

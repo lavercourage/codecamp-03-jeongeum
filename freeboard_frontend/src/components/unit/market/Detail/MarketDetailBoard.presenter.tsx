@@ -131,7 +131,7 @@ export default function MarketDetailBoardUI(props: any) {
         )}
         <TagContent>{props.data?.fetchUseditem.tags}</TagContent>
         <Border />
-        <KakaoMapDetail />
+        {/* <KakaoMapDetail data={props.data} /> */}
         {/* <Map>지도api아마도</Map> */}
         <BottomButton>
           <ToList onClick={props.onClickMoveToList}>목록으로</ToList>

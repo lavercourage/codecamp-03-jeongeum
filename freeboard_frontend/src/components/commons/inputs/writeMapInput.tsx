@@ -6,29 +6,12 @@ const Wrapper = styled.div`
   /* margin-top: 40px; */
 `;
 
-const Title = styled.div`
-  font-size: 16px;
-  color: #000000;
-`;
-
-// const InputBar = styled.input`
-//   width: 108px;
-//   height: 52px;
-//   color: #000000;
+// const Title = styled.div`
 //   font-size: 16px;
-//   margin-top: 16px;
-//   padding-left: 16px;
-//   border: 1px solid #bdbdbd;
-//   :focus {
-//     outline: none;
-//   }
-//   ::-webkit-input-placeholder {
-//     color: #bdbdbd;
-//     text-align: center;
-//   }
+//   color: #000000;
 // `;
 
-export const InputBar = styled.input`
+const InputBar = styled.input`
   width: 108px;
   height: 52px;
   color: #000000;
@@ -45,12 +28,12 @@ export const InputBar = styled.input`
   }
 `;
 
-const ErrorMessage = styled.div`
-  color: #ff0000;
-  font-size: 14px;
-  margin-top: 8px;
-  margin-left: 16px;
-`;
+// const ErrorMessage = styled.div`
+//   color: #ff0000;
+//   font-size: 14px;
+//   margin-top: 8px;
+//   margin-left: 16px;
+// `;
 
 export default function WriteMapInputBar(props: any) {
   console.log(props);
@@ -63,6 +46,7 @@ export default function WriteMapInputBar(props: any) {
         placeholder={props.placeholder}
         defaultValue={props.defaultValue}
         readOnly={props.readOnly}
+        value={props.value}
       />
       {/* <ErrorMessage>{props.error}</ErrorMessage> */}
     </Wrapper>

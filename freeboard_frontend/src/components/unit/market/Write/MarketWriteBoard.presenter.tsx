@@ -112,9 +112,8 @@ export default function MarketCreateBoardUI(props: any) {
             error={props.formState.errors.MyTag?.message}
           />
           {/* ////////////////////// */}
-          <KakaoMapInput />
+          <KakaoMapInput register={props.register} data={props.data} />
           {/* ////////////////////// */}
-
           <AddPhoto>
             <SubTitle>사진첨부</SubTitle>
             <Photos>
