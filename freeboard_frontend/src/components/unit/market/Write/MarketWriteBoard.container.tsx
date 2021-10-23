@@ -23,7 +23,7 @@ export default function MarketCreateBoard(props: any) {
     });
 
   const onClickCancle = () => {
-    router.push(`/`);
+    router.push(`/market/list-board`);
     // 취소버튼 눌렀을 때, 걍 완전 메인페이지 이동
   };
 
@@ -75,6 +75,12 @@ export default function MarketCreateBoard(props: any) {
     if (data.MyTag) {
       myVariables.updateUseditemInput.tags = data.MyTag;
     }
+    if (data.MyLAT) {
+      myVariables.updateUseditemInput.useditemAddress.lat = data.MyLAT;
+    }
+    if (data.MyLNG) {
+      myVariables.updateUseditemInput.useditemAddress.lng = data.MyLNG;
+    }
 
     try {
       const result = await updateUseditem({
@@ -90,12 +96,22 @@ export default function MarketCreateBoard(props: any) {
     // register로 등록하지 않고, 강제로 값을 넣어주는 기능
     setValue("MyContents", value === "<p><br></p>" ? "" : value);
     console.log(value);
-
     // onChange 됐는지 react-hook-form에 알려주는 기능
     trigger("MyContents");
   }
 
+  function onChangeMyLAT(value: any) {
+    setValue("MyLAT", value || "");
+    trigger("MyLAT");
+  }
+
+  function onChangeMyLNG(value: any) {
+    setValue("MyLNG", value || "");
+    trigger("MyLNG");
+  }
+
   // 수정시 기존의 데이터를 저장 (수정시 아무것도 변경하지 않아도 있는 데이터가 리액트 폼에 저장됨)
+  // 나중에 모든 요소 다 넣어두기
   useEffect(() => {
     if (props?.isEdit && props?.data?.fetchUseditem) {
       setValue("MyProduct", props?.data?.fetchUseditem?.name);
@@ -111,7 +127,6 @@ export default function MarketCreateBoard(props: any) {
     newFileUrls[index] = fileUrl;
     setFileUrls(newFileUrls);
   }
-
   return (
     <MarketCreateBoardUI
       isEdit={props.isEdit}
@@ -120,11 +135,17 @@ export default function MarketCreateBoard(props: any) {
       onClickSubmit={onClickSubmit}
       onClickEdit={onClickEdit}
       onClickCancle={onClickCancle}
-      onChangeMyContents={onChangeMyContents}
       register={register}
       formState={formState}
       setValue={setValue}
+      onChangeMyContents={onChangeMyContents}
       contents={watch("MyContents")}
+      // lat인가 useditemAddress.lat 인가
+      // 일단 useditemAddress.lat는 안되는 듯 하다
+      onChangeMyLAT={onChangeMyLAT}
+      lat={watch("MyLAT")}
+      onChangeMyLNG={onChangeMyLNG}
+      lng={watch("MyLNG")}
       fileUrls={fileUrls}
       onChangeFileUrls={onChangeFileUrls}
       // 모달

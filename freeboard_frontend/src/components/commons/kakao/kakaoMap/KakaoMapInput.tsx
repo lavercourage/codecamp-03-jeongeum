@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import WriteMapInputBar from "../../../commons/inputs/writeMapInput";
+import WriteMapInputBar from "../../inputs/writeMapInput";
 
 const Map = styled.div`
   width: 996px;
@@ -79,8 +79,6 @@ declare const window: typeof globalThis & { kakao: any };
 // window 를 globalThis라고 표현하기도 함
 
 export default function KakaoMapInput(props: any) {
-  const [xyLa, setXyLa] = useState("");
-  const [xyMa, setXyMa] = useState("");
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -123,8 +121,8 @@ export default function KakaoMapInput(props: any) {
             // 마커 위치를 클릭한 위치로 옮깁니다
             marker.setPosition(latlng);
             console.log(latlng);
-            setXyLa(latlng.La);
-            setXyMa(latlng.Ma);
+            props.onChangeMyLAT(latlng.Ma);
+            props.onChangeMyLNG(latlng.La);
           }
         );
       });
@@ -148,20 +146,20 @@ export default function KakaoMapInput(props: any) {
               <WriteMapInputBar
                 type="text"
                 // setValue
-                register={props.register("MyLAT")}
+                // register={props.register("MyLAT")}
                 placeholder="위도(LAT)"
-                value={xyLa}
+                value={props.lat}
                 readOnly
-                defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
+                // defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
               />
               <LoImg src="/image/marketboard/write/ic_location_on-32px.svg" />
               <WriteMapInputBar
                 type="text"
-                register={props.register("MyLNG")}
+                // register={props.register("MyLNG")}
                 placeholder="경도(LNG)"
                 readOnly
-                value={xyMa}
-                defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
+                value={props.lng}
+                // defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
               />
             </LoBox>
           </LoTop>

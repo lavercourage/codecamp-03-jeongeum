@@ -1,9 +1,9 @@
 import WriteInputBar from "../../../commons/inputs/writeInput";
 // import WriteDetailInputBar from "../../../commons/inputs/writeDetailInput";
-import WriteMapInputBar from "../../../commons/inputs/writeMapInput";
+// import WriteMapInputBar from "../../../commons/inputs/writeMapInput";
 import RegisterButton from "../../../commons/buttons/registerbutton";
 import ToListButton from "../../../commons/buttons/tolistbutton";
-import KakaoMapInput from "../../../commons/kakao/kakaoMapInput/KakaoMapInput";
+import KakaoMapInput from "../../../commons/kakao/kakaoMap/KakaoMapInput";
 
 import {
   Wrapper,
@@ -20,7 +20,7 @@ import {
   // LoInput2,
   AddPhoto,
   Photos,
-  Images,
+  // Images,
   MainSetting,
   Select,
   RadioBt,
@@ -51,7 +51,7 @@ export default function MarketCreateBoardUI(props: any) {
   //   "image",
   //   "color",
   // ];
-  console.log(props.contents);
+  console.log(props);
   return (
     <>
       <Wrapper
@@ -88,7 +88,6 @@ export default function MarketCreateBoardUI(props: any) {
               // modules={formats}
             />
           </ContentsForm>
-
           {/* <WriteDetailInputBar
             title="상품설명"
             register={props.register("MyContents")}
@@ -112,7 +111,13 @@ export default function MarketCreateBoardUI(props: any) {
             error={props.formState.errors.MyTag?.message}
           />
           {/* ////////////////////// */}
-          <KakaoMapInput register={props.register} data={props.data} />
+          <KakaoMapInput
+            onChangeMyLAT={props.onChangeMyLAT}
+            onChangeMyLNG={props.onChangeMyLNG}
+            lat={props.lat}
+            lng={props.lng}
+            data={props.data}
+          />
           {/* ////////////////////// */}
           <AddPhoto>
             <SubTitle>사진첨부</SubTitle>

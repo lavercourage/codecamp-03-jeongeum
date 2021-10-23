@@ -33,12 +33,13 @@ import {
   SliderWrapper,
   SliderItem,
 } from "./MarketDetailBoard.styles";
-import KakaoMapDetail from "../../../commons/kakao/kakaoMapDetail/KakaoMapDetail";
+import KakaoMapDetail from "../../../commons/kakao/kakaoMap/KakaoMapDetail";
 import { Tooltip } from "antd";
 import Slider from "@ant-design/react-slick";
 import DOMPurify from "dompurify";
 
 export default function MarketDetailBoardUI(props: any) {
+  console.log(props);
   let settings = {
     dots: true,
     infinite: true,
@@ -131,8 +132,7 @@ export default function MarketDetailBoardUI(props: any) {
         )}
         <TagContent>{props.data?.fetchUseditem.tags}</TagContent>
         <Border />
-        {/* <KakaoMapDetail data={props.data} /> */}
-        {/* <Map>지도api아마도</Map> */}
+        <KakaoMapDetail data={props?.data} />
         <BottomButton>
           <ToList onClick={props.onClickMoveToList}>목록으로</ToList>
           <ToEditBuy onClick={props.onClickMoveToEdit}>
