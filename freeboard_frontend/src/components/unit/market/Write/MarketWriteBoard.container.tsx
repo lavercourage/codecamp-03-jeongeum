@@ -9,6 +9,7 @@ import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./MarketWriteBoard.queries";
 import { schema } from "./MarketWriteBoard.validations";
 
 export default function MarketCreateBoard(props: any) {
+  console.log("아아아: ", props);
   const router = useRouter();
   // const [isActive, setIsActive] = useState(false);
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
@@ -76,10 +77,10 @@ export default function MarketCreateBoard(props: any) {
       myVariables.updateUseditemInput.tags = data.MyTag;
     }
     if (data.MyLAT) {
-      myVariables.updateUseditemInput.useditemAddress.lat = data.MyLAT;
+      myVariables.updateUseditemInput.useditemAddress.lat = Number(data.MyLAT);
     }
     if (data.MyLNG) {
-      myVariables.updateUseditemInput.useditemAddress.lng = data.MyLNG;
+      myVariables.updateUseditemInput.useditemAddress.lng = Number(data.MyLNG);
     }
 
     try {
@@ -140,8 +141,6 @@ export default function MarketCreateBoard(props: any) {
       setValue={setValue}
       onChangeMyContents={onChangeMyContents}
       contents={watch("MyContents")}
-      // lat인가 useditemAddress.lat 인가
-      // 일단 useditemAddress.lat는 안되는 듯 하다
       onChangeMyLAT={onChangeMyLAT}
       lat={watch("MyLAT")}
       onChangeMyLNG={onChangeMyLNG}

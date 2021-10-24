@@ -1,6 +1,6 @@
 import { Wrapper, MenuItem } from "./LayoutNavigation.styles";
 
-export default function LayoutNavigationUI(props) {
+export default function LayoutNavigationUI(props: any) {
   return (
     <Wrapper>
       <MenuItem id="/publicapi" onClick={props.onClickNav}>

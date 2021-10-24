@@ -10,6 +10,6 @@ export default function SearchBarBoard(props: any) {
   function onChangeSearchBar(event: any) {
     getDebounce(event.target.value);
   }
-
+  console.log("가가가가: ", props);
   return <SearchBarBoardUI onChangeSearchBar={onChangeSearchBar} />;
 }

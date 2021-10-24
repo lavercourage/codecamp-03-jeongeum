@@ -85,7 +85,7 @@ export default function LoginBoard() {
       console.log(result.data?.loginUser.accessToken);
       localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
       globalState?.setAccessToken(result.data?.loginUser.accessToken);
-      router.push(`/boards/list-board`);
+      router.push(`/market/list-board`);
       // alert(data?.fetchUserLoggedIn.name + " 환영합니다");
       setIsActive(true);
     } catch (error) {

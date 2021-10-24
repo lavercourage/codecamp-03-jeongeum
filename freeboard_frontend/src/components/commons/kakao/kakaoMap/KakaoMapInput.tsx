@@ -148,7 +148,7 @@ export default function KakaoMapInput(props: any) {
                 // setValue
                 // register={props.register("MyLAT")}
                 placeholder="위도(LAT)"
-                value={props.lat}
+                value={props?.lat || ""}
                 readOnly
                 // defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
               />
@@ -158,7 +158,7 @@ export default function KakaoMapInput(props: any) {
                 // register={props.register("MyLNG")}
                 placeholder="경도(LNG)"
                 readOnly
-                value={props.lng}
+                value={props?.lng || ""}
                 // defaultValue={props.data?.fetchUseditem.useditemAddress.lat}
               />
             </LoBox>
@@ -172,23 +172,4 @@ export default function KakaoMapInput(props: any) {
       </Map>
     </>
   );
-}
-
-{
-  /* <InputBar
-                type="text"
-                placeholder="위도(LAT)"
-                readOnly
-                // defaultValue={xy.La} 이건 쿼리에서 받아야함
-                value={xy.La}
-              /> */
-}
-{
-  /* <InputBar
-                type="text"
-                placeholder="경도(LNG)"
-                readOnly
-                // defaultValue={xy.Ma} 이건 쿼리에서 받아야함
-                value={xy.Ma}
-              /> */
 }

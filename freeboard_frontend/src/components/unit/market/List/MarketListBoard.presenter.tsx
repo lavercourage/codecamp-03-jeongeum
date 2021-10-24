@@ -1,95 +1,122 @@
 import InfiniteScroll from "react-infinite-scroller";
-import styled from "@emotion/styled";
-
-const ThumbImg = styled.img`
-  width: 20px;
-  height: 20px;
-`;
-
-const ThumbImgNone = styled.div`
-  width: 20px;
-  height: 20px;
-  background-color: plum;
-  text-align: center;
-`;
+import MarketSearchBarBoard from "../../../../../src/components/commons/searchbar/marketSearchbar";
+import BestItemBoard from "../../../commons/bestItem/BestItem";
+import RecentViewItemBoard from "../../../commons/recentItem/recentItem";
+import {
+  TopBar,
+  ProductButton,
+  ProductSoldButton,
+  ProductList,
+  ProductWrapper,
+  Border1,
+  Border2,
+  ProductItem,
+  ThumbImg,
+  ThumbImgNone,
+  Data,
+  ProductName,
+  ProductRemarks,
+  ProductTag,
+  ProductSeller,
+  SellerProfileImg,
+  SellerName,
+  PickItemIcon,
+  PickItemCount,
+  ProductPriceData,
+  ProductWon,
+  ProductPrice,
+  ProductBuyButton,
+  ProductListWrapper,
+} from "./MarketListBoard.styles";
 
 export default function MarketListBoardUI(props: any) {
+  console.log(props);
   return (
-    <div
-      style={{
-        overflow: "auto",
-        height: "300px",
-        width: "1200px",
-        backgroundColor: "gray",
-      }}
-    >
-      <InfiniteScroll
-        pageStart={0}
-        loadMore={props.onLoadMore}
-        hasMore={true}
-        useWindow={false}
-        // style={{ height: "300px", backgroundColor: "red" }}
-        //   loader={<div className="loader" key={0}> Loading ... </div>}
-      >
-        {props.data?.fetchUseditems.map((el: any) => (
-          <div key={el._id} id={el._id} onClick={props.onClickMoveProduct}>
-            <image style={{ width: "20px", height: "20px" }}>
-              {el.images[0] ? (
-                <ThumbImg
-                  src={`https://storage.googleapis.com/${el.images[0]}`}
-                />
-              ) : (
-                <ThumbImgNone>no!</ThumbImgNone>
-              )}
-            </image>
-            <span
-              style={{
-                color: "#dc0740",
-                marginRight: "20px",
-              }}
+    <>
+      <BestItemBoard />
+      <TopBar>
+        <ProductButton>
+          <ProductSoldButton
+            onClick={props.onClickSelling}
+            isSoldout={!props.isSoldout}
+          >
+            안팔림
+          </ProductSoldButton>
+          <ProductSoldButton
+            onClick={props.onClickSoldout}
+            isSoldout={props.isSoldout}
+          >
+            팔림
+          </ProductSoldButton>
+        </ProductButton>
+        <MarketSearchBarBoard
+          refetch={props.refetch}
+          onChangeKeyword={props.onChangeKeyword}
+        />
+      </TopBar>
+      <ProductWrapper>
+        <ProductListWrapper>
+          <Border1 />
+          <ProductList>
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={props.onLoadMore}
+              hasMore={true}
+              useWindow={false}
             >
-              {el.name}
-            </span>
-            <span
-              style={{
-                marginRight: "20px",
-              }}
-            >
-              {el.remarks}
-            </span>
-            <span
-              style={{
-                color: "#dc0740",
-                marginRight: "20px",
-              }}
-            >
-              {el.tags}
-            </span>
-            <span
-              style={{
-                marginRight: "20px",
-              }}
-            >
-              {el.seller.name}
-            </span>
-            <span
-              style={{
-                color: "#dc0740",
-                marginRight: "20px",
-              }}
-            >
-              {el.pickedCount}
-            </span>
-            <span
-              style={{
-                marginRight: "20px",
-              }}
-            >
-              {Number(el.price).toLocaleString()}원
-            </span>
-          </div>
-        ))}
-      </InfiniteScroll>
-    </div>
+              {props.data?.fetchUseditems.map((el: any) => (
+                <ProductItem
+                  key={el._id}
+                  id={el._id}
+                  onClick={props.onClickMoveProduct}
+                >
+                  <div>
+                    {el.images[0] ? (
+                      <ThumbImg
+                        src={`https://storage.googleapis.com/${el.images[0]}`}
+                      />
+                    ) : (
+                      <ThumbImgNone>
+                        이미지가
+                        <br />
+                        없습니다
+                      </ThumbImgNone>
+                    )}
+                  </div>
+                  <Data>
+                    <ProductName>{el.name}</ProductName>
+                    <ProductRemarks>{el.remarks}</ProductRemarks>
+                    <ProductTag>{el.tags}</ProductTag>
+                    <ProductSeller>
+                      <SellerProfileImg
+                        src={
+                          el.seller.picture
+                            ? `https://storage.googleapis.com/${el.seller.picture}`
+                            : "/image/marketboard/detail/profile.svg"
+                        }
+                      />
+                      <SellerName>{el.seller.name}</SellerName>
+                      <PickItemIcon />
+                      <PickItemCount>{el.pickedCount}</PickItemCount>
+                    </ProductSeller>
+                  </Data>
+                  <ProductPriceData>
+                    <ProductWon>₩</ProductWon>
+                    <ProductPrice>
+                      {Number(el.price).toLocaleString()}원
+                    </ProductPrice>
+                  </ProductPriceData>
+                </ProductItem>
+              ))}
+            </InfiniteScroll>
+          </ProductList>
+          <Border2 />
+        </ProductListWrapper>
+        <RecentViewItemBoard />
+      </ProductWrapper>
+      <ProductBuyButton onClick={props.onClickProductRegister}>
+        상품 등록하기
+      </ProductBuyButton>
+    </>
   );
 }
