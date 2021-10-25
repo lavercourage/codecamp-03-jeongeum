@@ -14,6 +14,7 @@ export default function MarketCreateBoard(props: any) {
   // const [isActive, setIsActive] = useState(false);
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
+
   const [fileUrls, setFileUrls] = useState(["", "", ""]);
 
   const { handleSubmit, register, formState, setValue, trigger, watch } =
@@ -39,6 +40,8 @@ export default function MarketCreateBoard(props: any) {
             price: Number(data.MyPrice),
             tags: data.MyTag,
             useditemAddress: {
+              address: data.MyAddress,
+              addressDetail: data.MyAddressDetail,
               lat: Number(data.MyLAT),
               lng: Number(data.MyLNG),
             },
@@ -59,8 +62,11 @@ export default function MarketCreateBoard(props: any) {
   async function onClickEdit(data: any) {
     const myVariables = {
       useditemId: router.query.marketpage,
-      updateUseditemInput: {},
+      updateUseditemInput: {
+        useditemAddress: {},
+      },
     };
+
     if (data.MyProduct) {
       myVariables.updateUseditemInput.name = data.MyProduct;
     }
@@ -75,6 +81,15 @@ export default function MarketCreateBoard(props: any) {
     }
     if (data.MyTag) {
       myVariables.updateUseditemInput.tags = data.MyTag;
+    }
+
+    if (data.MyAddress) {
+      myVariables.updateUseditemInput.useditemAddress.address = data.MyAddress;
+    }
+
+    if (data.MyAddressDetail) {
+      myVariables.updateUseditemInput.useditemAddress.addressDetail =
+        data.MyAddressDetail;
     }
     if (data.MyLAT) {
       myVariables.updateUseditemInput.useditemAddress.lat = Number(data.MyLAT);
@@ -93,10 +108,16 @@ export default function MarketCreateBoard(props: any) {
     }
   }
 
+  // async function onClickDelete(event){
+  //     await deleteBoardano({
+  //         variables: {number:Number(event.target.id)},
+  //         refetchQueries : [{ query: FETCH_BOARDS }]
+  //     })
+  // }
+
   function onChangeMyContents(value: any) {
     // register로 등록하지 않고, 강제로 값을 넣어주는 기능
     setValue("MyContents", value === "<p><br></p>" ? "" : value);
-    console.log(value);
     // onChange 됐는지 react-hook-form에 알려주는 기능
     trigger("MyContents");
   }
@@ -120,6 +141,14 @@ export default function MarketCreateBoard(props: any) {
       setValue("MyContents", props?.data?.fetchUseditem?.contents);
       setValue("MyPrice", props?.data?.fetchUseditem?.price);
       setValue("MyTag", props?.data?.fetchUseditem?.tags);
+      setValue(
+        "MyAddress",
+        props?.data?.fetchUseditem?.useditemAddress.address
+      );
+      setValue(
+        "MyAddressDetail",
+        props?.data?.fetchUseditem?.useditemAddress.addressDetail
+      );
       setValue("MyLAT", props?.data?.fetchUseditem?.useditemAddress.lat);
       setValue("MyLNG", props?.data?.fetchUseditem?.useditemAddress.lng);
     }
@@ -130,6 +159,7 @@ export default function MarketCreateBoard(props: any) {
     newFileUrls[index] = fileUrl;
     setFileUrls(newFileUrls);
   }
+
   return (
     <MarketCreateBoardUI
       isEdit={props.isEdit}
@@ -149,6 +179,7 @@ export default function MarketCreateBoard(props: any) {
       lng={watch("MyLNG")}
       fileUrls={fileUrls}
       onChangeFileUrls={onChangeFileUrls}
+
       // 모달
       // isActive={isActive}
       // isModalVisible={isModalVisible}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import WriteMapInputBar from "../../inputs/writeMapInput";
+import AddressInputBar from "../../inputs/addressInput";
 
 const Map = styled.div`
   width: 996px;
@@ -124,7 +125,7 @@ export default function KakaoMapInput(props: any) {
 
             // 마커 위치를 클릭한 위치로 옮깁니다
             marker.setPosition(latlng);
-            console.log(latlng);
+            console.log(props);
             props.onChangeMyLAT(latlng.Ma);
             props.onChangeMyLNG(latlng.La);
           }
@@ -169,8 +170,20 @@ export default function KakaoMapInput(props: any) {
           </LoTop>
           <LoBottom>
             <SubTitle>주소</SubTitle>
-            <LoInput2></LoInput2>
-            <LoInput2></LoInput2>
+            <AddressInputBar
+              type="text"
+              register={props.register("MyAddress")}
+              onChange={props.onChangeAddress}
+              defaultValue={props.data?.fetchUseditem.useditemAddress.address}
+            />
+            <AddressInputBar
+              type="text"
+              register={props.register("MyAddressDetail")}
+              onChange={props.onChangeAddressDetail}
+              defaultValue={
+                props.data?.fetchUseditem.useditemAddress.addressDetail
+              }
+            />
           </LoBottom>
         </LocationRight>
       </Map>

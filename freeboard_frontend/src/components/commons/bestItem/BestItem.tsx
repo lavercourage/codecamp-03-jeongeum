@@ -110,7 +110,7 @@ export default function BestItemBoard() {
   const router = useRouter();
   const { data } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
 
-  const onClickBestItem = (e) => {
+  const onClickBestItem = (e: any) => {
     router.push(`/market/${e.currentTarget.id}`);
   };
   return (

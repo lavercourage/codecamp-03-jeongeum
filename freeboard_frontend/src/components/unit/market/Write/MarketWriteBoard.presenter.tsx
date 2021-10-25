@@ -9,18 +9,9 @@ import {
   Wrapper,
   InnerWrapper,
   Title,
-  // Map,
-  // LocationLeft,
   SubTitle,
-  // LocationRight,
-  // LoTop,
-  // LoBox,
-  // LoImg,
-  // LoBottom,
-  // LoInput2,
   AddPhoto,
   Photos,
-  // Images,
   MainSetting,
   Select,
   RadioBt,
@@ -51,7 +42,7 @@ export default function MarketCreateBoardUI(props: any) {
   //   "image",
   //   "color",
   // ];
-  console.log("카카오맵 수정하기: ", props);
+  console.log("어떤어떤정보: ", props);
   return (
     <>
       <Wrapper
@@ -59,7 +50,6 @@ export default function MarketCreateBoardUI(props: any) {
           props.isEdit ? props.onClickEdit : props.onClickSubmit
         )}
       >
-        {/* <Wrapper onSubmit={props.handleSubmit(props.onClickSubmit)}> */}
         <InnerWrapper>
           <Title>{props.isEdit ? "상품 수정하기" : "상품 등록하기"}</Title>
           <WriteInputBar
@@ -114,6 +104,9 @@ export default function MarketCreateBoardUI(props: any) {
           <KakaoMapInput
             onChangeMyLAT={props.onChangeMyLAT}
             onChangeMyLNG={props.onChangeMyLNG}
+            onChangeAddress={props.onChangeAddress}
+            onChangeAddressDetail={props.onChangeAddressDetail}
+            register={props.register}
             lat={props.lat}
             lng={props.lng}
             data={props.data}

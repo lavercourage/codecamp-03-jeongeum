@@ -10,6 +10,7 @@ import {
 } from "./LayoutHeader.styles";
 
 export default function LayoutHeaderUI(props: any) {
+  console.log("유저정보: ", props);
   return (
     <Wrapper>
       <InnerWrapper>
@@ -31,9 +32,12 @@ export default function LayoutHeaderUI(props: any) {
                 {props.data?.fetchUserLoggedIn.name} 님
               </UserInfo>
               <LogOut onClick={props.onClickLogOut}>로그아웃</LogOut>
+              <SignIn>
+                잔액: {props.data?.fetchUserLoggedIn?.userPoint?.amount}원
+              </SignIn>
+              <SignIn onClick={props.removeToken}>TKRM</SignIn>
             </LoggeedIn>
           )}
-          <SignIn onClick={props.removeToken}>TKRM</SignIn>
         </div>
       </InnerWrapper>
     </Wrapper>

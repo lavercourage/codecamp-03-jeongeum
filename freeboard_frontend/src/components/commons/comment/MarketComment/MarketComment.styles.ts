@@ -60,7 +60,8 @@ export const BottomTitleUnder = styled.div`
   margin: 0px;
   display: flex;
   border: 1px solid #bdbdbd;
-  border-top: none;
+  /* border-top: none; */
+  border-top: purple;
   justify-content: space-between;
   align-items: center;
 `;
@@ -76,6 +77,6 @@ export const Button = styled.button`
   height: 51px;
   border: none;
   font-size: 16px;
-  color: "#ffffff";
-  background-color: "#000000";
+  color: #ffffff;
+  background-color: #000000;
 `;

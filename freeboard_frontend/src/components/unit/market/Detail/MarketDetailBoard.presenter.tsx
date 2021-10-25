@@ -32,6 +32,7 @@ import {
   Border2,
   SliderWrapper,
   SliderItem,
+  DeleteIcon,
 } from "./MarketDetailBoard.styles";
 import KakaoMapDetail from "../../../commons/kakao/kakaoMap/KakaoMapDetail";
 import MarketCommentBoard from "../../../commons/comment/MarketComment/MarketComment.container";
@@ -41,7 +42,7 @@ import Slider from "@ant-design/react-slick";
 import DOMPurify from "dompurify";
 
 export default function MarketDetailBoardUI(props: any) {
-  console.log(props);
+  console.log("디테일: ", props);
   let settings = {
     dots: true,
     infinite: true,
@@ -80,6 +81,7 @@ export default function MarketDetailBoardUI(props: any) {
             >
               <Location src="/image/ic_location_on-32px.svg" />
             </Tooltip>
+            <DeleteIcon onClick={props.onClickDeleteItem}>X</DeleteIcon>
           </TitleBarRight>
         </TitleBar>
         <Border />
@@ -138,9 +140,12 @@ export default function MarketDetailBoardUI(props: any) {
         <Border />
         <BottomButton>
           <ToList onClick={props.onClickMoveToList}>목록으로</ToList>
-          <ToEditBuy onClick={props.onClickMoveToEdit}>
-            구매하기수정하기
-          </ToEditBuy>
+          {props.data?.fetchUseditem.seller?._id ===
+          props.fetchUserLoggedIn?.fetchUserLoggedIn?._id ? (
+            <ToEditBuy onClick={props.onClickMoveToEdit}>수정하기</ToEditBuy>
+          ) : (
+            <ToEditBuy onClick={props.onClickMoveToBuy}>구매하기</ToEditBuy>
+          )}
         </BottomButton>
         <Border2 />
       </InnerWrapper>

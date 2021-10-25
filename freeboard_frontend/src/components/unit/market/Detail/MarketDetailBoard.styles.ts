@@ -65,7 +65,13 @@ export const Clip = styled.img`
 export const Location = styled.img`
   height: 20px;
   margin-left: 15px;
-  margin-right: 5px;
+  margin-right: 15px;
+`;
+export const DeleteIcon = styled.div`
+  font-size: 20px;
+  /* color: #ffd600; */
+  color: #4f4f4f;
+  cursor: pointer;
 `;
 
 export const ContentBar = styled.div`

@@ -8,7 +8,7 @@ import { FETCH_USER_LOGGED_IN } from "../../../unit/userInputdata/Login/LoginBoa
 export default function LayoutHeader() {
   const router = useRouter();
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
-  const { setAccessToken } = useContext(GlobalContext);
+  const { setAccessToken }: any = useContext(GlobalContext);
 
   function onClickHeader(event: any) {
     router.push(event.target.id);
