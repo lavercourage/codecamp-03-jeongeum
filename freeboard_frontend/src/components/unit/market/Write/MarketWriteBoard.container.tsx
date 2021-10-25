@@ -120,6 +120,8 @@ export default function MarketCreateBoard(props: any) {
       setValue("MyContents", props?.data?.fetchUseditem?.contents);
       setValue("MyPrice", props?.data?.fetchUseditem?.price);
       setValue("MyTag", props?.data?.fetchUseditem?.tags);
+      setValue("MyLAT", props?.data?.fetchUseditem?.useditemAddress.lat);
+      setValue("MyLNG", props?.data?.fetchUseditem?.useditemAddress.lng);
     }
   }, [props?.isEdit, props?.data?.fetchUseditem]);
 

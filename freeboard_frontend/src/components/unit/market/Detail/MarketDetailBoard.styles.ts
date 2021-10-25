@@ -174,7 +174,7 @@ export const Map = styled.div`
 `;
 
 export const BottomButton = styled.div`
-  margin-top: 20px;
+  margin-top: 80px;
 `;
 
 export const ToList = styled.button`
@@ -214,7 +214,7 @@ export const Border2 = styled.div`
   width: 1200px;
   border-top: 1px solid #bdbdbd;
   margin-top: 80px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 `;
 
 export const SliderWrapper = styled.div`

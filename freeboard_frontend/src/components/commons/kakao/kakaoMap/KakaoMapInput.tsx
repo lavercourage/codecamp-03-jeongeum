@@ -79,6 +79,8 @@ declare const window: typeof globalThis & { kakao: any };
 // window 를 globalThis라고 표현하기도 함
 
 export default function KakaoMapInput(props: any) {
+  console.log("카카오지도1: ", props);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -87,6 +89,7 @@ export default function KakaoMapInput(props: any) {
     // 스크립트 만들고 document 헤드에 추가하는 부분
 
     script.onload = () => {
+      console.log("카카오지도2: ", props);
       // 스크립트가 로드될때까지 기다리는 부분
       window.kakao.maps.load(function () {
         // 카카오 맵이 로드 될때까지 기다리는 부분
@@ -94,11 +97,12 @@ export default function KakaoMapInput(props: any) {
         const options = {
           //지도를 생성할 때 필요한 기본 옵션
           center: new window.kakao.maps.LatLng(
-            37.497973081282595,
-            127.02763975481963
+            props.data?.fetchUseditem.useditemAddress.lat || 37.497973081282595,
+            props.data?.fetchUseditem.useditemAddress.lng || 127.02763975481963
           ),
           level: 3,
         };
+        console.log(options);
         const map = new window.kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
         console.log(map);
         // 기존에 있던 맵을 그리는 부분
@@ -127,7 +131,7 @@ export default function KakaoMapInput(props: any) {
         );
       });
     };
-  }, []);
+  }, [props.data]);
 
   return (
     <>

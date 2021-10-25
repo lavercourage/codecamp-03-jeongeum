@@ -51,7 +51,7 @@ export default function MarketCreateBoardUI(props: any) {
   //   "image",
   //   "color",
   // ];
-  console.log(props);
+  console.log("카카오맵 수정하기: ", props);
   return (
     <>
       <Wrapper
