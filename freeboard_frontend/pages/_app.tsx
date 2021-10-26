@@ -16,6 +16,8 @@ import { createContext, useEffect, useState } from "react";
 import { AppProps } from "next/dist/shared/lib/router/router";
 // import Head from "next/head";
 
+import { getAccessToken } from "../src/commons/libraries/getAccessToken";
+
 export type IGlobalContext = {
   accessToken?: any;
   setAccessToken?: any;
@@ -39,36 +41,39 @@ function MyApp({ Component, pageProps }: AppProps) {
     // localStorage.clear();
     // >> 토큰 만료 해결 방법
     // >> chrome개발자 도구 >> Application >> Local Storage >> accessToken 삭제
-    const accessToken = localStorage.getItem("accessToken") || "";
+    // // const accessToken = localStorage.getItem("accessToken") || "";
     // localStorage.getItem("accessToken") 있으면 저장
     // 없으면 ("")
-    setAccessToken(accessToken);
+    // // setAccessToken(accessToken);
+
+    if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
   }, []);
 
   const uploadLink = createUploadLink({
-    uri: "http://backend03.codebootcamp.co.kr/graphql",
+    uri: "https://backend03.codebootcamp.co.kr/graphql",
     headers: { authorization: `Bearer ${accessToken}` },
+    credentials: "include",
   });
-
-  // const RESTORE_ACCESS_TOKEN = gql`
-  //   mutation restoreAccessToken {
-  //     restoreAccessToken {
-  //       accessToken
-  //     }
-  //   }
-  // `;
 
   const errorLink = onError(({ graphQLErrors, operation, forward }) => {
     if (graphQLErrors) {
       for (const err of graphQLErrors) {
         if (err.extensions?.code === "UNAUTHENTICATED") {
+          operation.setContext({
+            // ㄴ실행하려다가 토큰만료로 실패한 쿼리
+            headers: {
+              ...operation.getContext().headers, // 기존의 헤더 정보를 가져옴
+              authorization: `Bearer ${getAccessToken(setAccessToken)}`,
+            },
+          });
+          return forward(operation); // 다시 해줄 작업 (아까 그 쿼라 다시 날리기)
         }
       }
     }
   });
 
   const client = new ApolloClient({
-    link: ApolloLink.from([uploadLink as unknown as ApolloLink]),
+    link: ApolloLink.from([errorLink, uploadLink as unknown as ApolloLink]),
     cache: new InMemoryCache(),
   });
 

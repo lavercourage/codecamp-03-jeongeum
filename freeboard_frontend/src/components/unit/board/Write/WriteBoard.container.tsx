@@ -1,7 +1,7 @@
-import BoardWriteUI from "./WriteBoard.presenter";
+import BoardWriteUI from "./writeBoard.presenter";
 import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./WriteBoard.queries";
+import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./writeBoard.queries";
 import { useRouter } from "next/router";
 
 export default function BoardWrite(props: any) {

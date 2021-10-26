@@ -4,9 +4,9 @@ import { useState } from "react";
 import {
   CREATE_BOARD_COMMENT,
   EDIT_BOARD_COMMENT,
-} from "./CommentBoard.queries";
-import { FETCH_BOARD_COMMENTS } from "../list/CommentListBoard.queries";
-import CommentBoardUI from "./CommentBoard.presenter";
+} from "./commentBoard.queries";
+import { FETCH_BOARD_COMMENTS } from "../list/commentListBoard.queries";
+import CommentBoardUI from "./commentBoard.presenter";
 
 export default function CommentBoard(props: any) {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import UserDataInputBar from "../../../commons/inputs/userdatainput";
 import RegisterButton from "../../../commons/buttons/registerbutton";
-import { Wrapper, CancleDiv, Arrow, Title } from "./SignInBoard.styles";
+import { Wrapper, CancleDiv, Arrow, Title } from "./signInBoard.styles";
 // import { Modal, Button } from "antd";
 import { useState } from "react";
 

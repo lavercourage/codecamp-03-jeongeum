@@ -3,7 +3,7 @@ import {
   SliderItem1,
   SliderItem2,
   SliderItem3,
-} from "./LayoutBanner.styles";
+} from "./layoutBanner.styles";
 import React from "react";
 import Slider from "@ant-design/react-slick";
 

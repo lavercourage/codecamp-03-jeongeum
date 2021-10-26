@@ -1,7 +1,7 @@
-import ListBoardUI from "./ListBoard.presenter";
+import ListBoardUI from "./listBoard.presenter";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
-import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./ListBoard.queries";
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./listBoard.queries";
 import { useState } from "react";
 
 export default function ListBoard() {

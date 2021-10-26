@@ -1,7 +1,7 @@
 // 상품 수정 페이지
 import { withAuth } from "../../../../src/components/commons/withAuth/withAuth";
 import { useRouter } from "next/router";
-import MarketCreateBoard from "../../../../src/components/unit/market/Write/MarketWriteBoard.container";
+import MarketCreateBoard from "../../../../src/components/unit/market/write/marketWriteBoard.container";
 import { useQuery, gql } from "@apollo/client";
 
 const FETCH_USED_ITEM = gql`

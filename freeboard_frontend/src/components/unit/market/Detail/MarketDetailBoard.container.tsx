@@ -1,14 +1,14 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useContext } from "react";
-import MarketDetailBoardUI from "./MarketDetailBoard.presenter";
+import MarketDetailBoardUI from "./marketDetailBoard.presenter";
 import {
   FETCH_USED_ITEM,
   ITEM_PICK,
   DELETE_USED_ITEM,
   FETCH_USER_LOGGEDIN,
   CREATE_POINT_TRANS_ACTION_Of_BUYING_AND_SELLING,
-} from "./MarketDetailBoard.queries";
+} from "./marketDetailBoard.queries";
 
 export default function MarketDetailBoard() {
   const router = useRouter();

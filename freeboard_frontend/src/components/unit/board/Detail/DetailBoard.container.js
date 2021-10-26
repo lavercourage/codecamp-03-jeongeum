@@ -1,4 +1,4 @@
-import DetailBoardUI from "./DetailBoard.presenter";
+import DetailBoardUI from "./detailBoard.presenter";
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import {
@@ -6,7 +6,7 @@ import {
   DELETE_BOARD,
   LIKE_BOARD,
   DISLIKE_BOARD,
-} from "./DetailBoard.queries";
+} from "./detailBoard.queries";
 import { useState } from "react";
 
 export default function DetailBoard() {

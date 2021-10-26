@@ -1,6 +1,6 @@
 import InfiniteScroll from "react-infinite-scroller";
-import MarketSearchBarBoard from "../../../../../src/components/commons/searchbar/marketSearchbar";
-import BestItemBoard from "../../../commons/bestItem/BestItem";
+import MarketSearchBarBoard from "../../../commons/searchbar/marketSearchbar";
+import BestItemBoard from "../../../commons/bestItem/bestItem";
 import RecentViewItemBoard from "../../../commons/recentItem/recentItem";
 import {
   TopBar,
@@ -27,7 +27,7 @@ import {
   ProductPrice,
   ProductBuyButton,
   ProductListWrapper,
-} from "./MarketListBoard.styles";
+} from "./marketListBoard.styles";
 
 export default function MarketListBoardUI(props: any) {
   console.log(props);

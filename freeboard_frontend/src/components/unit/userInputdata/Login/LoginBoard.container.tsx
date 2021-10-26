@@ -1,5 +1,5 @@
-import LoginBoardUI from "./LoginBoard.presenter";
-import { LOGIN_BOARD, FETCH_USER_LOGGED_IN } from "./LoginBoard.queries";
+import LoginBoardUI from "./loginBoard.presenter";
+import { LOGIN_BOARD, FETCH_USER_LOGGED_IN } from "./loginBoard.queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext, IGlobalContext } from "../../../../../pages/_app";
@@ -22,6 +22,7 @@ export default function LoginBoard() {
   const [isActive, setIsActive] = useState(false);
 
   const globalState = useContext<IGlobalContext>(GlobalContext);
+  const { setAccessToken }: any = useContext<IGlobalContext>(GlobalContext);
 
   useEffect(() => {
     if (globalState?.userInfo.email) return;
@@ -85,10 +86,14 @@ export default function LoginBoard() {
 
       // console.log(result.data?.loginUser.accessToken);
       // localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
-      globalState?.setAccessToken(result.data?.loginUser.accessToken);
+      // globalState?.setAccessToken(result.data?.loginUser.accessToken);
+      localStorage.setItem("refreshToken", "true");
+      setAccessToken(result.data?.loginUser.accessToken);
+
       router.push(`/market/list-board`);
       alert(data?.fetchUserLoggedIn.name + " 환영합니다");
       setIsActive(true);
+      console.log("로그인: ", data);
     } catch (error) {
       console.log(error);
     }

@@ -10,7 +10,7 @@ export const withAuth = (Component: any) => (props: any) => {
 
   useEffect(() => {
     // console.log(accessToken);
-    const accessTokenHave = localStorage.getItem("accessToken") || "";
+    const accessTokenHave = localStorage.getItem("refreshToken") || "";
     if (!accessTokenHave) {
       alert("로그인한 사람만 입장 가능!");
       router.push("/logIn");

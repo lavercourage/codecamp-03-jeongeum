@@ -1,6 +1,6 @@
-import LayoutBanner from "./banner/LayoutBanner.container";
-import LayoutHeader from "./header/LayoutHeader.container";
-import LayoutNavigation from "./navigation/LayoutNavigation.container";
+import LayoutBanner from "./banner/layoutBanner.container";
+import LayoutHeader from "./header/layoutHeader.container";
+import LayoutNavigation from "./navigation/layoutNavigation.container";
 import styled from "@emotion/styled";
 // import { useRouter } from "next/router";
 
@@ -13,7 +13,7 @@ const Body = styled.div`
 
 // const HIDDEN_HEADER = ["/create-board"];
 
-export default function Layout(props) {
+export default function Layout(props: any) {
   // const router = useRouter();
   // const isHiddenHeader = HIDDEN_HEADER.includes(router.pathname)
 

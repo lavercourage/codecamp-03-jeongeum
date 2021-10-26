@@ -4,9 +4,9 @@ import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { useEffect, useState } from "react";
 
-import MarketCreateBoardUI from "./MarketWriteBoard.presenter";
-import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./MarketWriteBoard.queries";
-import { schema } from "./MarketWriteBoard.validations";
+import MarketCreateBoardUI from "./marketWriteBoard.presenter";
+import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./marketWriteBoard.queries";
+import { schema } from "./marketWriteBoard.validations";
 
 export default function MarketCreateBoard(props: any) {
   console.log("아아아: ", props);

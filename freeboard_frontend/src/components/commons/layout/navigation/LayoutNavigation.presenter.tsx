@@ -1,4 +1,4 @@
-import { Wrapper, MenuItem } from "./LayoutNavigation.styles";
+import { Wrapper, MenuItem } from "./layoutNavigation.styles";
 
 export default function LayoutNavigationUI(props: any) {
   return (

@@ -2,8 +2,8 @@ import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import { useContext } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
-import LayoutHeaderUI from "./LayoutHeder.presenter";
-import { FETCH_USER_LOGGED_IN } from "../../../unit/userInputdata/Login/LoginBoard.queries";
+import LayoutHeaderUI from "./layoutHeder.presenter";
+import { FETCH_USER_LOGGED_IN } from "../../../unit/userInputdata/login/loginBoard.queries";
 
 export default function LayoutHeader() {
   const router = useRouter();
@@ -15,13 +15,13 @@ export default function LayoutHeader() {
   }
 
   function onClickLogOut() {
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
     setAccessToken("");
     router.push("/");
   }
 
   function removeToken() {
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
     setAccessToken("");
     router.push("/");
   }

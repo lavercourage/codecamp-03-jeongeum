@@ -27,7 +27,7 @@ import {
   ToEdit,
   ToDelete,
   Border,
-} from "./DetailBoard.styles";
+} from "./detailBoard.styles";
 import { Tooltip } from "antd";
 
 export default function DetailBoardUI(props) {

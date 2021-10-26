@@ -17,7 +17,7 @@ import {
   Pagination,
   PageButton,
   Page,
-} from "./ListBoard.styles";
+} from "./listBoard.styles";
 // import Searchbars01 from "../../../commons/searchbars/Searchbars01.container";
 import SearchBarBoard from "../../../commons/searchbar/searchbar.container";
 import { v4 as uuidv4 } from "uuid";

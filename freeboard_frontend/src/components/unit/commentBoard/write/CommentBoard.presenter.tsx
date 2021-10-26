@@ -14,7 +14,7 @@ import {
   TopTitle,
   Wrapper,
   Page,
-} from "./CommentBoard.styles";
+} from "./commentBoard.styles";
 
 export default function CommentBoardUI(props: any) {
   const textRef = useRef<HTMLTextAreaElement>();

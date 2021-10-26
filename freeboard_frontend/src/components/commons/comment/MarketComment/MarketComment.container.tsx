@@ -1,8 +1,8 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import MarketCommentBoardUI from "./MarketComment.presenter";
-import { CREATE_USED_ITEM_QUESTION } from "./MarketComment.queries";
+import MarketCommentBoardUI from "./marketComment.presenter";
+import { CREATE_USED_ITEM_QUESTION } from "./marketComment.queries";
 
 export default function MarketCommentBoard() {
   const router = useRouter();

@@ -1,8 +1,8 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import MarketListBoardUI from "./MarketListBoard.presenter";
-import { FETCH_USED_ITEMS } from "./MarketListBoard.queries";
+import MarketListBoardUI from "./marketListBoard.presenter";
+import { FETCH_USED_ITEMS } from "./marketListBoard.queries";
 
 export default function MarketListBoard() {
   const router = useRouter();

@@ -36,7 +36,7 @@ import {
   Submit,
   SubmitCancle,
   Error,
-} from "./WriteBoard.styles";
+} from "./writeBoard.styles";
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
 

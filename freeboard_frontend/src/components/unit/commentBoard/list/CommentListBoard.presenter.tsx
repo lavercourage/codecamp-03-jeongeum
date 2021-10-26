@@ -6,7 +6,7 @@
 //     )
 // }
 
-import BoardCommentListUIItem from "./CommentListBoard.presenterItem";
+import BoardCommentListUIItem from "./commentListBoard.presenterItem";
 import InfiniteScroll from "react-infinite-scroller";
 
 export default function BoardCommentListUI(props: any) {

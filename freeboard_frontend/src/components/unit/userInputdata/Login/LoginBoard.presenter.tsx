@@ -15,7 +15,7 @@ import {
   BottomButton,
   SubButton,
   SubButtonBar,
-} from "./LoginBoard.styles";
+} from "./loginBoard.styles";
 
 export default function LoginBoardUI(props: any) {
   return (

@@ -3,7 +3,7 @@ import WriteInputBar from "../../../commons/inputs/writeInput";
 // import WriteMapInputBar from "../../../commons/inputs/writeMapInput";
 import RegisterButton from "../../../commons/buttons/registerbutton";
 import ToListButton from "../../../commons/buttons/tolistbutton";
-import KakaoMapInput from "../../../commons/kakao/kakaoMap/KakaoMapInput";
+import KakaoMapInput from "../../../commons/kakao/kakaoMap/kakaoMapInput";
 
 import {
   Wrapper,
@@ -20,7 +20,7 @@ import {
   ContentsForm,
   ContentsTitle,
   ReactQuillBox,
-} from "./MarketWriteBoard.styles";
+} from "./marketWriteBoard.styles";
 // import { Modal, Button } from "antd";
 // 이미지 업로드 컴포넌트
 import ImageUploadPage from "../../../commons/upload/image/image.container";

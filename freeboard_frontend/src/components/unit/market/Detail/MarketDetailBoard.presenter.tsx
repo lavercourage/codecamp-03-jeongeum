@@ -33,9 +33,9 @@ import {
   SliderWrapper,
   SliderItem,
   DeleteIcon,
-} from "./MarketDetailBoard.styles";
-import KakaoMapDetail from "../../../commons/kakao/kakaoMap/KakaoMapDetail";
-import MarketCommentBoard from "../../../commons/comment/MarketComment/MarketComment.container";
+} from "./marketDetailBoard.styles";
+import KakaoMapDetail from "../../../commons/kakao/kakaoMap/kakaoMapDetail";
+import MarketCommentBoard from "../../../commons/comment/marketComment/marketComment.container";
 
 import { Tooltip } from "antd";
 import Slider from "@ant-design/react-slick";

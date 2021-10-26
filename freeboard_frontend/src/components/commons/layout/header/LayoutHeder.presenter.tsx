@@ -7,7 +7,7 @@ import {
   LoggeedIn,
   UserInfo,
   LogOut,
-} from "./LayoutHeader.styles";
+} from "./layoutHeader.styles";
 
 export default function LayoutHeaderUI(props: any) {
   console.log("유저정보: ", props);

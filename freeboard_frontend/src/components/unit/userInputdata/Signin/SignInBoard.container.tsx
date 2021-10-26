@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "./SignInBoard.validations";
+import { schema } from "./signInBoard.validations";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import { useState } from "react";
-import SignInBoardUI from "./SignInBoard.presenter";
-import { CREATE_USER } from "./SignInBoard.queries";
+import SignInBoardUI from "./signInBoard.presenter";
+import { CREATE_USER } from "./signInBoard.queries";
 
 export default function SignInBoard() {
   const router = useRouter();

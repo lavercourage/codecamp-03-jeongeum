@@ -10,7 +10,7 @@ import {
   BottomTitleUnder,
   Textlength,
   Button,
-} from "./MarketComment.styles";
+} from "./marketComment.styles";
 
 export default function MarketCommentBoardUI(props: any) {
   const textRef: any = useRef<HTMLTextAreaElement>();

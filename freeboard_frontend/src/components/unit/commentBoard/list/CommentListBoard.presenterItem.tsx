@@ -3,11 +3,11 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { Modal } from "antd";
 
-import CommentBoard from "../write/CommentBoard.container";
+import CommentBoard from "../write/commentBoard.container";
 import {
   DELETE_BOARD_COMMENT,
   FETCH_BOARD_COMMENTS,
-} from "./CommentListBoard.queries";
+} from "./commentListBoard.queries";
 import {
   Avatar,
   Contents,
@@ -22,7 +22,7 @@ import {
   UpdateIcon,
   Writer,
   PasswordInput,
-} from "./CommentListBoard.styles";
+} from "./commentListBoard.styles";
 
 export default function BoardCommentListUIItem(props: any) {
   const router = useRouter();
