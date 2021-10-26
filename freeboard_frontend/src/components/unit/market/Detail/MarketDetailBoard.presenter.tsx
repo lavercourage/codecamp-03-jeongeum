@@ -35,7 +35,7 @@ import {
   DeleteIcon,
 } from "./marketDetailBoard.styles";
 import KakaoMapDetail from "../../../commons/kakao/kakaoMap/kakaoMapDetail";
-import MarketCommentBoard from "../../../commons/comment/marketComment/marketComment.container";
+import MarketCommentBoard from "../comment/marketComment/marketComment.container";
 
 import { Tooltip } from "antd";
 import Slider from "@ant-design/react-slick";
@@ -77,7 +77,8 @@ export default function MarketDetailBoardUI(props: any) {
             <Tooltip
               placement="topRight"
               title={`${props.data?.fetchUseditem.useditemAddress?.address} ${props.data?.fetchUseditem.useditemAddress?.addressDetail}`}
-              // 내용이 있다면 뜨고 없으면 안떠야하는데..!! isOpen을 false 값으로 주고 내용이 있을 때 true값으로 줘서 띄우기
+              // 내용이 있으면 뜸!!! / 없으면 어떻게?
+              // isOpen을 false 값으로 주고 내용이 있을 때 true값으로 줘서 띄우기
             >
               <Location src="/image/ic_location_on-32px.svg" />
             </Tooltip>
@@ -134,7 +135,9 @@ export default function MarketDetailBoardUI(props: any) {
             }}
           />
         )}
-        <TagContent>{props.data?.fetchUseditem.tags}</TagContent>
+        <TagContent>
+          {props.data?.fetchUseditem.tags.map((el: any) => "#" + el).join(" ")}
+        </TagContent>
         <Border />
         <KakaoMapDetail data={props?.data} />
         <Border />

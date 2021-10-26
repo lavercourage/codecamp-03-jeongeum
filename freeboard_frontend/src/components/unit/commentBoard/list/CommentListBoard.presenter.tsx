@@ -1,11 +1,3 @@
-// export default function CommentListUI(){
-//     return(
-//         <>
-//         {props.data?.fetchBoardComments}
-//         </>
-//     )
-// }
-
 import BoardCommentListUIItem from "./commentListBoard.presenterItem";
 import InfiniteScroll from "react-infinite-scroller";
 

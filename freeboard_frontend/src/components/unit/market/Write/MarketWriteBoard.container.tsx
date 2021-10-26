@@ -10,6 +10,7 @@ import { schema } from "./marketWriteBoard.validations";
 
 export default function MarketCreateBoard(props: any) {
   console.log("아아아: ", props);
+  console.log("해시태그: ", props.data);
   const router = useRouter();
   // const [isActive, setIsActive] = useState(false);
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
@@ -38,7 +39,7 @@ export default function MarketCreateBoard(props: any) {
             remarks: data.MyOneWrite,
             contents: data.MyContents,
             price: Number(data.MyPrice),
-            tags: data.MyTag,
+            tags: data.MyTag.split(" "),
             useditemAddress: {
               address: data.MyAddress,
               addressDetail: data.MyAddressDetail,
@@ -80,7 +81,7 @@ export default function MarketCreateBoard(props: any) {
       myVariables.updateUseditemInput.price = Number(data.MyPrice);
     }
     if (data.MyTag) {
-      myVariables.updateUseditemInput.tags = data.MyTag;
+      myVariables.updateUseditemInput.tags = data.MyTag.split(",");
     }
 
     if (data.MyAddress) {

@@ -86,7 +86,7 @@ export default function MarketListBoardUI(props: any) {
                   <Data>
                     <ProductName>{el.name}</ProductName>
                     <ProductRemarks>{el.remarks}</ProductRemarks>
-                    <ProductTag>{el.tags}</ProductTag>
+                    <ProductTag>#{el.tags.join(" #")}</ProductTag>
                     <ProductSeller>
                       <SellerProfileImg
                         src={
