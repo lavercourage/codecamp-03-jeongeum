@@ -35,9 +35,9 @@ export default function LayoutHeaderUI(props: any) {
               <SignIn>
                 잔액: {props.data?.fetchUserLoggedIn?.userPoint?.amount}원
               </SignIn>
-              <SignIn onClick={props.removeToken}>TKRM</SignIn>
             </LoggeedIn>
           )}
+          <SignIn onClick={props.removeToken}>TKRM</SignIn>
         </div>
       </InnerWrapper>
     </Wrapper>

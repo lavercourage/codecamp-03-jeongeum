@@ -4,6 +4,7 @@ import {
   InMemoryCache,
   ApolloLink,
 } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import { createUploadLink } from "apollo-upload-client";
@@ -47,6 +48,23 @@ function MyApp({ Component, pageProps }: AppProps) {
   const uploadLink = createUploadLink({
     uri: "http://backend03.codebootcamp.co.kr/graphql",
     headers: { authorization: `Bearer ${accessToken}` },
+  });
+
+  // const RESTORE_ACCESS_TOKEN = gql`
+  //   mutation restoreAccessToken {
+  //     restoreAccessToken {
+  //       accessToken
+  //     }
+  //   }
+  // `;
+
+  const errorLink = onError(({ graphQLErrors, operation, forward }) => {
+    if (graphQLErrors) {
+      for (const err of graphQLErrors) {
+        if (err.extensions?.code === "UNAUTHENTICATED") {
+        }
+      }
+    }
   });
 
   const client = new ApolloClient({

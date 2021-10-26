@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build:ssg": "next build && next export",
+    "build:ssr": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "graphql": "^15.6.1",
+    "graphql-request": "^3.6.1",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
