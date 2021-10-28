@@ -37,7 +37,6 @@ export default function LayoutHeaderUI(props: any) {
               </SignIn>
             </LoggeedIn>
           )}
-          <SignIn onClick={props.removeToken}>TKRM</SignIn>
         </div>
       </InnerWrapper>
     </Wrapper>
