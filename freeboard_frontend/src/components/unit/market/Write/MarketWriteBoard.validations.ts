@@ -14,7 +14,7 @@ export const schema = yup.object().shape({
 
   MyTag: yup.string(),
 
-  // MyLat: yup.number(),
+  MyLat: yup.number(),
 
-  // Mylng: yup.number(),
+  Mylng: yup.number(),
 });

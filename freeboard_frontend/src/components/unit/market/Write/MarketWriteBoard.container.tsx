@@ -35,11 +35,12 @@ export default function MarketCreateBoard(props: any) {
       const result = await createUseditem({
         variables: {
           createUseditemInput: {
+            // ...data,
             name: data.MyProduct,
             remarks: data.MyOneWrite,
             contents: data.MyContents,
             price: Number(data.MyPrice),
-            tags: data.MyTag.split(" "),
+            tags: data.MyTag.split(","),
             useditemAddress: {
               address: data.MyAddress,
               addressDetail: data.MyAddressDetail,
@@ -64,40 +65,48 @@ export default function MarketCreateBoard(props: any) {
     const myVariables = {
       useditemId: router.query.marketpage,
       updateUseditemInput: {
-        useditemAddress: {},
+        name: data.MyProduct,
+        remarks: data.MyOneWrite,
+        contents: data.MyContents,
+        price: Number(data.MyPrice),
+        tags: data.MyTag.split(","),
+        useditemAddress: {
+          address: data.MyAddress,
+          addressDetail: data.MyAddressDetail,
+          lat: Number(data.MyLAT),
+          lng: Number(data.MyLNG),
+        },
       },
     };
+    // if (data.MyProduct) {
+    //   myVariables.updateUseditemInput.name = data.MyProduct;
+    // }
+    // if (data.MyOneWrite) {
+    //   myVariables.updateUseditemInput.remarks = data.MyOneWrite;
+    // }
+    // if (data.MyContents) {
+    //   myVariables.updateUseditemInput.contents = data.MyContents;
+    // }
+    // if (data.MyPrice) {
+    //   myVariables.updateUseditemInput.price = Number(data.MyPrice);
+    // }
+    // if (data.MyTag) {
+    //   myVariables.updateUseditemInput.tags = data.MyTag.split(",");
+    // }
 
-    if (data.MyProduct) {
-      myVariables.updateUseditemInput.name = data.MyProduct;
-    }
-    if (data.MyOneWrite) {
-      myVariables.updateUseditemInput.remarks = data.MyOneWrite;
-    }
-    if (data.MyContents) {
-      myVariables.updateUseditemInput.contents = data.MyContents;
-    }
-    if (data.MyPrice) {
-      myVariables.updateUseditemInput.price = Number(data.MyPrice);
-    }
-    if (data.MyTag) {
-      myVariables.updateUseditemInput.tags = data.MyTag.split(",");
-    }
-
-    if (data.MyAddress) {
-      myVariables.updateUseditemInput.useditemAddress.address = data.MyAddress;
-    }
-
-    if (data.MyAddressDetail) {
-      myVariables.updateUseditemInput.useditemAddress.addressDetail =
-        data.MyAddressDetail;
-    }
-    if (data.MyLAT) {
-      myVariables.updateUseditemInput.useditemAddress.lat = Number(data.MyLAT);
-    }
-    if (data.MyLNG) {
-      myVariables.updateUseditemInput.useditemAddress.lng = Number(data.MyLNG);
-    }
+    // if (data.MyAddress) {
+    //   myVariables.updateUseditemInput.useditemAddress.address = data.MyAddress;
+    // }
+    // if (data.MyAddressDetail) {
+    //   myVariables.updateUseditemInput.useditemAddress.addressDetail =
+    //     data.MyAddressDetail;
+    // }
+    // if (data.MyLAT) {
+    //   myVariables.updateUseditemInput.useditemAddress.lat = Number(data.MyLAT);
+    // }
+    // if (data.MyLNG) {
+    //   myVariables.updateUseditemInput.useditemAddress.lng = Number(data.MyLNG);
+    // }
 
     try {
       const result = await updateUseditem({
