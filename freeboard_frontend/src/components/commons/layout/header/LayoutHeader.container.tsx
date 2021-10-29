@@ -26,6 +26,8 @@ export default function LayoutHeader() {
   //   router.push("/");
   // }
 
+  const onClickMoneyAdd = () => {};
+
   return (
     <LayoutHeaderUI
       onClickHeader={onClickHeader}
@@ -34,6 +36,7 @@ export default function LayoutHeader() {
       // removeToken={removeToken}
       // 토큰지우기 버튼
       data={data}
+      onClickMoneyAdd={onClickMoneyAdd}
     />
   );
 }

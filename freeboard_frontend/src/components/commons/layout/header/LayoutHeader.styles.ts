@@ -67,3 +67,14 @@ export const LogOut = styled.button`
   border: none;
   cursor: pointer;
 `;
+
+export const MoneyAdd = styled.button`
+  width: 90px;
+  height: 45px;
+  margin: 0px 10px;
+  border-radius: 10px;
+  color: #000000;
+  background-color: #a2d6c6;
+  border: none;
+  cursor: pointer;
+`;

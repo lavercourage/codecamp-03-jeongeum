@@ -7,6 +7,7 @@ import {
   LoggeedIn,
   UserInfo,
   LogOut,
+  MoneyAdd,
 } from "./layoutHeader.styles";
 
 export default function LayoutHeaderUI(props: any) {
@@ -35,6 +36,7 @@ export default function LayoutHeaderUI(props: any) {
               <SignIn>
                 잔액: {props.data?.fetchUserLoggedIn?.userPoint?.amount}원
               </SignIn>
+              <MoneyAdd onClick={props.onClickMoneyAdd}>충전하기</MoneyAdd>
             </LoggeedIn>
           )}
         </div>
