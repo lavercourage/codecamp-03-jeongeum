@@ -2,7 +2,7 @@
 import { withAuth } from "../../../src/components/commons/withAuth/withAuth";
 import MarketCreateBoard from "../../../src/components/unit/market/write/marketWriteBoard.container";
 
-const MarketCreatePage = (props: any) => {
+const MarketCreatePage = () => {
   return <MarketCreateBoard isEdit={false} />;
 };
 
