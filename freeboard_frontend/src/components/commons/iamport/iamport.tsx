@@ -111,7 +111,13 @@ export default function IamPortBoard() {
       </Head>
       <Wrapper>
         <PigImg src="/image/iamport/moneypig.svg" />
-        <Notice>현재 보유 금액은 {}원 입니다!</Notice>
+        <Notice>
+          현재 보유 금액은{" "}
+          {
+            // props로 불러오기
+          }
+          원 입니다!
+        </Notice>
         <PayWord>충전하실 금액을 입력해주세요!</PayWord>
         <InputWrapper>
           <MoneyAmount type="number" onChange={onChangeMoneyAmount} />원
@@ -121,3 +127,5 @@ export default function IamPortBoard() {
     </>
   );
 }
+
+// 유저인포? 불러와야한다는데 다른 코드 보고 비교해서 왜 필요한지 알아두기
