@@ -9,6 +9,8 @@ import {
   LogOut,
   MoneyAdd,
 } from "./layoutHeader.styles";
+import { Modal } from "antd";
+import IamPortBoard from "../../iamport/iamport";
 
 export default function LayoutHeaderUI(props: any) {
   console.log("유저정보: ", props);
@@ -37,6 +39,16 @@ export default function LayoutHeaderUI(props: any) {
                 잔액: {props.data?.fetchUserLoggedIn?.userPoint?.amount}원
               </SignIn>
               <MoneyAdd onClick={props.onClickMoneyAdd}>충전하기</MoneyAdd>
+              {props.isModalVisible && (
+                <Modal
+                  title="Basic Modal"
+                  visible={props.isModalVisible}
+                  onOk={props.handleOk}
+                  onCancel={props.handleCancel}
+                >
+                  <IamPortBoard data={props.data} />
+                </Modal>
+              )}
             </LoggeedIn>
           )}
         </div>

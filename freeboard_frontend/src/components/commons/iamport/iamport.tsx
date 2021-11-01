@@ -1,6 +1,8 @@
 import Head from "next/head";
 import styled from "@emotion/styled";
 import { useState } from "react";
+import { gql, useMutation } from "@apollo/client";
+import { Modal } from "antd";
 
 declare const window: typeof globalThis & { IMP: any };
 
@@ -59,52 +61,82 @@ const PayReauest = styled.button`
   border-radius: 10px;
   border: none;
   background-color: #ffd600;
+  cursor: pointer;
 `;
 
-export default function IamPortBoard() {
+const CREATE_POINT_TRANSACTION_Of_LOADING = gql`
+  mutation createPointTransactionOfLoading($impUid: ID!) {
+    createPointTransactionOfLoading(impUid: $impUid) {
+      _id
+      amount
+      balance
+    }
+  }
+`;
+
+export default function IamPortBoard(props: any) {
+  console.log("결제페이지 정보받아오기: ", props);
   const [moneyAmount, setMoneyAmount] = useState("");
+  const [createPointTransactionOfLoading] = useMutation(
+    CREATE_POINT_TRANSACTION_Of_LOADING
+  );
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const onClickPayment = () => {
     const IMP = window.IMP; // 생략 가능
     IMP.init("imp49910675"); // Example: imp00000000;
-
     IMP.request_pay(
       {
         // param
         pg: "html5_inicis",
         pay_method: "card",
         // merchant_uid: "ORD20180131-0000011",    // 상품 id, 중복되게 하면 안됨
-        name: "노르웨이 회전 의자", // 포인트는 {~~}입니다로 적어두기
-        amount: 64900,
-        buyer_email: "gildong@gmail.com",
-        buyer_name: "홍길동",
-        buyer_tel: "010-4242-4242",
-        buyer_addr: "서울특별시 강남구 신사동",
-        buyer_postcode: "01181",
+        name: "중고마켓 포인트 충전",
+        amount: moneyAmount,
+        buyer_email: props.data?.fetchUserLoggedIn.email,
+        buyer_name: props.data?.fetchUserLoggedIn.name,
       },
       function (rsp: any) {
+        // console.log("rsp: ", rsp);    // 콘솔 로그로 rsp에 담긴 내용을 확인해야하는데 콘솔이 안찍힘..;;
         // callback
         if (rsp.success) {
           // 결제 성공 시 로직,
-          // mutation()=>createPointTransactionOfLoading / 로그인한 상태에서 가능해야 함
+          createPointTransactionOfLoading({
+            variables: { impUid: rsp.imp_uid },
+          });
+          // alert("결제에 성공했습니다!");
+          Modal.confirm({ content: "결제에 성공했습니다!" });
         } else {
-          // 결제 실패 시 로직,
+          // alert("결제에 실패했습니다!");
+          Modal.confirm({ content: "결제에 실패했습니다!" });
         }
       }
     );
   };
 
-  const onChangeMoneyAmount = () => {};
+  const onChangeMoneyAmount = (event: any) => {
+    setMoneyAmount(event.target.value);
+  };
 
   return (
     <>
       <Head>
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
+          defer
           type="text/javascript"
           src="https://code.jquery.com/jquery-1.12.4.min.js"
         ></script>
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script
+          defer
           type="text/javascript"
           src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
         ></script>
@@ -112,11 +144,8 @@ export default function IamPortBoard() {
       <Wrapper>
         <PigImg src="/image/iamport/moneypig.svg" />
         <Notice>
-          현재 보유 금액은{" "}
-          {
-            // props로 불러오기
-          }
-          원 입니다!
+          현재 보유 금액은 {props.data?.fetchUserLoggedIn?.userPoint?.amount}원
+          입니다!
         </Notice>
         <PayWord>충전하실 금액을 입력해주세요!</PayWord>
         <InputWrapper>
