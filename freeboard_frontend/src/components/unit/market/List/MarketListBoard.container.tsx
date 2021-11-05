@@ -41,9 +41,9 @@ export default function MarketListBoard() {
     });
   }
 
-  function onClickMoveProduct(event: any) {
+  const onClickMoveProduct = (event: any) => {
     router.push(`/market/${event.currentTarget.id}`);
-  }
+  };
 
   const onClickProductRegister = () => {
     router.push(`/market/create-board`);

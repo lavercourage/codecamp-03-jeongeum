@@ -119,9 +119,13 @@ export default function BoardWrite(props: any) {
     setAddressDetail(event.target.value);
   }
 
-  function onClickAddressSearch() {
+  // function onClickAddressSearch() {
+  //   setIsOpen(true);
+  // }
+
+  const onClickAddressSearch = () => {
     setIsOpen(true);
-  }
+  };
 
   function onCompleteAddressSearch(data: any) {
     setAddress(data.address);
