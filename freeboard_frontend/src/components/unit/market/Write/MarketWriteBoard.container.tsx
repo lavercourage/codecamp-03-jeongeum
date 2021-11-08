@@ -117,6 +117,8 @@ export default function MarketCreateBoard(props: any) {
       console.log("등록오류: ", error);
     }
   }
+  // 이름들 바꾸기 -> MyProduct => name 등으로 바꿔주기
+  // qt참고해서 바꿀거 바꾸고 / 이미지 수정 / 댓글 / 대댓글 / 오늘 본 상품 정리
 
   // async function onClickDelete(event){
   //     await deleteBoardano({
