@@ -6,9 +6,6 @@ export default function HiPage() {
   return (
     <>
       <div onClick={fff}>hi!</div>
-      <div onClick={fff2}>hi!</div>
-
-      <div onClick={fff2}>hi!</div>
     </>
   );
 }
