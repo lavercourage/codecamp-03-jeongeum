@@ -7,6 +7,8 @@ export default function HiPage() {
     <>
       <div onClick={fff}>hi!</div>
       <div onClick={fff2}>hi!</div>
+
+      <div onClick={fff2}>hi!</div>
     </>
   );
 }
