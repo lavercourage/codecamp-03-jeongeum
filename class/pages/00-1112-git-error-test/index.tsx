@@ -1,7 +1,10 @@
 export default function HiPage() {
+  const fff = () => {};
+
   return (
     <>
-      <div>hi!</div>
+      <div onClick={fff}>hi!</div>
+      <div>sksks</div>
     </>
   );
 }
