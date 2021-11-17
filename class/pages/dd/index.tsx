@@ -99,3 +99,4 @@ export default function ImageUploadPreviewPage() {
     </>
   );
 }
+// 단순 내용추가
