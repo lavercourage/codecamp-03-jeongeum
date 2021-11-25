@@ -4,6 +4,10 @@ import {Button} from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
 const App: () => Node = () => {
+  const offset = new Date().getTimezoneOffset() * 60000;
+  const today = new Date(Date.now() - offset);
+  const createdAt = today.toISOString();
+
   const writeData = () => {
     // firestore()
     //   .collection('Location')
@@ -12,6 +16,7 @@ const App: () => Node = () => {
       title: '제목입니다',
       contents: '내용입니다',
       userId: 'VjfEsxer6Amt7LHqaANV',
+      createdAt,
     });
   };
 
