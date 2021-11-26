@@ -8,6 +8,13 @@ const App: () => Node = () => {
   const today = new Date(Date.now() - offset);
   const createdAt = today.toISOString();
 
+  // 글쓰기를 했을 때 목록에 불러오는 방법과
+  // 해당 한 가지의 아이템을 눌러 디테일 페이지로 이동할 때 id값을 넘겨주기
+  // 삭제나 수정을 할 때 해당 id 가져오기
+  // navigate를 이용해서 화면이 넘어갈 시 route 로 정보 넘겨받음
+  // console.log를 찍어보면 params나 그 외의 것으로 받아오는데 확인하기!
+  // 콘솔을 자주 찍어보자!
+
   const writeData = () => {
     // firestore()
     //   .collection('Location')
