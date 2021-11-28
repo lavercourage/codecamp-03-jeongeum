@@ -14,6 +14,7 @@ const App: () => Node = () => {
   // navigate를 이용해서 화면이 넘어갈 시 route 로 정보 넘겨받음
   // console.log를 찍어보면 params나 그 외의 것으로 받아오는데 확인하기!
   // 콘솔을 자주 찍어보자!
+  // 부족한 부분 다시 체크해서 하나씩 다시 나아가기 (일주일(12월 3일)안에 완성하기)
 
   const writeData = () => {
     // firestore()
