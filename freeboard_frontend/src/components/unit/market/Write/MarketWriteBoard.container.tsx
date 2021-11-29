@@ -30,6 +30,37 @@ export default function MarketCreateBoard(props: any) {
     // 취소버튼 눌렀을 때, 걍 완전 메인페이지 이동
   };
 
+  // const onClickSubmit = async (data: any) => {
+  //   try {
+  //     const result = await createUseditem({
+  //       variables: {
+  //         createUseditemInput: {
+  //           // ...data,
+  //           name: data.name,
+  //           remarks: data.remarks,
+  //           contents: data.contents,
+  //           price: Number(data.price),
+  //           tags: data.tags.split(","),
+  //           useditemAddress: {
+  //             address: data.address,
+  //             addressDetail: data.addressDetail,
+  //             lat: Number(data.lat),
+  //             lng: Number(data.lng),
+  //           },
+  //           images: [...fileUrls],
+  //         },
+  //       },
+  //     });
+  //     // setIsActive(true);
+  //     console.log(data);
+  //     alert("success");
+  //     router.push(`/market/${result.data.createUseditem._id}`);
+  //     // router.push(`./login`);
+  //   } catch (error) {
+  //     console.log("등록오류: ", error);
+  //   }
+  // };
+
   const onClickSubmit = async (data: any) => {
     try {
       const result = await createUseditem({
