@@ -1,4 +1,5 @@
-schema: http://backend03.codebootcamp.co.kr/graphql
+schema: https://backend03.codebootcamp.co.kr/graphql
+# schema: https://backend03.codebootcamp.co.kr/graphql  # https://botanistsroom.shop 배포할때 사용
 generates:
   ./src/commons/types/generated/types.d.ts:
     plugins:

@@ -3,7 +3,7 @@ import axios from "axios";
 export default function GraphQLRestPage() {
   const onClickRequest = async () => {
     const result = await axios.post(
-      "http://backend03.codebootcamp.co.kr/graphql",
+      "https://backend03.codebootcamp.co.kr/graphql",
       {
         query: `
                 mutation createBoard {

@@ -51,6 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const uploadLink = createUploadLink({
     uri: "https://backend03.codebootcamp.co.kr/graphql",
+    // uri: "https://backend03.codebootcamp.co.kr/graphql01", // https://botanistsroom.shop 배포할때 사용
     headers: { authorization: `Bearer ${accessToken}` },
     credentials: "include",
   });

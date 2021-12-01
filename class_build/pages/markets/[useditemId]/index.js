@@ -32,7 +32,8 @@ const FETCH_USED_ITEM = gql`
 export const getServerSideProps = async (context) => {
   // 1. graphQL 데이터를 요청한다
   const result = await request(
-    "http://backend03.codebootcamp.co.kr/graphql",
+    "https://backend03.codebootcamp.co.kr/graphql",
+    // "https://backend03.codebootcamp.co.kr/graphql01",  // https://botanistsroom.shop 배포할때 사용
     FETCH_USED_ITEM,
     {
       useditemId: context.query.useditemId,
