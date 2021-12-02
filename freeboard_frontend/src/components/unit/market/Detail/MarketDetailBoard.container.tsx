@@ -16,6 +16,9 @@ export default function MarketDetailBoard() {
     variables: { useditemId: router.query.marketpage },
   });
   const { data: fetchUserLoggedIn } = useQuery(FETCH_USER_LOGGEDIN);
+  // 구조분해할당 다시 공부해놓기
+  // data를 불러올 때, 지정하는 값과 해당 안에 있는 내용을 불러오는??
+  // 배열과 객체에서의 구조분해할당 복습하기!
 
   const [toggleUseditemPick] = useMutation(ITEM_PICK);
   const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
