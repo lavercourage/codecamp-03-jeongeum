@@ -13,12 +13,9 @@ export const Wrapper = styled.div`
 
 export const InnerWrapper = styled.div`
   width: 1200px;
-  /* padding: 80px 102px; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: none; */
-  /* box-shadow: 0 4px 20px gray; */
 `;
 
 export const TitleBar = styled.div`
@@ -69,7 +66,6 @@ export const Location = styled.img`
 `;
 export const DeleteIcon = styled.div`
   font-size: 20px;
-  /* color: #ffd600; */
   color: #4f4f4f;
   cursor: pointer;
 `;
@@ -176,7 +172,6 @@ export const Map = styled.div`
   width: 792px;
   height: 360px;
   margin: 60px 0;
-  /* background-color: #888888; */
 `;
 
 export const BottomButton = styled.div`
@@ -220,7 +215,6 @@ export const Border2 = styled.div`
   width: 1200px;
   border-top: 1px solid #bdbdbd;
   margin-top: 80px;
-  /* margin-bottom: 40px; */
 `;
 
 export const SliderWrapper = styled.div`
