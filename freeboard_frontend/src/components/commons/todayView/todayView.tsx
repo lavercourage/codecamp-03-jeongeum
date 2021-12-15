@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { useRouter } from "next/router";
+
 const Wrapper = styled.div`
   width: 160px;
   height: 300px;
@@ -19,12 +21,17 @@ const TodayTitle = styled.span`
   font-size: 16px;
 `;
 
-export default function todayView() {
+export default function TodayView() {
+  const router = useRouter();
+  const onClickMoveProduct = (e: any) => {
+    router.push(`/market/${e.currentTarget.id}`);
+  };
+
   return (
     <>
       <Wrapper>
         <WrapperTitle>오늘 본 상품</WrapperTitle>
-        <TodayItemWrapper>
+        <TodayItemWrapper onClick={onClickMoveProduct}>
           <TodayThumbImg>{/* 상품 이미지 */}</TodayThumbImg>
           <TodayTitle>{/* 상품 이름 */}</TodayTitle>
         </TodayItemWrapper>
