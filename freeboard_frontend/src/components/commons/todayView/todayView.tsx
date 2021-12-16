@@ -27,14 +27,21 @@ export default function TodayView() {
     router.push(`/market/${e.currentTarget.id}`);
   };
 
+  const offset = new Date().getTimezoneOffset() * 60000;
+  const today = new Date(Date.now() - offset);
+  const createdAt = today.toISOString();
+
   return (
     <>
       <Wrapper>
         <WrapperTitle>오늘 본 상품</WrapperTitle>
-        <TodayItemWrapper onClick={onClickMoveProduct}>
-          <TodayThumbImg>{/* 상품 이미지 */}</TodayThumbImg>
-          <TodayTitle>{/* 상품 이름 */}</TodayTitle>
-        </TodayItemWrapper>
+        <>
+          {/* map으로 돌리기? */}
+          <TodayItemWrapper onClick={onClickMoveProduct}>
+            <TodayThumbImg>{/* 상품 이미지 */}</TodayThumbImg>
+            <TodayTitle>{/* 상품 이름 */}</TodayTitle>
+          </TodayItemWrapper>
+        </>
       </Wrapper>
     </>
   );
