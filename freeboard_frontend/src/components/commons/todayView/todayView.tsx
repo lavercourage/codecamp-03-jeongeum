@@ -20,6 +20,9 @@ const TodayThumbImg = styled.img`
 const TodayTitle = styled.span`
   font-size: 16px;
 `;
+const TodayClickDate = styled.div`
+  width: 120px;
+`;
 
 export default function TodayView() {
   const router = useRouter();
@@ -40,6 +43,7 @@ export default function TodayView() {
           <TodayItemWrapper onClick={onClickMoveProduct}>
             <TodayThumbImg>{/* 상품 이미지 */}</TodayThumbImg>
             <TodayTitle>{/* 상품 이름 */}</TodayTitle>
+            <TodayClickDate>{createdAt}</TodayClickDate>
           </TodayItemWrapper>
         </>
       </Wrapper>
