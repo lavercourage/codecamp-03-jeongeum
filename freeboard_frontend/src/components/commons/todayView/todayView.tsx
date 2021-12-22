@@ -23,11 +23,16 @@ const TodayTitle = styled.span`
 const TodayClickDate = styled.div`
   width: 120px;
 `;
+const DeleteInput = styled.input``;
 
 export default function TodayView() {
   const router = useRouter();
   const onClickMoveProduct = (e: any) => {
     router.push(`/market/${e.currentTarget.id}`);
+  };
+  const onChangeDeleteInput = (e: any) => {
+    e.target.value;
+    // useState 활용?
   };
 
   const offset = new Date().getTimezoneOffset() * 60000;
@@ -41,9 +46,16 @@ export default function TodayView() {
         <>
           {/* map으로 돌리기? */}
           <TodayItemWrapper onClick={onClickMoveProduct}>
-            <TodayThumbImg>{/* 상품 이미지 */}</TodayThumbImg>
+            <TodayThumbImg>
+              {/* 상품 이미지있다면 1번째 이미지 / 없다면 기존이미지 설정해서 보여주기 */}
+            </TodayThumbImg>
             <TodayTitle>{/* 상품 이름 */}</TodayTitle>
             <TodayClickDate>{createdAt}</TodayClickDate>
+            <DeleteInput
+              type="text"
+              placeholder="지우는 인풋입니다"
+              onChange={onChangeDeleteInput}
+            ></DeleteInput>
           </TodayItemWrapper>
         </>
       </Wrapper>
