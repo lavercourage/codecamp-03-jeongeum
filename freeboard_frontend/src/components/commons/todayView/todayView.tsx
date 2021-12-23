@@ -35,6 +35,8 @@ export default function TodayView() {
     // useState 활용?
   };
 
+  // 삼항연산자 사용하기 isView ? "red" : "black"
+
   const offset = new Date().getTimezoneOffset() * 60000;
   const today = new Date(Date.now() - offset);
   const createdAt = today.toISOString();
