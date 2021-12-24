@@ -36,6 +36,7 @@ export default function TodayView() {
   };
 
   // 삼항연산자 사용하기 isView ? "red" : "black"
+  // 삼항연산자같은 비슷한 종류 2가지
 
   const offset = new Date().getTimezoneOffset() * 60000;
   const today = new Date(Date.now() - offset);
