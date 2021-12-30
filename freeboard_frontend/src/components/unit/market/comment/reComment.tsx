@@ -3,6 +3,7 @@ export default function ReCommentSolid() {
   // 내 댓글인 경우 삭제하기
   // 남의 댓글인 경우 추가하기
   // ㄴ 이것은 액세스 토큰 활용?
+  // 대댓글은 컴포넌트 분리 후 합치기 or 대댓글에 적용? 재활용을 어떻게 할 것 인지?
   return (
     <>
       <div>writer</div>
