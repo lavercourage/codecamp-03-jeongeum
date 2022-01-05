@@ -1,4 +1,8 @@
 import { useState } from "react";
+import styled from "@emotion/styled";
+
+const InputBox = styled.input``;
+
 export default function ReCommentSolid() {
   // 내 댓글인 경우 삭제하기
   // 남의 댓글인 경우 추가하기
@@ -8,10 +12,15 @@ export default function ReCommentSolid() {
   // useState를 활용해서 대듯르을 활성화하기
 
   const [textcontent, setTextContent] = useState("");
+  const [inputBox, setInputBox] = useState("");
 
   const onChangeInput = (e: any) => {
     setTextContent(e.target.value);
   };
+  const onChangeInputBox = (e: any) => {
+    setInputBox(e.target.value);
+  };
+
   return (
     <>
       <div>writer</div>
@@ -20,6 +29,7 @@ export default function ReCommentSolid() {
       <image>수정</image>
       <image>삭제</image>
       <input type="text" onChange={onChangeInput} />
+      <InputBox type="text" onChange={onChangeInputBox} />
     </>
   );
 }
