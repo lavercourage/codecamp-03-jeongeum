@@ -6,6 +6,9 @@ const Div_Wrapper = styled.div`
   width: 100px;
   height: 200px;
 `;
+const PositionWrapper = styled.div`
+  position: relative;
+`;
 
 export default function ReCommentSolid() {
   // 내 댓글인 경우 삭제하기
@@ -34,7 +37,8 @@ export default function ReCommentSolid() {
       <image>삭제</image>
       <input type="text" onChange={onChangeInput} />
       <InputBox type="text" onChange={onChangeInputBox} />
-      <Div_Wrapper></Div_Wrapper>
+      <Div_Wrapper>대댓글</Div_Wrapper>
+      <PositionWrapper>position</PositionWrapper>
     </>
   );
 }
