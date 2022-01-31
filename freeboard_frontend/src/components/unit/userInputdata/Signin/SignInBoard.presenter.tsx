@@ -8,6 +8,7 @@ import { useState } from "react";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { formLabelClasses } from "@mui/material";
 
 // 모달 스타일
 const style = {

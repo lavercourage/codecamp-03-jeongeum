@@ -14,6 +14,7 @@ const Body = styled.div`
 // const HIDDEN_HEADER = ["/create-board"];
 
 export default function Layout(props: any) {
+  console.log("Layout: ", props);
   // const router = useRouter();
   // const isHiddenHeader = HIDDEN_HEADER.includes(router.pathname)
 
