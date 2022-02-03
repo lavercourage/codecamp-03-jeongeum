@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   height: 80px;
-  background-color: pink;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -16,10 +15,11 @@ export const InnerWrapper = styled.div`
   align-items: center;
 `;
 
-export const Logo = styled.div`
-  height: 50px;
-  width: 120px;
-  background-color: yellowgreen;
+export const Logo = styled.span`
+  /* height: 50px;
+  width: 120px; */
+  font-family: MontserratB;
+  font-size: 2rem;
   cursor: pointer;
 `;
 

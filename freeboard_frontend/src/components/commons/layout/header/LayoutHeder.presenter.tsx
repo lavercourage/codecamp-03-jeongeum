@@ -17,7 +17,9 @@ export default function LayoutHeaderUI(props: any) {
   return (
     <Wrapper>
       <InnerWrapper>
-        <Logo id="/" onClick={props.onClickHeader} />
+        <Logo id="/" onClick={props.onClickHeader}>
+          Botanistsroom
+        </Logo>
         <div>
           {!props.data?.fetchUserLoggedIn.name && (
             <>

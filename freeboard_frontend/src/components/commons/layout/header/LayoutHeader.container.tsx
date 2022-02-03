@@ -55,9 +55,7 @@ export default function LayoutHeader() {
     <LayoutHeaderUI
       onClickHeader={onClickHeader}
       onClickLogOut={onClickLogOut}
-      // 토큰지우기 버튼
-      // removeToken={removeToken}
-      // 토큰지우기 버튼
+      // removeToken={removeToken}    // 토큰지우기 버튼
       data={data}
       onClickMoneyAdd={onClickMoneyAdd}
       isModalVisible={isModalVisible}
