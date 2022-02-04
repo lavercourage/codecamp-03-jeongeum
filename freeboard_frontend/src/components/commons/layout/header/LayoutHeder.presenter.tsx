@@ -2,18 +2,14 @@ import {
   Wrapper,
   InnerWrapper,
   Logo,
-  LogIn,
-  SignIn,
+  HeaderButton,
   LoggeedIn,
-  UserInfo,
-  LogOut,
-  MoneyAdd,
+  HeaderInfo,
 } from "./layoutHeader.styles";
 import { Modal } from "antd";
 import IamPortBoard from "../../iamport/iamport";
 
 export default function LayoutHeaderUI(props: any) {
-  console.log("유저정보: ", props);
   return (
     <Wrapper>
       <InnerWrapper>
@@ -23,30 +19,39 @@ export default function LayoutHeaderUI(props: any) {
         <div>
           {!props.data?.fetchUserLoggedIn.name && (
             <>
-              <LogIn id="/logIn" onClick={props.onClickHeader}>
+              <HeaderButton id="/logIn" onClick={props.onClickHeader}>
                 로그인
-              </LogIn>
-              <LogIn id="/signIn" onClick={props.onClickHeader}>
+              </HeaderButton>
+              <HeaderButton id="/signIn" onClick={props.onClickHeader}>
                 회원가입
-              </LogIn>
+              </HeaderButton>
             </>
           )}
           {props.data?.fetchUserLoggedIn.name && (
             <LoggeedIn>
-              <UserInfo id="/mypage" onClick={props.onClickHeader}>
+              <HeaderInfo
+                id="/mypage"
+                // onClick={props.onClickHeader}
+              >
                 {props.data?.fetchUserLoggedIn.name} 님
-              </UserInfo>
-              <LogOut onClick={props.onClickLogOut}>로그아웃</LogOut>
-              <SignIn>
+              </HeaderInfo>
+              <HeaderInfo>
                 잔액: {props.data?.fetchUserLoggedIn?.userPoint?.amount}원
-              </SignIn>
-              <MoneyAdd onClick={props.onClickMoneyAdd}>충전하기</MoneyAdd>
+              </HeaderInfo>
+              <HeaderButton onClick={props.onClickMoneyAdd}>
+                충전하기
+              </HeaderButton>
+              <HeaderButton onClick={props.onClickLogOut}>
+                로그아웃
+              </HeaderButton>
               {props.isModalVisible && (
                 <Modal
-                  title="Basic Modal"
                   visible={props.isModalVisible}
-                  onOk={props.handleOk}
+                  // onOk={props.handleOk}
                   onCancel={props.handleCancel}
+                  mask={false}
+                  maskClosable={false}
+                  footer={null}
                 >
                   <IamPortBoard data={props.data} />
                 </Modal>

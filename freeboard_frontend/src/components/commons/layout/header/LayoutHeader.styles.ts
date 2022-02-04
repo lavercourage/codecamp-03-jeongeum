@@ -23,43 +23,26 @@ export const Logo = styled.span`
   cursor: pointer;
 `;
 
-export const LogIn = styled.span`
-  /* width: 90px;
-  height: 45px; */
-  border: none;
-  background-color: none;
-  border-radius: 10px;
-  font-family: "NotoSansKR";
-  font-weight: bold;
+export const HeaderButton = styled.span`
+  font-family: "SBAggroL";
+  font-size: 16px;
+  margin: 6px 0;
+  padding: 6px 20px;
+  color: #97bc62;
   cursor: pointer;
-  :hover {
-    margin: 2px;
-    background-color: red;
-    border-radius: 10px;
-  }
 `;
-
-// export const SignIn = styled.button`
-//   width: 90px;
-//   height: 45px;
-//   margin: 0px 10px;
-//   border-radius: 10px;
-//   background-color: #ffd600;
-//   border: none;
-//   cursor: pointer;
-// `;
 
 export const LoggeedIn = styled.div`
   display: flex;
   align-items: center;
 `;
 
-export const UserInfo = styled.div`
+export const HeaderInfo = styled.span`
+  font-family: "SBAggroL";
   font-size: 16px;
-  margin: 0px 10px;
-  color: #000000;
-  font-weight: bold;
-  cursor: pointer;
+  margin: 6px 0;
+  padding: 6px 20px;
+  color: #97bc62;
 `;
 
 export const LogOut = styled.button`

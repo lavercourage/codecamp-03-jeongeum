@@ -20,14 +20,14 @@ const PigImg = styled.img`
 `;
 
 const Notice = styled.div`
+  font-family: "SBAggroM";
   font-size: 20px;
-  font-weight: bold;
   padding-top: 40px;
 `;
 
 const PayWord = styled.div`
   font-size: 16px;
-  padding-top: 24px;
+  padding-top: 16px;
 `;
 
 const InputWrapper = styled.div`
@@ -41,7 +41,7 @@ const MoneyAmount = styled.input`
   width: 160px;
   font-weight: bold;
   border: none;
-  border-bottom: 1px solid #ffd600;
+  border-bottom: 1px solid #97bc62;
   text-align: center;
   :focus {
     outline: none;
@@ -57,10 +57,13 @@ const MoneyAmount = styled.input`
 const PayReauest = styled.button`
   width: 200px;
   height: 48px;
+  font-family: "SBAggroL";
+  font-size: 16px;
   margin-top: 32px;
+  padding-top: 2px;
   border-radius: 10px;
   border: none;
-  background-color: #ffd600;
+  background-color: #97bc62;
   cursor: pointer;
 `;
 
@@ -83,9 +86,9 @@ export default function IamPortBoard(props: any) {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
+  // const handleOk = () => {
+  //   setIsModalVisible(false);
+  // };
 
   const handleCancel = () => {
     setIsModalVisible(false);
@@ -142,7 +145,7 @@ export default function IamPortBoard(props: any) {
         ></script>
       </Head>
       <Wrapper>
-        <PigImg src="/image/iamport/moneypig.svg" />
+        <PigImg src="/image/iamport/moneypig2.svg" />
         <Notice>
           현재 보유 금액은 {props.data?.fetchUserLoggedIn?.userPoint?.amount}원
           입니다!
