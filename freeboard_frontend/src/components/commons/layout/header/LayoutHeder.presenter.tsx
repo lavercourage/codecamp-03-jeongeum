@@ -26,9 +26,9 @@ export default function LayoutHeaderUI(props: any) {
               <LogIn id="/logIn" onClick={props.onClickHeader}>
                 로그인
               </LogIn>
-              <SignIn id="/signIn" onClick={props.onClickHeader}>
+              <LogIn id="/signIn" onClick={props.onClickHeader}>
                 회원가입
-              </SignIn>
+              </LogIn>
             </>
           )}
           {props.data?.fetchUserLoggedIn.name && (

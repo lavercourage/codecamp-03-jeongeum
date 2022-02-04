@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: #2c5f2d;
 `;
 
 export const InnerWrapper = styled.div`
@@ -16,33 +17,37 @@ export const InnerWrapper = styled.div`
 `;
 
 export const Logo = styled.span`
-  /* height: 50px;
-  width: 120px; */
   font-family: MontserratB;
-  font-size: 2rem;
+  font-size: 32px;
+  color: #97bc62;
   cursor: pointer;
 `;
 
-export const LogIn = styled.button`
-  width: 90px;
-  height: 45px;
-  margin: 0px 10px;
+export const LogIn = styled.span`
+  /* width: 90px;
+  height: 45px; */
+  border: none;
+  background-color: none;
   border-radius: 10px;
-  border: 1px solid #bdbdbd;
   font-family: "NotoSansKR";
   font-weight: bold;
   cursor: pointer;
+  :hover {
+    margin: 2px;
+    background-color: red;
+    border-radius: 10px;
+  }
 `;
 
-export const SignIn = styled.button`
-  width: 90px;
-  height: 45px;
-  margin: 0px 10px;
-  border-radius: 10px;
-  background-color: #ffd600;
-  border: none;
-  cursor: pointer;
-`;
+// export const SignIn = styled.button`
+//   width: 90px;
+//   height: 45px;
+//   margin: 0px 10px;
+//   border-radius: 10px;
+//   background-color: #ffd600;
+//   border: none;
+//   cursor: pointer;
+// `;
 
 export const LoggeedIn = styled.div`
   display: flex;
