@@ -2,7 +2,6 @@ import InfiniteScroll from "react-infinite-scroller";
 import MarketSearchBarBoard from "../../../commons/searchbar/marketSearchbar";
 import BestItemBoard from "../../../commons/bestItem/bestItem";
 import RecentViewItemBoard from "../../../commons/recentItem/recentItem";
-import TodayView from "../../../commons/todayView/todayView";
 
 import {
   TopBar,
@@ -119,7 +118,6 @@ export default function MarketListBoardUI(props: any) {
       <ProductBuyButton onClick={props.onClickProductRegister}>
         상품 등록하기
       </ProductBuyButton>
-      <TodayView />
     </>
   );
 }
