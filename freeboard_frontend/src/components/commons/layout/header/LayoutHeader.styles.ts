@@ -30,6 +30,9 @@ export const HeaderButton = styled.span`
   padding: 6px 20px;
   color: #97bc62;
   cursor: pointer;
+  :hover {
+    color: #ffffff;
+  }
 `;
 
 export const LoggeedIn = styled.div`

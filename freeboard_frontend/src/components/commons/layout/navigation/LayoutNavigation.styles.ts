@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 export const MenuItem = styled.span`
   font-family: "SBAggroL";
   font-size: 18px;
+  color: #2c5f2d;
   margin: 0px 80px;
   padding-top: 6px;
   cursor: pointer;
