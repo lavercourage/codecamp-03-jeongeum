@@ -16,13 +16,6 @@ export default function MarketListBoard() {
     },
   });
 
-  // const { data, fetchMore } = useQuery(FETCH_USED_ITEMS, {
-  //   variables: {
-  //     isSoldout: false,
-  //     page: 1,
-  //   },
-  // });
-
   function onLoadMore() {
     if (!data) {
       return;
@@ -76,21 +69,3 @@ export default function MarketListBoard() {
     />
   );
 }
-
-// function onLoadMore() {
-//     if (!data) return;
-
-//     fetchMore({
-//       variables: {
-//         page: Math.ceil(Number(data?.fetchUseditems.length) / 10),
-//       },
-//       updateQuery: (prev, { fetchMoreResult }) => {
-//         return {
-//           fetchUseditems: [
-//             ...prev.fetchUseditems,
-//             ...fetchMoreResult.fetchUseditems,
-//           ],
-//         };
-//       },
-//     });
-//   }
