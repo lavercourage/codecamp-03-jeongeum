@@ -1,7 +1,7 @@
 import LayoutBanner from "./banner/layoutBanner.container";
 import LayoutHeader from "./header/layoutHeader.container";
 import LayoutNavigation from "./navigation/layoutNavigation.container";
-import LayoutFooter from "./footer/layoutFooter.container";
+// import LayoutFooter from "./footer/layoutFooter.container";
 import styled from "@emotion/styled";
 // import { useRouter } from "next/router";
 
@@ -10,6 +10,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 80px;
 `;
 
 // const HIDDEN_HEADER = ["/create-board"];
@@ -26,7 +27,7 @@ export default function Layout(props: any) {
       <LayoutBanner />
       <LayoutNavigation />
       <Body>{props.children}</Body>
-      <LayoutFooter />
+      {/* <LayoutFooter /> */}
     </div>
   );
 }
