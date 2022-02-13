@@ -5,15 +5,13 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
-import PublicApiBoardUI from "./publicApi.presenter";
-// import { InputWrapper, InputSearch } from "./publicApi.styles";
+// import PublicApiBoardUI from "./publicApi.presenter";
 import styled from "@emotion/styled";
 
 export const WrapperWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #000000;
 `;
 
 const InputWrapper = styled.div`
@@ -27,6 +25,9 @@ const InputSearch = styled.input`
   height: 35px;
   margin-bottom: 20px;
 `;
+const LinkVideoView = styled(ReactPlayer)`
+  margin: 20px 0;
+`;
 
 const PublicApiBoard = () => {
   const [search, setSearch] = useState("식집사");
@@ -34,11 +35,11 @@ const PublicApiBoard = () => {
   const inputRef = useRef();
 
   useEffect(() => {
-    testFunc();
+    searchMedia();
     console.log("실행");
   }, [search]);
 
-  const testFunc = async () => {
+  const searchMedia = async () => {
     if (!search) return;
     const { data } = await axios.get(
       `https://dapi.kakao.com/v2/search/vclip?query=${search}`,
@@ -48,13 +49,12 @@ const PublicApiBoard = () => {
         },
       }
     );
-    console.log(data);
     setList(data);
   };
 
-  function onChangeSearch(e: any) {
+  const onChangeSearch = (e: any) => {
     setSearch(inputRef.current.value);
-  }
+  };
 
   return (
     <>
@@ -64,14 +64,15 @@ const PublicApiBoard = () => {
             type="text"
             ref={inputRef}
             onChange={onChangeSearch}
+            placeholder="식집사"
           ></InputSearch>
           {list &&
             list.documents.map((data: any) => (
-              <ReactPlayer url={data.url}></ReactPlayer>
+              <LinkVideoView url={data.url}></LinkVideoView>
             ))}
         </InputWrapper>
       </WrapperWrapper>
-      <PublicApiBoardUI></PublicApiBoardUI>
+      {/* <PublicApiBoardUI></PublicApiBoardUI> */}
     </>
   );
 };

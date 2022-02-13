@@ -10,7 +10,6 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 80px;
 `;
 
 // const HIDDEN_HEADER = ["/create-board"];
