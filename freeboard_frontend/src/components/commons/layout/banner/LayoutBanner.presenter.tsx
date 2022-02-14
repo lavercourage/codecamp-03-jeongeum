@@ -1,4 +1,4 @@
-import { Wrapper, SliderItem } from "./layoutBanner.styles";
+import { Wrapper, SliderItem, SliderItem2 } from "./layoutBanner.styles";
 import React from "react";
 import Slider from "@ant-design/react-slick";
 
@@ -17,13 +17,16 @@ export default function LayoutBannerUI() {
     <Wrapper>
       <Slider {...settings}>
         <div>
-          <SliderItem src={"/image/banner/01.jpg"} />
+          <SliderItem2 />
+          {/* <SliderItem src={"/image/banner/01.jpg"} /> */}
         </div>
         <div>
-          <SliderItem src={"/image/banner/02.jpg"} />
+          <SliderItem2 />
+          {/* <SliderItem src={"/image/banner/02.jpg"} /> */}
         </div>
         <div>
-          <SliderItem src={"/image/banner/04.jpg"} />
+          <SliderItem2 />
+          {/* <SliderItem src={"/image/banner/04.jpg"} /> */}
         </div>
       </Slider>
     </Wrapper>

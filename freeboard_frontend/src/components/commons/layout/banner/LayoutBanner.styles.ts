@@ -12,3 +12,9 @@ export const SliderItem = styled.img`
   height: 300px;
   object-fit: cover;
 `;
+
+export const SliderItem2 = styled.div`
+  width: 100%;
+  height: 300px;
+  background-color: orange;
+`;
