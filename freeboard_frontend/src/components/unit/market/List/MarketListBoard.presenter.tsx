@@ -1,7 +1,7 @@
 import InfiniteScroll from "react-infinite-scroller";
 import MarketSearchBarBoard from "../../../commons/searchbar/marketSearchbar";
 import BestItemBoard from "../../../commons/bestItem/bestItem";
-import RecentViewItemBoard from "../../../commons/recentItem/recentItem";
+// import RecentViewItemBoard from "../../../commons/recentItem/recentItem";
 
 import {
   TopBar,
@@ -113,7 +113,7 @@ export default function MarketListBoardUI(props: any) {
           </ProductList>
           <Border2 />
         </ProductListWrapper>
-        <RecentViewItemBoard />
+        {/* <RecentViewItemBoard /> */}
       </ProductWrapper>
       <ProductBuyButton onClick={props.onClickProductRegister}>
         상품 등록하기
