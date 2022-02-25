@@ -5,7 +5,7 @@ export default function LandingBoard() {
   const router = useRouter();
 
   const onClickBoard = () => {
-    router.push(`/boards/list-board`);
+    router.push(`/logIn`);
   };
 
   return <LandingBoardUI onClickBoard={onClickBoard} />;

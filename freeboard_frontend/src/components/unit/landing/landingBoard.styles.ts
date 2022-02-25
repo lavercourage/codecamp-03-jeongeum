@@ -6,8 +6,21 @@ export const Wrapper = styled.div`
   /* background-color: #f0d158; */
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-image: url("/image/board/login/backgroundimg.jpg");
+`;
+
+export const TitleContent = styled.span`
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 30px;
+`;
+
+export const BodyContent = styled.span`
+  font-size: 24px;
+  color: white;
 `;
 
 export const BackgroundImg = styled.div`
@@ -15,11 +28,10 @@ export const BackgroundImg = styled.div`
 `;
 
 export const BackgroundImgButton = styled.button`
-  width: 200px;
-  height: 100px;
-  margin-top: 400px;
-  margin-bottom: 400px;
-  border: 1px solid white;
-  border-radius: 20px;
+  width: 400px;
+  height: 60px;
+  margin-top: 40px;
+  border: 1px solid #000000;
+  font-size: 18px;
   cursor: pointer;
 `;
