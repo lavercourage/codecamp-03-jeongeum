@@ -163,6 +163,6 @@ export const ProductWrapper = styled.div`
 export const ProductListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
-  margin-left: 200px;
+  /* margin-right: 20px;
+  margin-left: 200px; */
 `;

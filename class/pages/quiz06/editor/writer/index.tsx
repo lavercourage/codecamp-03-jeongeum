@@ -4,7 +4,7 @@
 // ⇒ react-quill을 적용할 때 발생하는 SSR 이슈는 dynamic import를 활용해서 완료해서 주세요.
 // 3. [ 등록하기 ] 버튼을 누르면 게시물을 등록하고, /pages/quiz06/editor/detail/[id]/index.tsx 페이지로 이동시켜 주세요.
 // 4. 이동된 페이지에서는 router의 id를 이용하여 게시물 데이터를 불러와서 화면에 출력해 주세요.
-// 5. 출력된 데이터 중, contents 부분은 태그를 포함하고 있으므로, dangerousIySetInnerHTML 속성을 사용하여 나타내 주세요.
+// 5. 출력된 데이터 중, contents 부분은 태그를 포함하고 있으므로, dangerouslySetInnerHTML 속성을 사용하여 나타내 주세요.
 
 import { gql, useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
